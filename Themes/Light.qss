@@ -1,0 +1,60 @@
+* {
+	background-color : #f9f9f9;
+	font: 600 20pt "Segoe UI Variable Display Semib";
+	color : black;
+}
+
+#leftMenu {
+	background : #f3f3f3;
+}
+
+#leftMenu .QPushButton {
+	
+	background-color: transparent;
+	border-radius : 7px;
+
+}
+
+#leftMenu .QPushButton:hover {
+	background-color: #ededed;
+}
+
+#leftMenu .QPushButton:pressed {
+	background-color: transparent;
+}
+
+#mainFrame {
+	border-left : 2px solid #e5e5e5;
+	border-top : 2px solid #e5e5e5;
+	border-top-left-radius: 7px;
+	border-bottom : transparent;
+	border-right : transparent;
+}
+
+#leftMenu .QPushButton {
+	padding : 7px;
+	image-position: left center;
+	font: 600 14pt "Segoe UI Variable Display Semib";
+	color: rgb(0, 0, 0);
+}
+
+#settings_btn {
+	image: url(:/leftMenu/Icons/regular_settings_dark.svg);
+}
+
+#home_btn {
+	image: url(:/leftMenu/Icons/regular_home_dark.svg);
+}
+
+#theme_btn {
+	
+	image: url(:/leftMenu/Icons/dark_theme_icon.svg);
+}
+
+#menu_btn {
+	image: url(:/leftMenu/Icons/menu_dark.svg);
+}
+
+#info_btn {
+	image: url(:/leftMenu/Icons/dark_info.svg);
+}

@@ -1,0 +1,19 @@
+{
+    "app-info" :
+        {
+            "name" : "App",
+            "theme" : "Light",
+            "version" : "v1.0.0",
+            "developer" : "Pratham Bahekar",
+            "build" : "beta",
+
+            "window-size" : {
+                "isMin" : true,
+                "isMax" : false,
+                "min" : [450, 350],
+                "max" : [0, 0],
+                "default" : [800, 600]
+            }
+            
+        }
+}
