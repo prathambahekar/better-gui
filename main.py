@@ -16,15 +16,11 @@ from gui.uis.windows.main_window import *
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-
-        # SETUP MAIN WINDOw
-        # Load widgets from "gui\uis\main_window\ui_main.py"
         
         self.ui = UI_MainWindow()
         self.ui.setup_ui(self)
 
         # LOAD SETTINGS
-        
         settings = Settings()
         self.settings = settings.items
 
