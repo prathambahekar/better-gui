@@ -1,10 +1,10 @@
 {
-    "app_name": "PyOneDark - Modern GUI",
+    "app_name": "Better UI",
     "version" : "v1.0.0",
-    "copyright" : "By: Wanderson M. Pimenta",
-    "year" : 2021,
+    "copyright" : "By: Pratham Bahekar",
+    "year" : 2024,
     "theme_name" : "default",
-    "custom_title_bar": true,
+    "custom_title_bar": false,
     "startup_size": [
         1400,
         720
@@ -28,7 +28,7 @@
     },
     "time_animation" : 500,
     "font" : {
-        "family" : "Segoe UI",
+        "family" : "Segoe UI Variable",
         "title_size" : 10,
         "text_size" : 9
     }
