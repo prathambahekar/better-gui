@@ -17,7 +17,7 @@
         "minimum" : 50,
         "maximum" : 240
     },
-    "left_menu_content_margins" : 3,
+    "left_menu_content_margins" : 2,
     "left_column_size" : {
         "minimum" : 0,
         "maximum" : 240

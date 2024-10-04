@@ -40,46 +40,6 @@ class SetupMainWindow:
             "is_active" : True
         },
         {
-            "btn_icon" : "icon_widgets.svg",
-            "btn_id" : "btn_widgets",
-            "btn_text" : "Show Custom Widgets",
-            "btn_tooltip" : "Show custom widgets",
-            "show_top" : True,
-            "is_active" : False
-        },
-        {
-            "btn_icon" : "icon_add_user.svg",
-            "btn_id" : "btn_add_user",
-            "btn_text" : "Add Users",
-            "btn_tooltip" : "Add users",
-            "show_top" : True,
-            "is_active" : False
-        },
-        {
-            "btn_icon" : "icon_file.svg",
-            "btn_id" : "btn_new_file",
-            "btn_text" : "New File",
-            "btn_tooltip" : "Create new file",
-            "show_top" : True,
-            "is_active" : False
-        },
-        {
-            "btn_icon" : "icon_folder_open.svg",
-            "btn_id" : "btn_open_file",
-            "btn_text" : "Open File",
-            "btn_tooltip" : "Open file",
-            "show_top" : True,
-            "is_active" : False
-        },
-        {
-            "btn_icon" : "icon_save.svg",
-            "btn_id" : "btn_save",
-            "btn_text" : "Save File",
-            "btn_tooltip" : "Save file",
-            "show_top" : True,
-            "is_active" : False
-        },
-        {
             "btn_icon" : "icon_info.svg",
             "btn_id" : "btn_info",
             "btn_text" : "Information",
@@ -555,18 +515,3 @@ class SetupMainWindow:
         self.ui.right_column.btn_2_layout.addWidget(self.right_btn_2)
 
         
-        # END - EXAMPLE CUSTOM WIDGETS
-        
-
-    # RESIZE GRIPS AND CHANGE POSITION
-    # Resize or change position when window is resized
-    
-    def resize_grips(self):
-        if self.settings["custom_title_bar"]:
-            self.left_grip.setGeometry(5, 10, 10, self.height())
-            self.right_grip.setGeometry(self.width() - 15, 10, 10, self.height())
-            self.top_grip.setGeometry(5, 5, self.width() - 10, 10)
-            self.bottom_grip.setGeometry(5, self.height() - 15, self.width() - 10, 10)
-            self.top_right_grip.setGeometry(self.width() - 20, 5, 15, 15)
-            self.bottom_left_grip.setGeometry(5, self.height() - 20, 15, 15)
-            self.bottom_right_grip.setGeometry(self.width() - 20, self.height() - 20, 15, 15)

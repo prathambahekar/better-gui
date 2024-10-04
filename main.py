@@ -12,7 +12,6 @@ from gui.core.json_settings import Settings
 from gui.uis.windows.main_window import *
 
 # MAIN WINDOW
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -25,8 +24,6 @@ class MainWindow(QMainWindow):
         self.settings = settings.items
 
         # SETUP MAIN WINDOW
-        
-        self.hide_grips = True # Show/Hide resize grips
         SetupMainWindow.setup_gui(self)
 
         # SHOW MAIN WINDOW   
@@ -157,16 +154,6 @@ class MainWindow(QMainWindow):
         # DEBUG
         print(f"Button {btn.objectName()}, released!")
 
-    # RESIZE EVENT
-    
-    def resizeEvent(self, event):
-        SetupMainWindow.resize_grips(self)
-
-    # MOUSE CLICK EVENTS
-    
-    def mousePressEvent(self, event):
-        # SET DRAG POS WINDOW
-        self.dragPos = event.globalPos()
 
 if __name__ == "__main__":
     # APPLICATION
