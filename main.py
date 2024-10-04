@@ -9,7 +9,6 @@ from ui_main import Ui_MainWindow
 f = open("settings.json")
 Data = json.load(f) 
 
-
 class MainWindow(QMainWindow):
 	def __init__(self):
 		QMainWindow.__init__(self)
