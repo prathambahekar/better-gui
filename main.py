@@ -1,15 +1,14 @@
-from gui.uis.windows.main_window.functions_main_window import *
+from files.uis.windows.main_window.functions_main_window import *
 import sys
 import os
 
 # IMPORT QT CORE
-
 from qt_core import *
 # IMPORT SETTINGS
-from gui.core.json_settings import Settings
+from files.core.json_settings import Settings
 
 # MAIN WINDOW
-from gui.uis.windows.main_window import *
+from files.uis.windows.main_window import *
 
 # MAIN WINDOW
 class MainWindow(QMainWindow):
@@ -24,7 +23,7 @@ class MainWindow(QMainWindow):
         self.settings = settings.items
 
         # SETUP MAIN WINDOW
-        SetupMainWindow.setup_gui(self)
+        SetupMainWindow.setup_files(self)
 
         # SHOW MAIN WINDOW   
         self.show()
