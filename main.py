@@ -1,10 +1,7 @@
-import sys
-import os, json
-from ui_functions import *
-from PySide6.QtCore import *
-from PySide6.QtGui import *
-from PySide6.QtWidgets import *
-from ui_main import Ui_MainWindow
+from files.ui_functions import *
+from files.ui_main import Ui_MainWindow
+import json
+from core import *
 
 f = open("settings.json")
 Data = json.load(f) 
@@ -20,7 +17,6 @@ class MainWindow(QMainWindow):
 
 		# Applying Settings
 		UIFunctions.Setup_GUI(self)
-		
 		self.show()
 
 		UIFunctions.SetTheme(self)

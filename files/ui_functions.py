@@ -11,24 +11,24 @@ class UIFunctions(MainWindow):
 
 	def SetTheme(self):
 		
-		str = open(f"Themes\{defaultTheme}.qss", 'r').read()
+		str = open(f"files\\themes\{defaultTheme}.qss", 'r').read()
 		self.ui.centralwidget.setStyleSheet(str)
 
 	def SwitchTheme(self):
 
 		global defaultTheme
-
-		if defaultTheme == "Light":
-			str = open(f"Themes\Dark.qss", 'r').read()
+		
+		if defaultTheme == "light":
+			str = open(f"files\\themes\dark.qss", 'r').read()
 			self.ui.centralwidget.setStyleSheet(str)
 
-			defaultTheme = "Dark"
+			defaultTheme = "dark"
 
-		elif defaultTheme == "Dark":
-			str = open(f"Themes\Light.qss", 'r').read()
+		elif defaultTheme == "dark":
+			str = open(f"files\\themes\light.qss", 'r').read()
 			self.ui.centralwidget.setStyleSheet(str)
 
-			defaultTheme = "Light"
+			defaultTheme = "light"
 
 	def ToggleMenu(self, min, max):
 
@@ -102,3 +102,7 @@ class UIFunctions(MainWindow):
 		self.ui.theme_btn.clicked.connect(lambda : UIFunctions.SwitchTheme(self))
 
 		self.ui.menu_btn.clicked.connect(lambda : UIFunctions.ToggleMenu(self, 50, 300))
+
+
+		
+
