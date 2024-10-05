@@ -3,8 +3,8 @@ from files.ui_main import Ui_MainWindow
 import json
 from core import *
 
-f = open("settings.json")
-Data = json.load(f) 
+acess_settings = open("settings.json")
+Data = json.load(acess_settings) 
 
 class MainWindow(QMainWindow):
 	def __init__(self):
