@@ -44,7 +44,6 @@ class UIFunctions(MainWindow):
 			self.ui.home_btn.setText("Home")
 			self.ui.settings_btn.setText("Settings")
 			self.ui.theme_btn.setText("Theme")
-			self.ui.info_btn.setText("About")
 
 		elif presentWidth == max:
 			startToggle = max
@@ -53,7 +52,6 @@ class UIFunctions(MainWindow):
 			self.ui.home_btn.setText("")
 			self.ui.settings_btn.setText("")
 			self.ui.theme_btn.setText("")
-			self.ui.info_btn.setText("")
 
 
 		self.animation = QPropertyAnimation(self.ui.leftMenu, b"minimumWidth")
@@ -65,15 +63,7 @@ class UIFunctions(MainWindow):
 
 	def AboutApp(self):
 
-		About_txt = Data["app-info"]["name"]
-		Version_txt = Data["app-info"]["version"]
-		Creator_txt = Data["app-info"]["developer"]
-		Build_txt = Data["app-info"]["build"]
-
-		self.ui.about_lbl.setText(f"About {About_txt}")
-		self.ui.version_lbl.setText(f"Version - {Version_txt}")
-		self.ui.creator_lbl.setText(f"Developer - {Creator_txt}")
-		self.ui.build_lbl.setText(f"Build - {Build_txt}")
+		pass
 
 
 	def Setup_GUI(self):
@@ -97,7 +87,6 @@ class UIFunctions(MainWindow):
 
 		self.ui.home_btn.clicked.connect(lambda : self.ui.switchPage.setCurrentIndex(0))
 		self.ui.settings_btn.clicked.connect(lambda : self.ui.switchPage.setCurrentIndex(1))
-		self.ui.info_btn.clicked.connect(lambda : self.ui.switchPage.setCurrentIndex(2))
 
 		self.ui.theme_btn.clicked.connect(lambda : UIFunctions.SwitchTheme(self))
 

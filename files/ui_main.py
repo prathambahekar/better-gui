@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainHVbwWV.ui'
+## Form generated from reading UI file 'mainzaVevD.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.3
+## Created by: Qt User Interface Compiler version 6.7.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
-    QStackedWidget, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QMainWindow,
+    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
+    QVBoxLayout, QWidget)
 import files.icons_rc
 
 class Ui_MainWindow(object):
@@ -99,7 +99,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.setContentsMargins(5, 5, 5, 5)
         self.menu_btn = QPushButton(self.leftMenu)
         self.menu_btn.setObjectName(u"menu_btn")
-        sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.menu_btn.sizePolicy().hasHeightForWidth())
@@ -118,18 +118,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.home_btn)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout.addItem(self.verticalSpacer)
-
-        self.info_btn = QPushButton(self.leftMenu)
-        self.info_btn.setObjectName(u"info_btn")
-        sizePolicy.setHeightForWidth(self.info_btn.sizePolicy().hasHeightForWidth())
-        self.info_btn.setSizePolicy(sizePolicy)
-        self.info_btn.setMaximumSize(QSize(16777215, 40))
-        self.info_btn.setStyleSheet(u"")
-
-        self.verticalLayout.addWidget(self.info_btn)
 
         self.theme_btn = QPushButton(self.leftMenu)
         self.theme_btn.setObjectName(u"theme_btn")
@@ -154,8 +145,8 @@ class Ui_MainWindow(object):
 
         self.mainFrame = QFrame(self.centralwidget)
         self.mainFrame.setObjectName(u"mainFrame")
-        self.mainFrame.setFrameShape(QFrame.StyledPanel)
-        self.mainFrame.setFrameShadow(QFrame.Raised)
+        self.mainFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.mainFrame.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.mainFrame)
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
@@ -173,50 +164,6 @@ class Ui_MainWindow(object):
         self.info_page.setObjectName(u"info_page")
         self.verticalLayout_3 = QVBoxLayout(self.info_page)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.about_lbl = QLabel(self.info_page)
-        self.about_lbl.setObjectName(u"about_lbl")
-        self.about_lbl.setMinimumSize(QSize(0, 61))
-        self.about_lbl.setMaximumSize(QSize(16777215, 80))
-        self.about_lbl.setStyleSheet(u"font: 600 25pt \"Segoe UI Variable Display Semib\";")
-        self.about_lbl.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_3.addWidget(self.about_lbl)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_3.addItem(self.verticalSpacer_2)
-
-        self.version_lbl = QLabel(self.info_page)
-        self.version_lbl.setObjectName(u"version_lbl")
-        self.version_lbl.setMinimumSize(QSize(0, 100))
-        self.version_lbl.setMaximumSize(QSize(16777215, 100))
-        self.version_lbl.setStyleSheet(u"")
-        self.version_lbl.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_3.addWidget(self.version_lbl)
-
-        self.build_lbl = QLabel(self.info_page)
-        self.build_lbl.setObjectName(u"build_lbl")
-        self.build_lbl.setMinimumSize(QSize(0, 100))
-        self.build_lbl.setMaximumSize(QSize(16777215, 100))
-        self.build_lbl.setStyleSheet(u"")
-        self.build_lbl.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_3.addWidget(self.build_lbl)
-
-        self.creator_lbl = QLabel(self.info_page)
-        self.creator_lbl.setObjectName(u"creator_lbl")
-        self.creator_lbl.setMinimumSize(QSize(0, 100))
-        self.creator_lbl.setMaximumSize(QSize(16777215, 100))
-        self.creator_lbl.setStyleSheet(u"")
-        self.creator_lbl.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_3.addWidget(self.creator_lbl)
-
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_3.addItem(self.verticalSpacer_3)
-
         self.switchPage.addWidget(self.info_page)
 
         self.verticalLayout_2.addWidget(self.switchPage)
@@ -228,7 +175,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.switchPage.setCurrentIndex(0)
+        self.switchPage.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -245,10 +192,6 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.home_btn.setText("")
 #if QT_CONFIG(tooltip)
-        self.info_btn.setToolTip(QCoreApplication.translate("MainWindow", u"Theme", None))
-#endif // QT_CONFIG(tooltip)
-        self.info_btn.setText("")
-#if QT_CONFIG(tooltip)
         self.theme_btn.setToolTip(QCoreApplication.translate("MainWindow", u"Theme", None))
 #endif // QT_CONFIG(tooltip)
         self.theme_btn.setText("")
@@ -256,9 +199,5 @@ class Ui_MainWindow(object):
         self.settings_btn.setToolTip(QCoreApplication.translate("MainWindow", u"Settings", None))
 #endif // QT_CONFIG(tooltip)
         self.settings_btn.setText("")
-        self.about_lbl.setText(QCoreApplication.translate("MainWindow", u"About App", None))
-        self.version_lbl.setText(QCoreApplication.translate("MainWindow", u"Version - 1.0.0", None))
-        self.build_lbl.setText(QCoreApplication.translate("MainWindow", u"Build - Stable", None))
-        self.creator_lbl.setText(QCoreApplication.translate("MainWindow", u"Developer - Pratham Bahekar", None))
     # retranslateUi
 
