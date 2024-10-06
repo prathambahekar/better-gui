@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainCQHNNQ.ui'
+## Form generated from reading UI file 'mainXtuwmh.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -103,7 +103,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#stg_home_app_img_lbl {\n"
-"    image: url(:/leftMenu/Icons/light_info.svg);\n"
+"    \n"
+"	image: url(:/leftMenu/Icons/light_theme_icon.svg);\n"
 "    padding: 17px;\n"
 "}\n"
 "\n"
@@ -113,6 +114,28 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#stg_home_app_img_btn {\n"
+"    font: 600 14pt \"Segoe UI Variable Display Semib\";\n"
+"    padding-left: 4px;\n"
+"	border: 0px;\n"
+"}\n"
+"\n"
+"#stg_"
+                        "home_info_bt_lbl {\n"
+"    font: 600 13pt \"Segoe UI Variable Display Semib\";\n"
+"    padding-left: 16px;\n"
+"}\n"
+"\n"
+"#stg_home_info_img_lbl {\n"
+"    image: url(:/leftMenu/Icons/light_info.svg);\n"
+"    padding: 17px;\n"
+"}\n"
+"\n"
+"#stg_home_info_hd_lbl {\n"
+"    font: 900 16pt \"Segoe UI Black\";\n"
+"    padding-left: 2px;\n"
+"}\n"
+"\n"
+"#stg_home_info_img_btn {\n"
 "    font: 600 14pt \"Segoe UI Variable Display Semib\";\n"
 "    padding-left: 4px;\n"
 "	border: 0px;\n"
@@ -224,9 +247,7 @@ class Ui_MainWindow(object):
         self.verticalFrame = QFrame(self.stg_abt_pg)
         self.verticalFrame.setObjectName(u"verticalFrame")
         self.verticalLayout_5 = QVBoxLayout(self.verticalFrame)
-        self.verticalLayout_5.setSpacing(9)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.verticalLayout_5.setContentsMargins(12, 12, 12, 12)
         self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.verticalLayout_5.addItem(self.verticalSpacer_3)
@@ -254,6 +275,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_7 = QVBoxLayout(self.frame)
         self.verticalLayout_7.setSpacing(0)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.stg_home_app_hd_lbl = QLabel(self.frame)
         self.stg_home_app_hd_lbl.setObjectName(u"stg_home_app_hd_lbl")
         self.stg_home_app_hd_lbl.setStyleSheet(u"")
@@ -282,16 +304,57 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addWidget(self.stg_home_app_hfrm)
 
-        self.horizontalFrame_2 = QFrame(self.verticalFrame)
-        self.horizontalFrame_2.setObjectName(u"horizontalFrame_2")
-        self.horizontalFrame_2.setMinimumSize(QSize(461, 69))
-        self.horizontalFrame_2.setMaximumSize(QSize(16777215, 69))
-        self.horizontalFrame_2.setStyleSheet(u"border-radius: 8px;\n"
-"background-color: #383838;")
-        self.horizontalLayout_3 = QHBoxLayout(self.horizontalFrame_2)
+        self.stg_home_info_hfrm = QFrame(self.verticalFrame)
+        self.stg_home_info_hfrm.setObjectName(u"stg_home_info_hfrm")
+        self.stg_home_info_hfrm.setMinimumSize(QSize(461, 69))
+        self.stg_home_info_hfrm.setMaximumSize(QSize(16777215, 69))
+        self.stg_home_info_hfrm.setStyleSheet(u"background-color: rgb(56, 56, 56);\n"
+"border-radius: 7px;")
+        self.horizontalLayout_3 = QHBoxLayout(self.stg_home_info_hfrm)
+        self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.stg_home_info_img_lbl = QLabel(self.stg_home_info_hfrm)
+        self.stg_home_info_img_lbl.setObjectName(u"stg_home_info_img_lbl")
+        self.stg_home_info_img_lbl.setMinimumSize(QSize(69, 69))
+        self.stg_home_info_img_lbl.setMaximumSize(QSize(69, 69))
+        self.stg_home_info_img_lbl.setStyleSheet(u"")
 
-        self.verticalLayout_5.addWidget(self.horizontalFrame_2)
+        self.horizontalLayout_3.addWidget(self.stg_home_info_img_lbl)
+
+        self.frame_2 = QFrame(self.stg_home_info_hfrm)
+        self.frame_2.setObjectName(u"frame_2")
+        self.verticalLayout_8 = QVBoxLayout(self.frame_2)
+        self.verticalLayout_8.setSpacing(0)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.stg_home_info_hd_lbl = QLabel(self.frame_2)
+        self.stg_home_info_hd_lbl.setObjectName(u"stg_home_info_hd_lbl")
+        self.stg_home_info_hd_lbl.setStyleSheet(u"")
+
+        self.verticalLayout_8.addWidget(self.stg_home_info_hd_lbl)
+
+        self.stg_home_info_bt_lbl = QLabel(self.frame_2)
+        self.stg_home_info_bt_lbl.setObjectName(u"stg_home_info_bt_lbl")
+        self.stg_home_info_bt_lbl.setStyleSheet(u"")
+
+        self.verticalLayout_8.addWidget(self.stg_home_info_bt_lbl)
+
+
+        self.horizontalLayout_3.addWidget(self.frame_2)
+
+        self.stg_home_info_img_btn = QPushButton(self.stg_home_info_hfrm)
+        self.stg_home_info_img_btn.setObjectName(u"stg_home_info_img_btn")
+        self.stg_home_info_img_btn.setMinimumSize(QSize(69, 69))
+        self.stg_home_info_img_btn.setMaximumSize(QSize(69, 69))
+        self.stg_home_info_img_btn.setSizeIncrement(QSize(73, 0))
+        self.stg_home_info_img_btn.setCheckable(False)
+        self.stg_home_info_img_btn.setAutoDefault(False)
+
+        self.horizontalLayout_3.addWidget(self.stg_home_info_img_btn)
+
+
+        self.verticalLayout_5.addWidget(self.stg_home_info_hfrm)
 
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -356,5 +419,9 @@ class Ui_MainWindow(object):
         self.stg_home_app_hd_lbl.setText(QCoreApplication.translate("MainWindow", u"About", None))
         self.stg_home_app_bt_lbl.setText(QCoreApplication.translate("MainWindow", u"app version, developer", None))
         self.stg_home_app_img_btn.setText("")
+        self.stg_home_info_img_lbl.setText("")
+        self.stg_home_info_hd_lbl.setText(QCoreApplication.translate("MainWindow", u"Info", None))
+        self.stg_home_info_bt_lbl.setText(QCoreApplication.translate("MainWindow", u"More details", None))
+        self.stg_home_info_img_btn.setText("")
     # retranslateUi
 
