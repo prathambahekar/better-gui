@@ -25,7 +25,7 @@ The main application file, `main.py`, is responsible for initializing the applic
 
 ## Settings Menu Screenshot
 
-![Settings Menu](https://your-image-url-here)
+![Settings Menu](https://github.com/prathambahekar/better-gui/blob/master/files/more/bu-ss.png)
 
 ## Notes
 
