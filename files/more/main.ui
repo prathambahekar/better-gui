@@ -37,7 +37,7 @@
 }
 
 #leftMenu .QPushButton:hover {
-    background-color: #333333;
+    background-color: #3a3a3a;
 }
 
 #leftMenu .QPushButton:pressed {
@@ -80,17 +80,37 @@
 }
 
 #stg_lbl_main {
-	padding-left: 4px;
-	font: 700 24pt &quot;Segoe UI Variable Display&quot;;
+    padding-left: 4px;
+    font: 700 24pt &quot;Segoe UI Variable Display&quot;;
 }
 
-#stack_stg .QWidget{
-	
-border-radius: 8px;
-background-color: #383838;	
+#stack_stg .QWidget {
+    border-radius: 8px;
+    background-color: #4a4a4a; /* Updated for better contrast */
+}
 
+#stg_home_app_bt_lbl {
+    font: 600 13pt &quot;Segoe UI Variable Display Semib&quot;;
+    padding-left: 16px;
+}
 
-}</string>
+#stg_home_app_img_lbl {
+    image: url(:/leftMenu/Icons/light_info.svg);
+    padding: 17px;
+}
+
+#stg_home_app_hd_lbl {
+    font: 900 16pt &quot;Segoe UI Black&quot;;
+    padding-left: 2px;
+}
+
+#stg_home_app_img_btn {
+    font: 600 14pt &quot;Segoe UI Variable Display Semib&quot;;
+    padding-left: 4px;
+	border: 0px;
+}
+
+</string>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <property name="spacing">
@@ -396,7 +416,7 @@ background-color: #383838;
                       </spacer>
                      </item>
                      <item>
-                      <widget class="QFrame" name="horizontalFrame">
+                      <widget class="QFrame" name="stg_home_app_hfrm">
                        <property name="minimumSize">
                         <size>
                          <width>461</width>
@@ -410,8 +430,7 @@ background-color: #383838;
                         </size>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">border-radius: 8px;
-background-color: #383838;</string>
+                        <string notr="true">background-color: rgb(56, 56, 56);</string>
                        </property>
                        <layout class="QHBoxLayout" name="horizontalLayout_2">
                         <property name="spacing">
@@ -430,7 +449,7 @@ background-color: #383838;</string>
                          <number>0</number>
                         </property>
                         <item>
-                         <widget class="QLabel" name="label">
+                         <widget class="QLabel" name="stg_home_app_img_lbl">
                           <property name="minimumSize">
                            <size>
                             <width>69</width>
@@ -444,8 +463,7 @@ background-color: #383838;</string>
                            </size>
                           </property>
                           <property name="styleSheet">
-                           <string notr="true">image: url(:/leftMenu/Icons/light_info.svg);
-padding: 10px;</string>
+                           <string notr="true"/>
                           </property>
                           <property name="text">
                            <string/>
@@ -453,36 +471,36 @@ padding: 10px;</string>
                          </widget>
                         </item>
                         <item>
-                         <layout class="QVBoxLayout" name="verticalLayout_7">
-                          <property name="spacing">
-                           <number>0</number>
-                          </property>
-                          <item>
-                           <widget class="QLabel" name="label_2">
-                            <property name="styleSheet">
-                             <string notr="true">font: 900 16pt &quot;Segoe UI Black&quot;;
-padding-left: 2px;</string>
-                            </property>
-                            <property name="text">
-                             <string>About</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item>
-                           <widget class="QLabel" name="label_3">
-                            <property name="styleSheet">
-                             <string notr="true">font: 600 13pt &quot;Segoe UI Variable Display Semib&quot;;
-padding-left: 16px;</string>
-                            </property>
-                            <property name="text">
-                             <string>app version, developer</string>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
+                         <widget class="QFrame" name="">
+                          <layout class="QVBoxLayout" name="verticalLayout_7">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QLabel" name="stg_home_app_hd_lbl">
+                             <property name="styleSheet">
+                              <string notr="true"/>
+                             </property>
+                             <property name="text">
+                              <string>About</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLabel" name="stg_home_app_bt_lbl">
+                             <property name="styleSheet">
+                              <string notr="true"/>
+                             </property>
+                             <property name="text">
+                              <string>app version, developer</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
                         </item>
                         <item>
-                         <widget class="QPushButton" name="pushButton">
+                         <widget class="QPushButton" name="stg_home_app_img_btn">
                           <property name="minimumSize">
                            <size>
                             <width>69</width>
