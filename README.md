@@ -23,6 +23,10 @@ The main application file, `main.py`, is responsible for initializing the applic
 6. **Show Window**: The `show` method is called to display the window, and the `SetTheme` function from `ui_functions` is called to set the theme for the application.
 7. **Start Application**: In the `if __name__ == "__main__":` block, the application is initialized by creating a `QApplication` instance and passing the command-line arguments to it. An instance of the `MainWindow` class is created, and the `exec_` method is called to start the application's event loop.
 
+## Settings Menu Screenshot
+
+![Settings Menu](https://your-image-url-here)
+
 ## Notes
 
 - This application uses PySide6, which is a Python binding for the Qt application framework.
