@@ -2,8 +2,6 @@ from files.ui_functions import *
 from files.ui_main import Ui_MainWindow
 import json
 from core import *
-from win32mica import ApplyMica
-
 
 acess_settings = open("settings.json")
 Data = json.load(acess_settings) 
@@ -17,14 +15,10 @@ class MainWindow(QMainWindow):
 		self.ui.setupUi(self)
 
 		# Applying Settings
-		ApplyMica(self)
 		UIFunctions.Setup_GUI(self)
 
-		
-		
 
 		self.show()
-
 		UIFunctions.SetTheme(self)
 
 				
