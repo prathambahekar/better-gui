@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainhNYGtw.ui'
+## Form generated from reading UI file 'mainCQHNNQ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -44,7 +44,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#leftMenu .QPushButton:hover {\n"
-"    background-color: #333333;\n"
+"    background-color: #3a3a3a;\n"
 "}\n"
 "\n"
 "#leftMenu .QPushButton:pressed {\n"
@@ -88,17 +88,37 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#stg_lbl_main {\n"
-"	padding-left: 4px;\n"
-"	font: 700 24pt \"Segoe UI Variable Display\";\n"
+"    padding-left: 4px;\n"
+"    font: 700 24pt \"Segoe UI Variable Display\";\n"
 "}\n"
 "\n"
-"#stack_stg .QWidget{\n"
-"	\n"
-"border-radius: 8px;\n"
-"background-color: #383838;	\n"
+"#stack_stg .QWidget {\n"
+"    border-radius: 8px;\n"
+"    background-color: #4a4a4a; /* Updated for better contrast */\n"
+"}\n"
 "\n"
+"#stg_home_app_bt_lbl {\n"
+"    font: 600 13pt \"Segoe UI Variable Display Semib\";\n"
+"    padding-left: 16px;\n"
+"}\n"
 "\n"
-"}")
+"#stg_home_app_img_lbl {\n"
+"    image: url(:/leftMenu/Icons/light_info.svg);\n"
+"    padding: 17px;\n"
+"}\n"
+"\n"
+"#stg_home_app_hd_lbl {\n"
+"    font: 900 16pt \"Segoe UI Black\";\n"
+"    padding-left: 2px;\n"
+"}\n"
+"\n"
+"#stg_home_app_img_btn {\n"
+"    font: 600 14pt \"Segoe UI Variable Display Semib\";\n"
+"    padding-left: 4px;\n"
+"	border: 0px;\n"
+"}\n"
+"\n"
+"")
         self.horizontalLayout = QHBoxLayout(self.centralwidget)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -211,57 +231,56 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addItem(self.verticalSpacer_3)
 
-        self.horizontalFrame = QFrame(self.verticalFrame)
-        self.horizontalFrame.setObjectName(u"horizontalFrame")
-        self.horizontalFrame.setMinimumSize(QSize(461, 69))
-        self.horizontalFrame.setMaximumSize(QSize(16777215, 69))
-        self.horizontalFrame.setStyleSheet(u"border-radius: 8px;\n"
-"background-color: #383838;")
-        self.horizontalLayout_2 = QHBoxLayout(self.horizontalFrame)
+        self.stg_home_app_hfrm = QFrame(self.verticalFrame)
+        self.stg_home_app_hfrm.setObjectName(u"stg_home_app_hfrm")
+        self.stg_home_app_hfrm.setMinimumSize(QSize(461, 69))
+        self.stg_home_app_hfrm.setMaximumSize(QSize(16777215, 69))
+        self.stg_home_app_hfrm.setStyleSheet(u"background-color: rgb(56, 56, 56);\n"
+"border-radius: 7px;")
+        self.horizontalLayout_2 = QHBoxLayout(self.stg_home_app_hfrm)
         self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.label = QLabel(self.horizontalFrame)
-        self.label.setObjectName(u"label")
-        self.label.setMinimumSize(QSize(69, 69))
-        self.label.setMaximumSize(QSize(69, 69))
-        self.label.setStyleSheet(u"image: url(:/leftMenu/Icons/light_info.svg);\n"
-"padding: 10px;")
+        self.stg_home_app_img_lbl = QLabel(self.stg_home_app_hfrm)
+        self.stg_home_app_img_lbl.setObjectName(u"stg_home_app_img_lbl")
+        self.stg_home_app_img_lbl.setMinimumSize(QSize(69, 69))
+        self.stg_home_app_img_lbl.setMaximumSize(QSize(69, 69))
+        self.stg_home_app_img_lbl.setStyleSheet(u"")
 
-        self.horizontalLayout_2.addWidget(self.label)
+        self.horizontalLayout_2.addWidget(self.stg_home_app_img_lbl)
 
-        self.verticalLayout_7 = QVBoxLayout()
+        self.frame = QFrame(self.stg_home_app_hfrm)
+        self.frame.setObjectName(u"frame")
+        self.verticalLayout_7 = QVBoxLayout(self.frame)
         self.verticalLayout_7.setSpacing(0)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.label_2 = QLabel(self.horizontalFrame)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setStyleSheet(u"font: 900 16pt \"Segoe UI Black\";\n"
-"padding-left: 2px;")
+        self.stg_home_app_hd_lbl = QLabel(self.frame)
+        self.stg_home_app_hd_lbl.setObjectName(u"stg_home_app_hd_lbl")
+        self.stg_home_app_hd_lbl.setStyleSheet(u"")
 
-        self.verticalLayout_7.addWidget(self.label_2)
+        self.verticalLayout_7.addWidget(self.stg_home_app_hd_lbl)
 
-        self.label_3 = QLabel(self.horizontalFrame)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setStyleSheet(u"font: 600 13pt \"Segoe UI Variable Display Semib\";\n"
-"padding-left: 16px;")
+        self.stg_home_app_bt_lbl = QLabel(self.frame)
+        self.stg_home_app_bt_lbl.setObjectName(u"stg_home_app_bt_lbl")
+        self.stg_home_app_bt_lbl.setStyleSheet(u"")
 
-        self.verticalLayout_7.addWidget(self.label_3)
+        self.verticalLayout_7.addWidget(self.stg_home_app_bt_lbl)
 
 
-        self.horizontalLayout_2.addLayout(self.verticalLayout_7)
+        self.horizontalLayout_2.addWidget(self.frame)
 
-        self.pushButton = QPushButton(self.horizontalFrame)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(69, 69))
-        self.pushButton.setMaximumSize(QSize(69, 69))
-        self.pushButton.setSizeIncrement(QSize(73, 0))
-        self.pushButton.setCheckable(False)
-        self.pushButton.setAutoDefault(False)
+        self.stg_home_app_img_btn = QPushButton(self.stg_home_app_hfrm)
+        self.stg_home_app_img_btn.setObjectName(u"stg_home_app_img_btn")
+        self.stg_home_app_img_btn.setMinimumSize(QSize(69, 69))
+        self.stg_home_app_img_btn.setMaximumSize(QSize(69, 69))
+        self.stg_home_app_img_btn.setSizeIncrement(QSize(73, 0))
+        self.stg_home_app_img_btn.setCheckable(False)
+        self.stg_home_app_img_btn.setAutoDefault(False)
 
-        self.horizontalLayout_2.addWidget(self.pushButton)
+        self.horizontalLayout_2.addWidget(self.stg_home_app_img_btn)
 
 
-        self.verticalLayout_5.addWidget(self.horizontalFrame)
+        self.verticalLayout_5.addWidget(self.stg_home_app_hfrm)
 
         self.horizontalFrame_2 = QFrame(self.verticalFrame)
         self.horizontalFrame_2.setObjectName(u"horizontalFrame_2")
@@ -333,9 +352,9 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.settings_btn.setText("")
         self.stg_lbl_main.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
-        self.label.setText("")
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"About", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"app version, developer", None))
-        self.pushButton.setText("")
+        self.stg_home_app_img_lbl.setText("")
+        self.stg_home_app_hd_lbl.setText(QCoreApplication.translate("MainWindow", u"About", None))
+        self.stg_home_app_bt_lbl.setText(QCoreApplication.translate("MainWindow", u"app version, developer", None))
+        self.stg_home_app_img_btn.setText("")
     # retranslateUi
 

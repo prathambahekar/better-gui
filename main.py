@@ -17,7 +17,6 @@ class MainWindow(QMainWindow):
 		# Applying Settings
 		UIFunctions.Setup_GUI(self)
 
-
 		self.show()
 		UIFunctions.SetTheme(self)
 
