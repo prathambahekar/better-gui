@@ -22,7 +22,7 @@
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
     <string notr="true">* {
-    background-color: #2b2b2b;
+    background-color: #1e1e1e;
     font: 600 20pt &quot;Segoe UI Variable Display Semib&quot;;
     color: #e0e0e0;
 }
@@ -45,14 +45,13 @@
 }
 
 #mainFrame {
-    border-left: 2px solid #1b1b1b;
-    border-top: 2px solid #1b1b1b;
-    border-top-left-radius: 5px;
-    border-bottom: transparent;
-    border-right: transparent;
+    border: 2px solid #1b1b1b;
+    border-radius: 5px;
+	
 }
 
 #leftMenu .QPushButton {
+	
     padding: 7px;
     image-position: left center;
     font: 600 14pt &quot;Segoe UI Variable Display Semib&quot;;
@@ -60,11 +59,13 @@
 }
 
 #settings_btn {
-    image: url(:/leftMenu/Icons/regular_settings_light.svg);
+    
+	image: url(:/icons/assest/settings_48_regular.svg);
 }
 
 #home_btn {
-    image: url(:/leftMenu/Icons/regular_home_light.svg);
+    
+	image: url(:/icons/assest/home_48_regular.svg);
 }
 
 #theme_btn {
@@ -73,10 +74,6 @@
 
 #menu_btn {
     image: url(:/leftMenu/Icons/menu_light.svg);
-}
-
-#info_btn {
-    image: url(:/leftMenu/Icons/light_info.svg);
 }
 
 #stg_lbl_main {
@@ -139,16 +136,16 @@
      <number>0</number>
     </property>
     <property name="leftMargin">
-     <number>0</number>
+     <number>7</number>
     </property>
     <property name="topMargin">
-     <number>0</number>
+     <number>7</number>
     </property>
     <property name="rightMargin">
-     <number>0</number>
+     <number>7</number>
     </property>
     <property name="bottomMargin">
-     <number>0</number>
+     <number>7</number>
     </property>
     <item>
      <widget class="QFrame" name="leftMenu">
@@ -295,6 +292,10 @@
     </item>
     <item>
      <widget class="QFrame" name="mainFrame">
+      <property name="styleSheet">
+       <string notr="true">background-color: #2b2b2b;
+border-radius: 7px;</string>
+      </property>
       <property name="frameShape">
        <enum>QFrame::Shape::StyledPanel</enum>
       </property>
@@ -722,7 +723,7 @@ border-radius: 7px;</string>
   </widget>
  </widget>
  <resources>
-  <include location="icons.qrc"/>
+  <include location="../assest.qrc"/>
  </resources>
  <connections/>
 </ui>

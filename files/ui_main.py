@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainXtuwmh.ui'
+## Form generated from reading UI file 'mainkbMYNf.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
     QStackedWidget, QVBoxLayout, QWidget)
-import files.icons_rc
+import files.assest_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"* {\n"
-"    background-color: #2b2b2b;\n"
+"    background-color: #1e1e1e;\n"
 "    font: 600 20pt \"Segoe UI Variable Display Semib\";\n"
 "    color: #e0e0e0;\n"
 "}\n"
@@ -52,14 +52,13 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#mainFrame {\n"
-"    border-left: 2px solid #1b1b1b;\n"
-"    border-top: 2px solid #1b1b1b;\n"
-"    border-top-left-radius: 5px;\n"
-"    border-bottom: transparent;\n"
-"    border-right: transparent;\n"
+"    border: 2px solid #1b1b1b;\n"
+"    border-radius: 5px;\n"
+"	\n"
 "}\n"
 "\n"
 "#leftMenu .QPushButton {\n"
+"	\n"
 "    padding: 7px;\n"
 "    image-position: left center;\n"
 "    font: 600 14pt \"Segoe UI Variable Display Semib\";\n"
@@ -67,24 +66,22 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#settings_btn {\n"
-"    image: url(:/leftMenu/Icons/regular_settings_light.svg);\n"
+"    \n"
+"	image: url(:/icons/assest/settings_48_regular.svg);\n"
 "}\n"
 "\n"
 "#home_btn {\n"
-"    image: url(:/leftMenu/Icons/regular_home_light"
-                        ".svg);\n"
+"    \n"
+"	image: url(:/icons/assest/home_48_regular.svg);\n"
 "}\n"
 "\n"
 "#theme_btn {\n"
 "    image: url(:/leftMenu/Icons/light_theme_icon.svg);\n"
 "}\n"
 "\n"
-"#menu_btn {\n"
+"#"
+                        "menu_btn {\n"
 "    image: url(:/leftMenu/Icons/menu_light.svg);\n"
-"}\n"
-"\n"
-"#info_btn {\n"
-"    image: url(:/leftMenu/Icons/light_info.svg);\n"
 "}\n"
 "\n"
 "#stg_lbl_main {\n"
@@ -119,14 +116,14 @@ class Ui_MainWindow(object):
 "	border: 0px;\n"
 "}\n"
 "\n"
-"#stg_"
-                        "home_info_bt_lbl {\n"
+"#stg_home_info_bt_lbl {\n"
 "    font: 600 13pt \"Segoe UI Variable Display Semib\";\n"
 "    padding-left: 16px;\n"
 "}\n"
 "\n"
 "#stg_home_info_img_lbl {\n"
-"    image: url(:/leftMenu/Icons/light_info.svg);\n"
+"    image: url(:/leftMenu/Icons/light_i"
+                        "nfo.svg);\n"
 "    padding: 17px;\n"
 "}\n"
 "\n"
@@ -145,7 +142,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout = QHBoxLayout(self.centralwidget)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setContentsMargins(7, 7, 7, 7)
         self.leftMenu = QFrame(self.centralwidget)
         self.leftMenu.setObjectName(u"leftMenu")
         self.leftMenu.setMaximumSize(QSize(50, 16777215))
@@ -202,6 +199,8 @@ class Ui_MainWindow(object):
 
         self.mainFrame = QFrame(self.centralwidget)
         self.mainFrame.setObjectName(u"mainFrame")
+        self.mainFrame.setStyleSheet(u"background-color: #2b2b2b;\n"
+"border-radius: 7px;")
         self.mainFrame.setFrameShape(QFrame.Shape.StyledPanel)
         self.mainFrame.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.mainFrame)
