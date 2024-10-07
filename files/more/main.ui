@@ -67,20 +67,23 @@
 
 #settings_btn {
     
-	image: url(:/icons/assest/settings_48_regular.svg);
+	image: url(:/dark/dark/settings_48_regular.svg);
 }
 
 #home_btn {
     
-	image: url(:/icons/assest/home_48_regular.svg);
+	
+	image: url(:/dark/dark/home_48_regular.svg);
 }
 
 #theme_btn {
-    image: url(:/leftMenu/Icons/light_theme_icon.svg);
+    
+	image: url(:/dark/dark/weather_sunny_48_regular.svg);
 }
 
 #menu_btn {
-    image: url(:/leftMenu/Icons/menu_light.svg);
+    
+	image: url(:/dark/dark/panel_left_text_48_regular.svg);
 }
 
 #stg_lbl_main {
@@ -729,7 +732,7 @@ border-radius: 7px;</string>
   </widget>
  </widget>
  <resources>
-  <include location="assest.qrc"/>
+  <include location="../assest/assest.qrc"/>
  </resources>
  <connections/>
 </ui>

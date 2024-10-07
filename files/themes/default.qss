@@ -1,11 +1,7 @@
 * {
-    background-color: #1e1e1e;
+    background-color: #1b1b1b;
     font: 600 20pt "Segoe UI Variable Display Semib";
     color: #e0e0e0;
-}
-
-#leftMenu {
-    background: #1e1e1e;
 }
 
 #leftMenu .QPushButton {
@@ -22,19 +18,19 @@
 }
 
 #mainFrame {
-    border: 2px solid #1b1b1b;	
+    border: 2px solid #1e1e1e;	
 	border-radius: 7px;
 }
 
 #mainFrame .QFrame {
 
-	background-color: #1b1b1b;
+	background-color: #1e1e1e;
 	
 }
 
 #mainFrame .QLabel {
 
-	background-color: #1b1b1b;
+	background-color: #1e1e1e;
 	
 }
 
@@ -48,20 +44,23 @@
 
 #settings_btn {
     
-	image: url(:/icons/assest/settings_48_regular.svg);
+	image: url(:/dark/dark/settings_48_regular.svg);
 }
 
 #home_btn {
     
-	image: url(:/icons/assest/home_48_regular.svg);
+	
+	image: url(:/dark/dark/home_48_regular.svg);
 }
 
 #theme_btn {
-    image: url(:/leftMenu/Icons/light_theme_icon.svg);
+    
+	image: url(:/dark/dark/weather_sunny_48_regular.svg);
 }
 
 #menu_btn {
-    image: url(:/leftMenu/Icons/menu_light.svg);
+    
+	image: url(:/dark/dark/panel_left_text_48_regular.svg);
 }
 
 #stg_lbl_main {
