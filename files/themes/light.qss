@@ -39,22 +39,22 @@
 }
 
 #settings_btn {
-	image: url(:/leftMenu/Icons/regular_settings_dark.svg);
+    
+	image: url(:/light/light/settings_48_regular.svg);
 }
 
 #home_btn {
-	image: url(:/leftMenu/Icons/regular_home_dark.svg);
+    
+	
+	image: url(:/light/light/home_48_regular.svg);
 }
 
 #theme_btn {
-	
-	image: url(:/leftMenu/Icons/dark_theme_icon.svg);
+    
+	image: url(:/light/light/weather_sunny_48_regular.svg);
 }
 
 #menu_btn {
-	image: url(:/leftMenu/Icons/menu_dark.svg);
-}
-
-#info_btn {
-	image: url(:/leftMenu/Icons/dark_info.svg);
+    
+	image: url(:/light/light/panel_left_text_48_regular.svg);
 }
