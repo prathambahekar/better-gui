@@ -19,8 +19,7 @@ class MainWindow(QMainWindow):
 
 		self.show()
 		UIFunctions.SetTheme(self)
-
-				
+		
 if __name__ == "__main__":
 	
 	app = QApplication(sys.argv)
