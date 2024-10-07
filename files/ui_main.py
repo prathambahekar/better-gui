@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainkbMYNf.ui'
+## Form generated from reading UI file 'mainlmMxRv.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -29,14 +29,11 @@ class Ui_MainWindow(object):
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"* {\n"
-"    background-color: #1e1e1e;\n"
+"    background-color: #1a2023;\n"
 "    font: 600 20pt \"Segoe UI Variable Display Semib\";\n"
 "    color: #e0e0e0;\n"
 "}\n"
 "\n"
-"#leftMenu {\n"
-"    background: #1e1e1e;\n"
-"}\n"
 "\n"
 "#leftMenu .QPushButton {\n"
 "    background-color: transparent;\n"
@@ -52,8 +49,19 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#mainFrame {\n"
-"    border: 2px solid #1b1b1b;\n"
-"    border-radius: 5px;\n"
+"    border: 2px solid #232a2f;	\n"
+"	border-radius: 7px;\n"
+"}\n"
+"\n"
+"#mainFrame .QFrame {\n"
+"\n"
+"	background-color: #232a2f;\n"
+"	\n"
+"}\n"
+"\n"
+"#mainFrame .QLabel {\n"
+"\n"
+"	background-color: #232a2f;\n"
 "	\n"
 "}\n"
 "\n"
@@ -67,20 +75,21 @@ class Ui_MainWindow(object):
 "\n"
 "#settings_btn {\n"
 "    \n"
-"	image: url(:/icons/assest/settings_48_regular.svg);\n"
+"	\n"
+"	image: url(:/dark/assest/settings_48_regular.svg);\n"
 "}\n"
 "\n"
 "#home_btn {\n"
 "    \n"
-"	image: url(:/icons/assest/home_48_regular.svg);\n"
+"	image: url(:/icons/assest/home_48_regular.svg);"
+                        "\n"
 "}\n"
 "\n"
 "#theme_btn {\n"
 "    image: url(:/leftMenu/Icons/light_theme_icon.svg);\n"
 "}\n"
 "\n"
-"#"
-                        "menu_btn {\n"
+"#menu_btn {\n"
 "    image: url(:/leftMenu/Icons/menu_light.svg);\n"
 "}\n"
 "\n"
@@ -118,12 +127,12 @@ class Ui_MainWindow(object):
 "\n"
 "#stg_home_info_bt_lbl {\n"
 "    font: 600 13pt \"Segoe UI Variable Display Semib\";\n"
-"    padding-left: 16px;\n"
+"   "
+                        " padding-left: 16px;\n"
 "}\n"
 "\n"
 "#stg_home_info_img_lbl {\n"
-"    image: url(:/leftMenu/Icons/light_i"
-                        "nfo.svg);\n"
+"    image: url(:/leftMenu/Icons/light_info.svg);\n"
 "    padding: 17px;\n"
 "}\n"
 "\n"
@@ -142,7 +151,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout = QHBoxLayout(self.centralwidget)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(7, 7, 7, 7)
+        self.horizontalLayout.setContentsMargins(0, 7, 7, 7)
         self.leftMenu = QFrame(self.centralwidget)
         self.leftMenu.setObjectName(u"leftMenu")
         self.leftMenu.setMaximumSize(QSize(50, 16777215))
@@ -199,8 +208,7 @@ class Ui_MainWindow(object):
 
         self.mainFrame = QFrame(self.centralwidget)
         self.mainFrame.setObjectName(u"mainFrame")
-        self.mainFrame.setStyleSheet(u"background-color: #2b2b2b;\n"
-"border-radius: 7px;")
+        self.mainFrame.setStyleSheet(u"")
         self.mainFrame.setFrameShape(QFrame.Shape.StyledPanel)
         self.mainFrame.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.mainFrame)

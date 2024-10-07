@@ -1,5 +1,5 @@
 * {
-    background-color: #2b2b2b;
+    background-color: #1e1e1e;
     font: 600 20pt "Segoe UI Variable Display Semib";
     color: #e0e0e0;
 }
@@ -22,14 +22,24 @@
 }
 
 #mainFrame {
-    border-left: 2px solid #1b1b1b;
-    border-top: 2px solid #1b1b1b;
-    border-top-left-radius: 5px;
-    border-bottom: transparent;
-    border-right: transparent;
+    border: 2px solid #1b1b1b;	
+	border-radius: 7px;
+}
+
+#mainFrame .QFrame {
+
+	background-color: #1b1b1b;
+	
+}
+
+#mainFrame .QLabel {
+
+	background-color: #1b1b1b;
+	
 }
 
 #leftMenu .QPushButton {
+	
     padding: 7px;
     image-position: left center;
     font: 600 14pt "Segoe UI Variable Display Semib";
@@ -37,11 +47,13 @@
 }
 
 #settings_btn {
-    image: url(:/leftMenu/Icons/regular_settings_light.svg);
+    
+	image: url(:/icons/assest/settings_48_regular.svg);
 }
 
 #home_btn {
-    image: url(:/leftMenu/Icons/regular_home_light.svg);
+    
+	image: url(:/icons/assest/home_48_regular.svg);
 }
 
 #theme_btn {
@@ -50,10 +62,6 @@
 
 #menu_btn {
     image: url(:/leftMenu/Icons/menu_light.svg);
-}
-
-#info_btn {
-    image: url(:/leftMenu/Icons/light_info.svg);
 }
 
 #stg_lbl_main {
@@ -72,7 +80,8 @@
 }
 
 #stg_home_app_img_lbl {
-    image: url(:/leftMenu/Icons/light_info.svg);
+    
+	image: url(:/leftMenu/Icons/light_theme_icon.svg);
     padding: 17px;
 }
 
@@ -82,6 +91,27 @@
 }
 
 #stg_home_app_img_btn {
+    font: 600 14pt "Segoe UI Variable Display Semib";
+    padding-left: 4px;
+	border: 0px;
+}
+
+#stg_home_info_bt_lbl {
+    font: 600 13pt "Segoe UI Variable Display Semib";
+    padding-left: 16px;
+}
+
+#stg_home_info_img_lbl {
+    image: url(:/leftMenu/Icons/light_info.svg);
+    padding: 17px;
+}
+
+#stg_home_info_hd_lbl {
+    font: 900 16pt "Segoe UI Black";
+    padding-left: 2px;
+}
+
+#stg_home_info_img_btn {
     font: 600 14pt "Segoe UI Variable Display Semib";
     padding-left: 4px;
 	border: 0px;

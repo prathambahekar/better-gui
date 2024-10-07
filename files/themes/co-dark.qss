@@ -1,0 +1,117 @@
+* {
+    background-color: #1a2023;
+    font: 600 20pt "Segoe UI Variable Display Semib";
+    color: #e0e0e0;
+}
+
+
+#leftMenu .QPushButton {
+    background-color: transparent;
+    border-radius: 7px;
+}
+
+#leftMenu .QPushButton:hover {
+    background-color: #3a3a3a;
+}
+
+#leftMenu .QPushButton:pressed {
+    background-color: #2b2b2b;
+}
+
+#mainFrame {
+    border: 2px solid #232a2f;	
+	border-radius: 7px;
+}
+
+#mainFrame .QFrame {
+
+	background-color: #232a2f;
+	
+}
+
+#mainFrame .QLabel {
+
+	background-color: #232a2f;
+	
+}
+
+#leftMenu .QPushButton {
+	
+    padding: 7px;
+    image-position: left center;
+    font: 600 14pt "Segoe UI Variable Display Semib";
+    color: #ffffff;
+}
+
+#settings_btn {
+    
+	
+	image: url(:/dark/assest/settings_48_regular.svg);
+}
+
+#home_btn {
+    
+	image: url(:/icons/assest/home_48_regular.svg);
+}
+
+#theme_btn {
+    image: url(:/leftMenu/Icons/light_theme_icon.svg);
+}
+
+#menu_btn {
+    image: url(:/leftMenu/Icons/menu_light.svg);
+}
+
+#stg_lbl_main {
+    padding-left: 4px;
+    font: 700 24pt "Segoe UI Variable Display";
+}
+
+#stack_stg .QWidget {
+    border-radius: 8px;
+    background-color: #4a4a4a; /* Updated for better contrast */
+}
+
+#stg_home_app_bt_lbl {
+    font: 600 13pt "Segoe UI Variable Display Semib";
+    padding-left: 16px;
+}
+
+#stg_home_app_img_lbl {
+    
+	image: url(:/leftMenu/Icons/light_theme_icon.svg);
+    padding: 17px;
+}
+
+#stg_home_app_hd_lbl {
+    font: 900 16pt "Segoe UI Black";
+    padding-left: 2px;
+}
+
+#stg_home_app_img_btn {
+    font: 600 14pt "Segoe UI Variable Display Semib";
+    padding-left: 4px;
+	border: 0px;
+}
+
+#stg_home_info_bt_lbl {
+    font: 600 13pt "Segoe UI Variable Display Semib";
+    padding-left: 16px;
+}
+
+#stg_home_info_img_lbl {
+    image: url(:/leftMenu/Icons/light_info.svg);
+    padding: 17px;
+}
+
+#stg_home_info_hd_lbl {
+    font: 900 16pt "Segoe UI Black";
+    padding-left: 2px;
+}
+
+#stg_home_info_img_btn {
+    font: 600 14pt "Segoe UI Variable Display Semib";
+    padding-left: 4px;
+	border: 0px;
+}
+

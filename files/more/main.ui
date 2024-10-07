@@ -22,13 +22,9 @@
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
     <string notr="true">* {
-    background-color: #1e1e1e;
+    background-color: #1b1b1b;
     font: 600 20pt &quot;Segoe UI Variable Display Semib&quot;;
     color: #e0e0e0;
-}
-
-#leftMenu {
-    background: #1e1e1e;
 }
 
 #leftMenu .QPushButton {
@@ -45,8 +41,19 @@
 }
 
 #mainFrame {
-    border: 2px solid #1b1b1b;
-    border-radius: 5px;
+    border: 2px solid #1e1e1e;	
+	border-radius: 7px;
+}
+
+#mainFrame .QFrame {
+
+	background-color: #1e1e1e;
+	
+}
+
+#mainFrame .QLabel {
+
+	background-color: #1e1e1e;
 	
 }
 
@@ -136,7 +143,7 @@
      <number>0</number>
     </property>
     <property name="leftMargin">
-     <number>7</number>
+     <number>0</number>
     </property>
     <property name="topMargin">
      <number>7</number>
@@ -293,8 +300,7 @@
     <item>
      <widget class="QFrame" name="mainFrame">
       <property name="styleSheet">
-       <string notr="true">background-color: #2b2b2b;
-border-radius: 7px;</string>
+       <string notr="true"/>
       </property>
       <property name="frameShape">
        <enum>QFrame::Shape::StyledPanel</enum>
@@ -723,7 +729,7 @@ border-radius: 7px;</string>
   </widget>
  </widget>
  <resources>
-  <include location="../assest.qrc"/>
+  <include location="assest.qrc"/>
  </resources>
  <connections/>
 </ui>
