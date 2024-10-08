@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainYUiOyQ.ui'
+## Form generated from reading UI file 'maindYdhRX.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -29,10 +29,11 @@ class Ui_MainWindow(object):
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"* {\n"
-"    background-color: #1b1b1b;\n"
+"    background-color: #1a2023;\n"
 "    font: 600 20pt \"Segoe UI Variable Display Semib\";\n"
 "    color: #e0e0e0;\n"
 "}\n"
+"\n"
 "\n"
 "#leftMenu .QPushButton {\n"
 "    background-color: transparent;\n"
@@ -48,19 +49,19 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#mainFrame {\n"
-"    border: 2px solid #1e1e1e;	\n"
+"    border: 2px solid #232a2f;	\n"
 "	border-radius: 7px;\n"
 "}\n"
 "\n"
 "#mainFrame .QFrame {\n"
 "\n"
-"	background-color: #1e1e1e;\n"
+"	background-color: #232a2f;\n"
 "	\n"
 "}\n"
 "\n"
 "#mainFrame .QLabel {\n"
 "\n"
-"	background-color: #1e1e1e;\n"
+"	background-color: #232a2f;\n"
 "	\n"
 "}\n"
 "\n"
@@ -81,9 +82,9 @@ class Ui_MainWindow(object):
 "    \n"
 "	\n"
 "	image: url(:/dark/dark/home_48_regular.svg);\n"
-"}\n"
 ""
-                        "\n"
+                        "}\n"
+"\n"
 "#theme_btn {\n"
 "    \n"
 "	image: url(:/dark/dark/weather_sunny_48_regular.svg);\n"
@@ -111,7 +112,7 @@ class Ui_MainWindow(object):
 "\n"
 "#stg_home_app_img_lbl {\n"
 "    \n"
-"	image: url(:/leftMenu/Icons/light_theme_icon.svg);\n"
+"	\n"
 "    padding: 17px;\n"
 "}\n"
 "\n"
@@ -127,13 +128,13 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#stg_home_info_bt_lbl {\n"
-"    font: 600 13pt \"Segoe UI Variable Display S"
-                        "emib\";\n"
+"    font: 600 13pt \"Segoe UI Variable Display Semib\";\n"
 "    padding-left: 16px;\n"
 "}\n"
-"\n"
+""
+                        "\n"
 "#stg_home_info_img_lbl {\n"
-"    image: url(:/leftMenu/Icons/light_info.svg);\n"
+"    \n"
 "    padding: 17px;\n"
 "}\n"
 "\n"

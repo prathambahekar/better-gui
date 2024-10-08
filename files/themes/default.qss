@@ -81,7 +81,7 @@
 
 #stg_home_app_img_lbl {
     
-	image: url(:/leftMenu/Icons/light_theme_icon.svg);
+	
     padding: 17px;
 }
 
@@ -102,7 +102,7 @@
 }
 
 #stg_home_info_img_lbl {
-    image: url(:/leftMenu/Icons/light_info.svg);
+    
     padding: 17px;
 }
 

@@ -22,10 +22,11 @@
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
     <string notr="true">* {
-    background-color: #1b1b1b;
+    background-color: #1a2023;
     font: 600 20pt &quot;Segoe UI Variable Display Semib&quot;;
     color: #e0e0e0;
 }
+
 
 #leftMenu .QPushButton {
     background-color: transparent;
@@ -41,19 +42,19 @@
 }
 
 #mainFrame {
-    border: 2px solid #1e1e1e;	
+    border: 2px solid #232a2f;	
 	border-radius: 7px;
 }
 
 #mainFrame .QFrame {
 
-	background-color: #1e1e1e;
+	background-color: #232a2f;
 	
 }
 
 #mainFrame .QLabel {
 
-	background-color: #1e1e1e;
+	background-color: #232a2f;
 	
 }
 
@@ -103,7 +104,7 @@
 
 #stg_home_app_img_lbl {
     
-	image: url(:/leftMenu/Icons/light_theme_icon.svg);
+	
     padding: 17px;
 }
 
@@ -124,7 +125,7 @@
 }
 
 #stg_home_info_img_lbl {
-    image: url(:/leftMenu/Icons/light_info.svg);
+    
     padding: 17px;
 }
 
