@@ -3,7 +3,7 @@ import os
 from cx_Freeze import setup, Executable
 
 # ADD FILES
-files = ['icon.ico','Themes', 'settings.json', "ui_functions.py"]
+files = ['icon.ico','files', 'settings.json', "core.py", "README.md"]
 
 # TARGET
 target = Executable(
@@ -14,9 +14,9 @@ target = Executable(
 
 # SETUP CX FREEZE
 setup(
-    name = "User Interface",
+    name = "Better UI",
     version = "1.0.0",
-    description = "A Modern GUI",
+    description = "A beautiful python user interface",
     author = "Pratham H Bahekar",
     options = {'build_exe' : {'include_files' : files}},
     executables = [target]
