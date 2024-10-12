@@ -21,70 +21,81 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">* {
-    background-color: #1a2023;
-    font: 600 20pt &quot;Segoe UI Variable Display Semib&quot;;
-    color: #e0e0e0;
+    <string notr="true">/* Light Theme */
+
+* {
+	background-color : #f3f3f3;
+	font: 600 20pt &quot;Segoe UI Variable Display Semib&quot;;
+	color : #202325;
 }
 
-
 #leftMenu .QPushButton {
-    background-color: transparent;
-    border-radius: 7px;
+	background-color: transparent;
+	border-radius : 7px;
+
 }
 
 #leftMenu .QPushButton:hover {
-    background-color: #3a3a3a;
+	background-color: #ededed;
 }
 
 #leftMenu .QPushButton:pressed {
-    background-color: #2b2b2b;
+	background-color: transparent;
 }
 
 #mainFrame {
-    border: 2px solid #232a2f;	
+	border : 2px solid #e5e5e5;
 	border-radius: 7px;
 }
 
 #mainFrame .QFrame {
 
-	background-color: #232a2f;
+	background-color: #f6f8fa;
 	
 }
 
 #mainFrame .QLabel {
 
-	background-color: #232a2f;
+	background-color: #f6f8fa;
 	
 }
 
 #leftMenu .QPushButton {
-	
-    padding: 7px;
-    image-position: left center;
-    font: 600 14pt &quot;Segoe UI Variable Display Semib&quot;;
-    color: #ffffff;
+	padding : 7px;
+	image-position: left center;
+	font: 600 14pt &quot;Segoe UI Variable Display Semib&quot;;
+	color: rgb(0, 0, 0);
 }
 
 #settings_btn {
     
-	image: url(:/dark/dark/settings_48_regular.svg);
+	image: url(:/light/light/settings_48_regular.svg);
 }
 
 #home_btn {
     
 	
-	image: url(:/dark/dark/home_48_regular.svg);
+	image: url(:/light/light/home_48_regular.svg);
 }
 
 #theme_btn {
     
-	image: url(:/dark/dark/weather_sunny_48_regular.svg);
+	image: url(:/light/light/weather_sunny_48_regular.svg);
 }
 
 #menu_btn {
     
-	image: url(:/dark/dark/panel_left_text_48_regular.svg);
+	image: url(:/light/light/panel_left_text_48_regular.svg);
+}
+
+#home_page {
+	background-color: #f6f8fa;
+}
+#setting_page {
+	background-color: #f6f8fa;
+}
+#info_page {
+	background-color: #f6f8fa;
 }
 
 #stg_lbl_main {
@@ -92,20 +103,9 @@
     font: 700 24pt &quot;Segoe UI Variable Display&quot;;
 }
 
-#stack_stg .QWidget {
-    border-radius: 8px;
-    background-color: #4a4a4a; /* Updated for better contrast */
-}
-
 #stg_home_app_bt_lbl {
     font: 600 13pt &quot;Segoe UI Variable Display Semib&quot;;
     padding-left: 16px;
-}
-
-#stg_home_app_img_lbl {
-    
-	
-    padding: 17px;
 }
 
 #stg_home_app_hd_lbl {
@@ -113,34 +113,26 @@
     padding-left: 2px;
 }
 
-#stg_home_app_img_btn {
-    font: 600 14pt &quot;Segoe UI Variable Display Semib&quot;;
-    padding-left: 4px;
-	border: 0px;
-}
-
-#stg_home_info_bt_lbl {
-    font: 600 13pt &quot;Segoe UI Variable Display Semib&quot;;
-    padding-left: 16px;
-}
-
-#stg_home_info_img_lbl {
-    
+#stg_home_app_img_lbl {
     padding: 17px;
 }
 
-#stg_home_info_hd_lbl {
-    font: 900 16pt &quot;Segoe UI Black&quot;;
-    padding-left: 2px;
+#stg_abt_pg{
+	background-color: #f6f8fa;
 }
 
-#stg_home_info_img_btn {
-    font: 600 14pt &quot;Segoe UI Variable Display Semib&quot;;
-    padding-left: 4px;
-	border: 0px;
+#stg_home_pg{
+	background-color: #f6f8fa;
 }
 
-</string>
+#stg_app_pg{
+	background-color: #f6f8fa;
+}
+
+#stack_stg .QWidget {
+    border-radius: 8px;
+    background-color: #e5e5e5; /* Updated for better contrast */
+}</string>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <property name="spacing">
@@ -304,7 +296,7 @@
     <item>
      <widget class="QFrame" name="mainFrame">
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true">border-radius: 7px;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::Shape::StyledPanel</enum>
@@ -336,7 +328,11 @@
          <property name="currentIndex">
           <number>1</number>
          </property>
-         <widget class="QWidget" name="home_page"/>
+         <widget class="QWidget" name="home_page">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+         </widget>
          <widget class="QWidget" name="settings_page">
           <layout class="QVBoxLayout" name="verticalLayout_4">
            <property name="spacing">
@@ -392,7 +388,10 @@
                </widget>
               </item>
               <item>
-               <widget class="QStackedWidget" name="stack_stg">
+               <widget class="QStackedWidget" name="setting_stackfrm">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
                 <property name="currentIndex">
                  <number>1</number>
                 </property>
@@ -414,303 +413,6 @@
                   <property name="bottomMargin">
                    <number>0</number>
                   </property>
-                  <item>
-                   <widget class="QFrame" name="verticalFrame">
-                    <layout class="QVBoxLayout" name="verticalLayout_5">
-                     <item>
-                      <spacer name="verticalSpacer_3">
-                       <property name="orientation">
-                        <enum>Qt::Orientation::Vertical</enum>
-                       </property>
-                       <property name="sizeType">
-                        <enum>QSizePolicy::Policy::Fixed</enum>
-                       </property>
-                       <property name="sizeHint" stdset="0">
-                        <size>
-                         <width>20</width>
-                         <height>40</height>
-                        </size>
-                       </property>
-                      </spacer>
-                     </item>
-                     <item>
-                      <widget class="QFrame" name="stg_home_app_hfrm">
-                       <property name="minimumSize">
-                        <size>
-                         <width>461</width>
-                         <height>69</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>16777215</width>
-                         <height>69</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(56, 56, 56);
-border-radius: 7px;</string>
-                       </property>
-                       <layout class="QHBoxLayout" name="horizontalLayout_2">
-                        <property name="spacing">
-                         <number>0</number>
-                        </property>
-                        <property name="leftMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="topMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="rightMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="bottomMargin">
-                         <number>0</number>
-                        </property>
-                        <item>
-                         <widget class="QLabel" name="stg_home_app_img_lbl">
-                          <property name="minimumSize">
-                           <size>
-                            <width>69</width>
-                            <height>69</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>69</width>
-                            <height>69</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true"/>
-                          </property>
-                          <property name="text">
-                           <string/>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame">
-                          <layout class="QVBoxLayout" name="verticalLayout_7">
-                           <property name="spacing">
-                            <number>0</number>
-                           </property>
-                           <property name="leftMargin">
-                            <number>0</number>
-                           </property>
-                           <property name="topMargin">
-                            <number>0</number>
-                           </property>
-                           <property name="rightMargin">
-                            <number>0</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>0</number>
-                           </property>
-                           <item>
-                            <widget class="QLabel" name="stg_home_app_hd_lbl">
-                             <property name="styleSheet">
-                              <string notr="true"/>
-                             </property>
-                             <property name="text">
-                              <string>About</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QLabel" name="stg_home_app_bt_lbl">
-                             <property name="styleSheet">
-                              <string notr="true"/>
-                             </property>
-                             <property name="text">
-                              <string>app version, developer</string>
-                             </property>
-                            </widget>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="stg_home_app_img_btn">
-                          <property name="minimumSize">
-                           <size>
-                            <width>69</width>
-                            <height>69</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>69</width>
-                            <height>69</height>
-                           </size>
-                          </property>
-                          <property name="sizeIncrement">
-                           <size>
-                            <width>73</width>
-                            <height>0</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string/>
-                          </property>
-                          <property name="checkable">
-                           <bool>false</bool>
-                          </property>
-                          <property name="autoDefault">
-                           <bool>false</bool>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QFrame" name="stg_home_info_hfrm">
-                       <property name="minimumSize">
-                        <size>
-                         <width>461</width>
-                         <height>69</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>16777215</width>
-                         <height>69</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(56, 56, 56);
-border-radius: 7px;</string>
-                       </property>
-                       <layout class="QHBoxLayout" name="horizontalLayout_3">
-                        <property name="spacing">
-                         <number>0</number>
-                        </property>
-                        <property name="leftMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="topMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="rightMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="bottomMargin">
-                         <number>0</number>
-                        </property>
-                        <item>
-                         <widget class="QLabel" name="stg_home_info_img_lbl">
-                          <property name="minimumSize">
-                           <size>
-                            <width>69</width>
-                            <height>69</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>69</width>
-                            <height>69</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true"/>
-                          </property>
-                          <property name="text">
-                           <string/>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_2">
-                          <layout class="QVBoxLayout" name="verticalLayout_8">
-                           <property name="spacing">
-                            <number>0</number>
-                           </property>
-                           <property name="leftMargin">
-                            <number>0</number>
-                           </property>
-                           <property name="topMargin">
-                            <number>0</number>
-                           </property>
-                           <property name="rightMargin">
-                            <number>0</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>0</number>
-                           </property>
-                           <item>
-                            <widget class="QLabel" name="stg_home_info_hd_lbl">
-                             <property name="styleSheet">
-                              <string notr="true"/>
-                             </property>
-                             <property name="text">
-                              <string>Info</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QLabel" name="stg_home_info_bt_lbl">
-                             <property name="styleSheet">
-                              <string notr="true"/>
-                             </property>
-                             <property name="text">
-                              <string>More details</string>
-                             </property>
-                            </widget>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="stg_home_info_img_btn">
-                          <property name="minimumSize">
-                           <size>
-                            <width>69</width>
-                            <height>69</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>69</width>
-                            <height>69</height>
-                           </size>
-                          </property>
-                          <property name="sizeIncrement">
-                           <size>
-                            <width>73</width>
-                            <height>0</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string/>
-                          </property>
-                          <property name="checkable">
-                           <bool>false</bool>
-                          </property>
-                          <property name="autoDefault">
-                           <bool>false</bool>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                     <item>
-                      <spacer name="verticalSpacer_2">
-                       <property name="orientation">
-                        <enum>Qt::Orientation::Vertical</enum>
-                       </property>
-                       <property name="sizeHint" stdset="0">
-                        <size>
-                         <width>20</width>
-                         <height>40</height>
-                        </size>
-                       </property>
-                      </spacer>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
                  </layout>
                 </widget>
                 <widget class="QWidget" name="stg_app_pg"/>

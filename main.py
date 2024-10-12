@@ -16,9 +16,12 @@ class MainWindow(QMainWindow):
 
 		# Applying Settings
 		UIFunctions.Setup_GUI(self)
-
+		UIFunctions.ToggleMenu(self, 50, 300)
 		self.show()
 		UIFunctions.SetTheme(self)
+
+	
+	
 		
 if __name__ == "__main__":
 	

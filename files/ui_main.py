@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'maindYdhRX.ui'
+## Form generated from reading UI file 'mainwotbPn.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -29,11 +29,10 @@ class Ui_MainWindow(object):
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"* {\n"
-"    background-color: #1a2023;\n"
+"    background-color: #1b1b1b;\n"
 "    font: 600 20pt \"Segoe UI Variable Display Semib\";\n"
 "    color: #e0e0e0;\n"
 "}\n"
-"\n"
 "\n"
 "#leftMenu .QPushButton {\n"
 "    background-color: transparent;\n"
@@ -49,19 +48,19 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#mainFrame {\n"
-"    border: 2px solid #232a2f;	\n"
+"    border: 2px solid #1e1e1e;	\n"
 "	border-radius: 7px;\n"
 "}\n"
 "\n"
 "#mainFrame .QFrame {\n"
 "\n"
-"	background-color: #232a2f;\n"
+"	background-color: #1e1e1e;\n"
 "	\n"
 "}\n"
 "\n"
 "#mainFrame .QLabel {\n"
 "\n"
-"	background-color: #232a2f;\n"
+"	background-color: #1e1e1e;\n"
 "	\n"
 "}\n"
 "\n"
@@ -82,9 +81,9 @@ class Ui_MainWindow(object):
 "    \n"
 "	\n"
 "	image: url(:/dark/dark/home_48_regular.svg);\n"
+"}\n"
 ""
-                        "}\n"
-"\n"
+                        "\n"
 "#theme_btn {\n"
 "    \n"
 "	image: url(:/dark/dark/weather_sunny_48_regular.svg);\n"
@@ -111,8 +110,6 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#stg_home_app_img_lbl {\n"
-"    \n"
-"	\n"
 "    padding: 17px;\n"
 "}\n"
 "\n"
@@ -131,10 +128,9 @@ class Ui_MainWindow(object):
 "    font: 600 13pt \"Segoe UI Variable Display Semib\";\n"
 "    padding-left: 16px;\n"
 "}\n"
-""
-                        "\n"
-"#stg_home_info_img_lbl {\n"
-"    \n"
+"\n"
+"#stg_home_info"
+                        "_img_lbl {\n"
 "    padding: 17px;\n"
 "}\n"
 "\n"
@@ -147,6 +143,28 @@ class Ui_MainWindow(object):
 "    font: 600 14pt \"Segoe UI Variable Display Semib\";\n"
 "    padding-left: 4px;\n"
 "	border: 0px;\n"
+"}\n"
+"\n"
+"#home_page {\n"
+"	background-color: #1e1e1e;\n"
+"}\n"
+"#setting_page {\n"
+"	background-color: #1e1e1e;\n"
+"}\n"
+"#info_page {\n"
+"	background-color: #1e1e1e;\n"
+"}\n"
+"\n"
+"#stg_abt_pg{\n"
+"	background-color: #1e1e1e;\n"
+"}\n"
+"\n"
+"#stg_home_pg{\n"
+"	background-color: #1e1e1e;\n"
+"}\n"
+"\n"
+"#stg_app_pg{\n"
+"	background-color: #1e1e1e;\n"
 "}\n"
 "\n"
 "")
@@ -210,7 +228,7 @@ class Ui_MainWindow(object):
 
         self.mainFrame = QFrame(self.centralwidget)
         self.mainFrame.setObjectName(u"mainFrame")
-        self.mainFrame.setStyleSheet(u"")
+        self.mainFrame.setStyleSheet(u"border-radius: 7px;")
         self.mainFrame.setFrameShape(QFrame.Shape.StyledPanel)
         self.mainFrame.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.mainFrame)
@@ -222,6 +240,7 @@ class Ui_MainWindow(object):
         self.switchPage.setStyleSheet(u"")
         self.home_page = QWidget()
         self.home_page.setObjectName(u"home_page")
+        self.home_page.setStyleSheet(u"")
         self.switchPage.addWidget(self.home_page)
         self.settings_page = QWidget()
         self.settings_page.setObjectName(u"settings_page")
@@ -242,142 +261,24 @@ class Ui_MainWindow(object):
 
         self.stg_lbl_v_frame.addWidget(self.stg_lbl_main)
 
-        self.stack_stg = QStackedWidget(self.stg_lbl_v_frame_2)
-        self.stack_stg.setObjectName(u"stack_stg")
+        self.setting_stackfrm = QStackedWidget(self.stg_lbl_v_frame_2)
+        self.setting_stackfrm.setObjectName(u"setting_stackfrm")
+        self.setting_stackfrm.setStyleSheet(u"")
         self.stg_home_pg = QWidget()
         self.stg_home_pg.setObjectName(u"stg_home_pg")
-        self.stack_stg.addWidget(self.stg_home_pg)
+        self.setting_stackfrm.addWidget(self.stg_home_pg)
         self.stg_abt_pg = QWidget()
         self.stg_abt_pg.setObjectName(u"stg_abt_pg")
         self.verticalLayout_6 = QVBoxLayout(self.stg_abt_pg)
         self.verticalLayout_6.setSpacing(0)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.verticalFrame = QFrame(self.stg_abt_pg)
-        self.verticalFrame.setObjectName(u"verticalFrame")
-        self.verticalLayout_5 = QVBoxLayout(self.verticalFrame)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
-
-        self.verticalLayout_5.addItem(self.verticalSpacer_3)
-
-        self.stg_home_app_hfrm = QFrame(self.verticalFrame)
-        self.stg_home_app_hfrm.setObjectName(u"stg_home_app_hfrm")
-        self.stg_home_app_hfrm.setMinimumSize(QSize(461, 69))
-        self.stg_home_app_hfrm.setMaximumSize(QSize(16777215, 69))
-        self.stg_home_app_hfrm.setStyleSheet(u"background-color: rgb(56, 56, 56);\n"
-"border-radius: 7px;")
-        self.horizontalLayout_2 = QHBoxLayout(self.stg_home_app_hfrm)
-        self.horizontalLayout_2.setSpacing(0)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.stg_home_app_img_lbl = QLabel(self.stg_home_app_hfrm)
-        self.stg_home_app_img_lbl.setObjectName(u"stg_home_app_img_lbl")
-        self.stg_home_app_img_lbl.setMinimumSize(QSize(69, 69))
-        self.stg_home_app_img_lbl.setMaximumSize(QSize(69, 69))
-        self.stg_home_app_img_lbl.setStyleSheet(u"")
-
-        self.horizontalLayout_2.addWidget(self.stg_home_app_img_lbl)
-
-        self.frame = QFrame(self.stg_home_app_hfrm)
-        self.frame.setObjectName(u"frame")
-        self.verticalLayout_7 = QVBoxLayout(self.frame)
-        self.verticalLayout_7.setSpacing(0)
-        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
-        self.stg_home_app_hd_lbl = QLabel(self.frame)
-        self.stg_home_app_hd_lbl.setObjectName(u"stg_home_app_hd_lbl")
-        self.stg_home_app_hd_lbl.setStyleSheet(u"")
-
-        self.verticalLayout_7.addWidget(self.stg_home_app_hd_lbl)
-
-        self.stg_home_app_bt_lbl = QLabel(self.frame)
-        self.stg_home_app_bt_lbl.setObjectName(u"stg_home_app_bt_lbl")
-        self.stg_home_app_bt_lbl.setStyleSheet(u"")
-
-        self.verticalLayout_7.addWidget(self.stg_home_app_bt_lbl)
-
-
-        self.horizontalLayout_2.addWidget(self.frame)
-
-        self.stg_home_app_img_btn = QPushButton(self.stg_home_app_hfrm)
-        self.stg_home_app_img_btn.setObjectName(u"stg_home_app_img_btn")
-        self.stg_home_app_img_btn.setMinimumSize(QSize(69, 69))
-        self.stg_home_app_img_btn.setMaximumSize(QSize(69, 69))
-        self.stg_home_app_img_btn.setSizeIncrement(QSize(73, 0))
-        self.stg_home_app_img_btn.setCheckable(False)
-        self.stg_home_app_img_btn.setAutoDefault(False)
-
-        self.horizontalLayout_2.addWidget(self.stg_home_app_img_btn)
-
-
-        self.verticalLayout_5.addWidget(self.stg_home_app_hfrm)
-
-        self.stg_home_info_hfrm = QFrame(self.verticalFrame)
-        self.stg_home_info_hfrm.setObjectName(u"stg_home_info_hfrm")
-        self.stg_home_info_hfrm.setMinimumSize(QSize(461, 69))
-        self.stg_home_info_hfrm.setMaximumSize(QSize(16777215, 69))
-        self.stg_home_info_hfrm.setStyleSheet(u"background-color: rgb(56, 56, 56);\n"
-"border-radius: 7px;")
-        self.horizontalLayout_3 = QHBoxLayout(self.stg_home_info_hfrm)
-        self.horizontalLayout_3.setSpacing(0)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.stg_home_info_img_lbl = QLabel(self.stg_home_info_hfrm)
-        self.stg_home_info_img_lbl.setObjectName(u"stg_home_info_img_lbl")
-        self.stg_home_info_img_lbl.setMinimumSize(QSize(69, 69))
-        self.stg_home_info_img_lbl.setMaximumSize(QSize(69, 69))
-        self.stg_home_info_img_lbl.setStyleSheet(u"")
-
-        self.horizontalLayout_3.addWidget(self.stg_home_info_img_lbl)
-
-        self.frame_2 = QFrame(self.stg_home_info_hfrm)
-        self.frame_2.setObjectName(u"frame_2")
-        self.verticalLayout_8 = QVBoxLayout(self.frame_2)
-        self.verticalLayout_8.setSpacing(0)
-        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
-        self.stg_home_info_hd_lbl = QLabel(self.frame_2)
-        self.stg_home_info_hd_lbl.setObjectName(u"stg_home_info_hd_lbl")
-        self.stg_home_info_hd_lbl.setStyleSheet(u"")
-
-        self.verticalLayout_8.addWidget(self.stg_home_info_hd_lbl)
-
-        self.stg_home_info_bt_lbl = QLabel(self.frame_2)
-        self.stg_home_info_bt_lbl.setObjectName(u"stg_home_info_bt_lbl")
-        self.stg_home_info_bt_lbl.setStyleSheet(u"")
-
-        self.verticalLayout_8.addWidget(self.stg_home_info_bt_lbl)
-
-
-        self.horizontalLayout_3.addWidget(self.frame_2)
-
-        self.stg_home_info_img_btn = QPushButton(self.stg_home_info_hfrm)
-        self.stg_home_info_img_btn.setObjectName(u"stg_home_info_img_btn")
-        self.stg_home_info_img_btn.setMinimumSize(QSize(69, 69))
-        self.stg_home_info_img_btn.setMaximumSize(QSize(69, 69))
-        self.stg_home_info_img_btn.setSizeIncrement(QSize(73, 0))
-        self.stg_home_info_img_btn.setCheckable(False)
-        self.stg_home_info_img_btn.setAutoDefault(False)
-
-        self.horizontalLayout_3.addWidget(self.stg_home_info_img_btn)
-
-
-        self.verticalLayout_5.addWidget(self.stg_home_info_hfrm)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.verticalLayout_5.addItem(self.verticalSpacer_2)
-
-
-        self.verticalLayout_6.addWidget(self.verticalFrame)
-
-        self.stack_stg.addWidget(self.stg_abt_pg)
+        self.setting_stackfrm.addWidget(self.stg_abt_pg)
         self.stg_app_pg = QWidget()
         self.stg_app_pg.setObjectName(u"stg_app_pg")
-        self.stack_stg.addWidget(self.stg_app_pg)
+        self.setting_stackfrm.addWidget(self.stg_app_pg)
 
-        self.stg_lbl_v_frame.addWidget(self.stack_stg)
+        self.stg_lbl_v_frame.addWidget(self.setting_stackfrm)
 
 
         self.verticalLayout_4.addWidget(self.stg_lbl_v_frame_2)
@@ -399,7 +300,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.switchPage.setCurrentIndex(1)
-        self.stack_stg.setCurrentIndex(1)
+        self.setting_stackfrm.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -424,13 +325,5 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.settings_btn.setText("")
         self.stg_lbl_main.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
-        self.stg_home_app_img_lbl.setText("")
-        self.stg_home_app_hd_lbl.setText(QCoreApplication.translate("MainWindow", u"About", None))
-        self.stg_home_app_bt_lbl.setText(QCoreApplication.translate("MainWindow", u"app version, developer", None))
-        self.stg_home_app_img_btn.setText("")
-        self.stg_home_info_img_lbl.setText("")
-        self.stg_home_info_hd_lbl.setText(QCoreApplication.translate("MainWindow", u"Info", None))
-        self.stg_home_info_bt_lbl.setText(QCoreApplication.translate("MainWindow", u"More details", None))
-        self.stg_home_info_img_btn.setText("")
     # retranslateUi
 

@@ -25,9 +25,8 @@ The main application file, `main.py`, is responsible for initializing the applic
 
 ## Settings Menu Screenshot
 
-![Modern Settings Menu](https://github.com/prathambahekar/better-gui/blob/master/files/more/img/image.png)
-![Copilot Theme](https://github.com/prathambahekar/better-gui/blob/master/files/more/img/11.png)
-![Light Theme](https://github.com/prathambahekar/better-gui/blob/master/files/more/img/lght.png)
+![Light Theme](https://github.com/prathambahekar/better-gui/blob/master/files/more/img/light-theme.png)
+![Dark Theme](https://github.com/prathambahekar/better-gui/blob/master/files/more/img/dark-theme.png)
 ## Notes
 
 - This application uses PySide6, which is a Python binding for the Qt application framework.

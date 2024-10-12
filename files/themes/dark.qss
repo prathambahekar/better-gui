@@ -1,3 +1,5 @@
+/* Dark Theme */
+
 * {
     background-color: #1b1b1b;
     font: 600 20pt "Segoe UI Variable Display Semib";
@@ -18,7 +20,7 @@
 }
 
 #mainFrame {
-    border: 2px solid #1e1e1e;	
+    border: 2px solid #202326;	
 	border-radius: 7px;
 }
 
@@ -111,5 +113,27 @@
     font: 600 14pt "Segoe UI Variable Display Semib";
     padding-left: 4px;
 	border: 0px;
+}
+
+#home_page {
+	background-color: #1e1e1e;
+}
+#setting_page {
+	background-color: #1e1e1e;
+}
+#info_page {
+	background-color: #1e1e1e;
+}
+
+#stg_abt_pg{
+	background-color: #1e1e1e;
+}
+
+#stg_home_pg{
+	background-color: #1e1e1e;
+}
+
+#stg_app_pg{
+	background-color: #1e1e1e;
 }
 

@@ -1,60 +1,80 @@
-* {
-	background-color : #f9f9f9;
-	font: 600 20pt "Segoe UI Variable Display Semib";
-	color : black;
-}
+/* Light Theme */
 
-#leftMenu {
-	background : #f3f3f3;
+* {
+    background-color: #f3f3f3;
+    font: 18pt "Segoe UI Variable Display Semib";
+    color: #202325;
 }
 
 #leftMenu .QPushButton {
-	
-	background-color: transparent;
-	border-radius : 7px;
-
+    background-color: transparent;
+    border-radius: 7px;
+    padding: 7px;
+    image-position: left center;
+    font: 14pt "Segoe UI Variable";
+    color: rgb(0, 0, 0);
 }
 
 #leftMenu .QPushButton:hover {
-	background-color: #ededed;
+    background-color: #ededed;
 }
 
 #leftMenu .QPushButton:pressed {
-	background-color: transparent;
+    background-color: transparent;
 }
 
 #mainFrame {
-	border-left : 2px solid #e5e5e5;
-	border-top : 2px solid #e5e5e5;
-	border-top-left-radius: 7px;
-	border-bottom : transparent;
-	border-right : transparent;
+    border: 2px solid #e5e5e5;
+    border-radius: 7px;
 }
 
-#leftMenu .QPushButton {
-	padding : 7px;
-	image-position: left center;
-	font: 600 14pt "Segoe UI Variable Display Semib";
-	color: rgb(0, 0, 0);
+#mainFrame .QFrame,
+#mainFrame .QLabel,
+#home_page,
+#setting_page,
+#info_page,
+#stg_abt_pg,
+#stg_home_pg,
+#stg_app_pg {
+    background-color: #f6f8fa;
 }
 
 #settings_btn {
-    
-	image: url(:/light/light/settings_48_regular.svg);
+    image: url(:/light/light/settings_48_regular.svg);
 }
 
 #home_btn {
-    
-	
-	image: url(:/light/light/home_48_regular.svg);
+    image: url(:/light/light/home_48_regular.svg);
 }
 
 #theme_btn {
-    
-	image: url(:/light/light/weather_sunny_48_regular.svg);
+    image: url(:/light/light/weather_sunny_48_regular.svg);
 }
 
 #menu_btn {
-    
-	image: url(:/light/light/panel_left_text_48_regular.svg);
+    image: url(:/light/light/panel_left_text_48_regular.svg);
+}
+
+#stg_lbl_main {
+    padding-left: 4px;
+    font: 700 24pt "Segoe UI Variable Display";
+}
+
+#stg_home_app_bt_lbl {
+    font: 600 13pt "Segoe UI Variable Display Semib";
+    padding-left: 16px;
+}
+
+#stg_home_app_hd_lbl {
+    font: 900 16pt "Segoe UI Black";
+    padding-left: 2px;
+}
+
+#stg_home_app_img_lbl {
+    padding: 17px;
+}
+
+#stack_stg .QWidget {
+    border-radius: 8px;
+    background-color: #e5e5e5;
 }
