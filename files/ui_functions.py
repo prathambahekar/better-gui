@@ -92,6 +92,8 @@ class UIFunctions(MainWindow):
 
 		self.ui.menu_btn.clicked.connect(lambda : UIFunctions.ToggleMenu(self, 50, 300))
 
-
+		# WindowIcon = QIcon()
+		# WindowIcon.addFile("files/assest/icon.png")
+		# self.setWindowIcon(WindowIcon)
 		
 
