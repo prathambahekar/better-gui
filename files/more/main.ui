@@ -32,7 +32,6 @@
 #leftMenu .QPushButton {
 	background-color: transparent;
 	border-radius : 7px;
-
 }
 
 #leftMenu .QPushButton:hover {
@@ -63,7 +62,7 @@
 #leftMenu .QPushButton {
 	padding : 7px;
 	image-position: left center;
-	font: 600 14pt &quot;Segoe UI Variable Display Semib&quot;;
+	font:  13pt &quot;Consolas&quot;;
 	color: rgb(0, 0, 0);
 }
 
@@ -152,6 +151,12 @@
     </property>
     <item>
      <widget class="QFrame" name="leftMenu">
+      <property name="minimumSize">
+       <size>
+        <width>300</width>
+        <height>0</height>
+       </size>
+      </property>
       <property name="maximumSize">
        <size>
         <width>50</width>
@@ -223,7 +228,7 @@
           <string notr="true"/>
          </property>
          <property name="text">
-          <string/>
+          <string>Home</string>
          </property>
         </widget>
        </item>

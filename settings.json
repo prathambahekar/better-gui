@@ -2,10 +2,11 @@
     "app-info" :
         {
             "name" : "App",
-            "theme" : "light",
+            "theme" : "cream",
             "version" : "v1.0.0",
             "developer" : "Pratham Bahekar",
             "build" : "beta",
+            "font" : "consolas",
 
             "window-size" : {
                 "isMin" : true,

@@ -2,7 +2,7 @@
 
 * {
     background-color: #1b1b1b;
-    font: 600 20pt "Segoe UI Variable Display Semib";
+    font: 600 20pt "Consolas";
     color: #e0e0e0;
 }
 
@@ -40,7 +40,7 @@
 	
     padding: 7px;
     image-position: left center;
-    font: 600 14pt "Segoe UI Variable Display Semib";
+    font:  13pt "Consolas";
     color: #ffffff;
 }
 
@@ -67,16 +67,16 @@
 
 #stg_lbl_main {
     padding-left: 4px;
-    font: 700 24pt "Segoe UI Variable Display";
+    font: 700 24pt "Consolas";
 }
 
 #stack_stg .QWidget {
     border-radius: 8px;
-    background-color: #4a4a4a; /* Updated for better contrast */
+    background-color: #4a4a4a;
 }
 
 #stg_home_app_bt_lbl {
-    font: 600 13pt "Segoe UI Variable Display Semib";
+    font: 600 13pt "Consolas Semib";
     padding-left: 16px;
 }
 
@@ -85,18 +85,18 @@
 }
 
 #stg_home_app_hd_lbl {
-    font: 900 16pt "Segoe UI Black";
+    font: 900 16pt "Consolas";
     padding-left: 2px;
 }
 
 #stg_home_app_img_btn {
-    font: 600 14pt "Segoe UI Variable Display Semib";
+    font: 600 14pt "Consolas";
     padding-left: 4px;
 	border: 0px;
 }
 
 #stg_home_info_bt_lbl {
-    font: 600 13pt "Segoe UI Variable Display Semib";
+    font: 600 13pt "Consolas";
     padding-left: 16px;
 }
 
@@ -105,12 +105,12 @@
 }
 
 #stg_home_info_hd_lbl {
-    font: 900 16pt "Segoe UI Black";
+    font: 900 16pt "Consolas";
     padding-left: 2px;
 }
 
 #stg_home_info_img_btn {
-    font: 600 14pt "Segoe UI Variable Display Semib";
+    font: 600 14pt "Consolas";
     padding-left: 4px;
 	border: 0px;
 }

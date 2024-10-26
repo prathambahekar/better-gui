@@ -1,0 +1,11 @@
+{
+	"theme_name" : "Default",
+	"default-font" : "Consolas",
+	"default-font-color" : "#202325",
+	"colors" : {
+		"main-border" : "7px",
+		"main-bg-color" : "#fbf6f0",
+		"color-1" : "#1e1e1e",
+		"color-2" : "#e5e5e5"
+	}
+}
