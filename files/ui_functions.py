@@ -1,5 +1,6 @@
 from main import *
 import json
+import os
 
 f = open("settings.json")
 Data = json.load(f) 
@@ -38,6 +39,34 @@ class UIFunctions(MainWindow):
 			self.ui.centralwidget.setStyleSheet(str)
 
 			defaultTheme = "light"
+
+
+
+	def SwitchTheme(self):
+		global defaultTheme
+
+		# Directory where your .qss files are located
+		qss_directory = "files/themes"
+
+		# Get a list of all .qss files in the directory
+		qss_files = [file for file in os.listdir(qss_directory) if file.endswith(".qss")]
+
+		# Find the index of the current theme
+		try:
+			current_index = qss_files.index(defaultTheme + ".qss")
+		except ValueError:
+			current_index = -1
+
+		# Calculate the next theme index
+		next_index = (current_index + 1) % len(qss_files)
+		next_theme = qss_files[next_index].replace(".qss", "")
+
+		# Read and apply the next theme
+		with open(os.path.join(qss_directory, qss_files[next_index]), 'r') as f:
+			stylesheet = f.read()
+		self.ui.centralwidget.setStyleSheet(stylesheet)
+		defaultTheme = next_theme
+
 
 	def ToggleMenu(self, min, max):
 
