@@ -4,8 +4,8 @@ import json
 from core import *
 from files.themes.themes import SetTheme
 
-acess_settings = open("settings.json")
-Data = json.load(acess_settings) 
+access_settings = open("settings.json")
+Data = json.load(access_settings) 
 
 class MainWindow(QMainWindow):
 	def __init__(self):
