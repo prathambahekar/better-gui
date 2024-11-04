@@ -1,0 +1,10 @@
+import darkdetect
+
+>>> darkdetect.theme()
+'Dark'
+
+>>> darkdetect.isDark()
+True
+
+>>> darkdetect.isLight()
+False

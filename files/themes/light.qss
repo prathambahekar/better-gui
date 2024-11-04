@@ -2,7 +2,7 @@
 
 
 * {
-	background-color : #f3f3f3;
+	/*background-color : #f3f3f3;*/
 	font: 600 20pt "Consolas";
 	color : #202325;
 }

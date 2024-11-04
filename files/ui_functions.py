@@ -1,47 +1,31 @@
 from main import *
 import json
 import os
+import darkdetect
 
-f = open("settings.json")
-Data = json.load(f) 
-
-theme_load = open(f"files/themes/copilot-light.json")
-Theme = json.load(theme_load) 
-
+load_settings = open("settings.json")
+Data = json.load(load_settings) 
 defaultTheme = Data["app-info"]["theme"]
-default_font = Theme["default-font"]
-color_1 = Theme["colors"]["color-1"]
-color_2 = Theme["colors"]["color-2"]
-main_border = Theme["colors"]["main-border"]
-main_bg_color = Theme["colors"]["main-bg-color"]
-default_font_color = Theme["default-font-color"]
+
 
 class UIFunctions(MainWindow):
 
 	def SetTheme(self):
 		
-		str = open(f"files/themes/{defaultTheme}.qss", 'r').read()
-		self.ui.centralwidget.setStyleSheet(str)
-		
+		if defaultTheme == "sys":
+			checkTheme = darkdetect.isDark()
+			# print(checkTheme)
+			if checkTheme == True:
+				str = open(f"files/themes/dark.qss", 'r').read()
+				self.ui.centralwidget.setStyleSheet(str)
+			else:
+				str = open(f"files/themes/light.qss", 'r').read()
+				self.ui.centralwidget.setStyleSheet(str)
 
-	def SwitchTheme(self):
-
-		global defaultTheme
-		
-		if defaultTheme == "light":
-			str = open(f"files/themes/dark.qss", 'r').read()
+		else:
+			str = open(f"files/themes/{defaultTheme}.qss", 'r').read()
 			self.ui.centralwidget.setStyleSheet(str)
-
-			defaultTheme = "dark"
-
-		elif defaultTheme == "dark":
-			str = open(f"files/themes/light.qss", 'r').read()
-			self.ui.centralwidget.setStyleSheet(str)
-
-			defaultTheme = "light"
-
-
-
+		
 	def SwitchTheme(self):
 		global defaultTheme
 
@@ -67,6 +51,11 @@ class UIFunctions(MainWindow):
 		self.ui.centralwidget.setStyleSheet(stylesheet)
 		defaultTheme = next_theme
 
+		if Data["app-info"]["mica"]["enable"] == True:
+			if defaultTheme == "light":
+				ApplyMica(self.winId(), MicaTheme.LIGHT, MicaStyle.DEFAULT)
+			elif defaultTheme == "dark":
+				ApplyMica(self.winId(), MicaTheme.DARK, MicaStyle.DEFAULT)
 
 	def ToggleMenu(self, min, max):
 
@@ -130,8 +119,11 @@ class UIFunctions(MainWindow):
 
 		self.ui.menu_btn.clicked.connect(lambda : UIFunctions.ToggleMenu(self, 50, 300))
 
-		# WindowIcon = QIcon()
-		# WindowIcon.addFile("files/assest/icon.png")
-		# self.setWindowIcon(WindowIcon)
-		
+		WindowIcon = QIcon()
+		WindowIcon.addFile("icon.ico")
+		self.setWindowIcon(WindowIcon)
 
+		
+		if Data["app-info"]["mica"]["enable"] == True:
+			self.setAttribute(Qt.WA_TranslucentBackground)
+			ApplyMica(self.winId(), MicaTheme.AUTO, MicaStyle.DEFAULT)

@@ -1,7 +1,7 @@
 /* Dark Theme */
 
 * {
-    background-color: #1b1b1b;
+    /*background-color: #1b1b1b;*/
     font: 600 20pt "Consolas";
     color: #e0e0e0;
 }
