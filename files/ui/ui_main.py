@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwotbPn.ui'
+## Form generated from reading UI file 'mainvQwtGv.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.3
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -15,10 +15,12 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
-    QStackedWidget, QVBoxLayout, QWidget)
-import files.assest_rc
+from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
+    QHBoxLayout, QLabel, QLineEdit, QMainWindow,
+    QPushButton, QRadioButton, QScrollArea, QSizePolicy,
+    QSpacerItem, QStackedWidget, QTabWidget, QVBoxLayout,
+    QWidget)
+import assest_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -28,9 +30,11 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QSize(550, 500))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.centralwidget.setStyleSheet(u"* {\n"
-"    background-color: #1b1b1b;\n"
-"    font: 600 20pt \"Segoe UI Variable Display Semib\";\n"
+        self.centralwidget.setStyleSheet(u"/* Dark Theme */\n"
+"\n"
+"* {\n"
+"    /*background-color: #1b1b1b;*/\n"
+"    font: 600 20pt \"Consolas\";\n"
 "    color: #e0e0e0;\n"
 "}\n"
 "\n"
@@ -48,7 +52,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#mainFrame {\n"
-"    border: 2px solid #1e1e1e;	\n"
+"    border: 2px solid #202326;	\n"
 "	border-radius: 7px;\n"
 "}\n"
 "\n"
@@ -68,7 +72,7 @@ class Ui_MainWindow(object):
 "	\n"
 "    padding: 7px;\n"
 "    image-position: left center;\n"
-"    font: 600 14pt \"Segoe UI Variable Display Semib\";\n"
+"    font:  13pt \"Consolas\";\n"
 "    color: #ffffff;\n"
 "}\n"
 "\n"
@@ -82,10 +86,10 @@ class Ui_MainWindow(object):
 "	\n"
 "	image: url(:/dark/dark/home_48_regular.svg);\n"
 "}\n"
-""
-                        "\n"
+"\n"
 "#theme_btn {\n"
-"    \n"
+""
+                        "    \n"
 "	image: url(:/dark/dark/weather_sunny_48_regular.svg);\n"
 "}\n"
 "\n"
@@ -96,16 +100,16 @@ class Ui_MainWindow(object):
 "\n"
 "#stg_lbl_main {\n"
 "    padding-left: 4px;\n"
-"    font: 700 24pt \"Segoe UI Variable Display\";\n"
+"    font: 700 24pt \"Consolas\";\n"
 "}\n"
 "\n"
 "#stack_stg .QWidget {\n"
 "    border-radius: 8px;\n"
-"    background-color: #4a4a4a; /* Updated for better contrast */\n"
+"    background-color: #4a4a4a;\n"
 "}\n"
 "\n"
 "#stg_home_app_bt_lbl {\n"
-"    font: 600 13pt \"Segoe UI Variable Display Semib\";\n"
+"    font: 600 13pt \"Consolas Semib\";\n"
 "    padding-left: 16px;\n"
 "}\n"
 "\n"
@@ -114,33 +118,33 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#stg_home_app_hd_lbl {\n"
-"    font: 900 16pt \"Segoe UI Black\";\n"
+"    font: 900 16pt \"Consolas\";\n"
 "    padding-left: 2px;\n"
 "}\n"
 "\n"
 "#stg_home_app_img_btn {\n"
-"    font: 600 14pt \"Segoe UI Variable Display Semib\";\n"
+"    font: 600 14pt \"Consolas\";\n"
 "    padding-left: 4px;\n"
 "	border: 0px;\n"
 "}\n"
 "\n"
 "#stg_home_info_bt_lbl {\n"
-"    font: 600 13pt \"Segoe UI Variable Display Semib\";\n"
+"    font: 600 13pt \"Consolas\";\n"
 "    padding-left: 16px;\n"
 "}\n"
 "\n"
-"#stg_home_info"
-                        "_img_lbl {\n"
+"#stg_home_info_img_lbl {\n"
 "    padding: 17px;\n"
 "}\n"
 "\n"
 "#stg_home_info_hd_lbl {\n"
-"    font: 900 16pt \"Segoe UI Black\";\n"
+"    font: 900 16pt \"Consolas\";\n"
 "    padding-left: 2px;\n"
-"}\n"
+"}"
+                        "\n"
 "\n"
 "#stg_home_info_img_btn {\n"
-"    font: 600 14pt \"Segoe UI Variable Display Semib\";\n"
+"    font: 600 14pt \"Consolas\";\n"
 "    padding-left: 4px;\n"
 "	border: 0px;\n"
 "}\n"
@@ -174,6 +178,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setContentsMargins(0, 7, 7, 7)
         self.leftMenu = QFrame(self.centralwidget)
         self.leftMenu.setObjectName(u"leftMenu")
+        self.leftMenu.setMinimumSize(QSize(50, 0))
         self.leftMenu.setMaximumSize(QSize(50, 16777215))
         self.leftMenu.setStyleSheet(u"")
         self.verticalLayout = QVBoxLayout(self.leftMenu)
@@ -241,6 +246,36 @@ class Ui_MainWindow(object):
         self.home_page = QWidget()
         self.home_page.setObjectName(u"home_page")
         self.home_page.setStyleSheet(u"")
+        self.verticalLayout_3 = QVBoxLayout(self.home_page)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.scrollArea_2 = QScrollArea(self.home_page)
+        self.scrollArea_2.setObjectName(u"scrollArea_2")
+        self.scrollArea_2.setStyleSheet(u"")
+        self.scrollArea_2.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_2 = QWidget()
+        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 721, 564))
+        self.verticalLayout_5 = QVBoxLayout(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.comboBox = QComboBox(self.scrollAreaWidgetContents_2)
+        self.comboBox.setObjectName(u"comboBox")
+
+        self.verticalLayout_5.addWidget(self.comboBox)
+
+        self.radioButton_2 = QRadioButton(self.scrollAreaWidgetContents_2)
+        self.radioButton_2.setObjectName(u"radioButton_2")
+
+        self.verticalLayout_5.addWidget(self.radioButton_2)
+
+        self.checkBox_2 = QCheckBox(self.scrollAreaWidgetContents_2)
+        self.checkBox_2.setObjectName(u"checkBox_2")
+
+        self.verticalLayout_5.addWidget(self.checkBox_2)
+
+        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
+
+        self.verticalLayout_3.addWidget(self.scrollArea_2)
+
         self.switchPage.addWidget(self.home_page)
         self.settings_page = QWidget()
         self.settings_page.setObjectName(u"settings_page")
@@ -286,8 +321,35 @@ class Ui_MainWindow(object):
         self.switchPage.addWidget(self.settings_page)
         self.info_page = QWidget()
         self.info_page.setObjectName(u"info_page")
-        self.verticalLayout_3 = QVBoxLayout(self.info_page)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.scrollArea = QScrollArea(self.info_page)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setGeometry(QRect(420, 130, 261, 321))
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 261, 321))
+        self.lineEdit = QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit.setGeometry(QRect(30, 60, 201, 51))
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.tabWidget = QTabWidget(self.info_page)
+        self.tabWidget.setObjectName(u"tabWidget")
+        self.tabWidget.setGeometry(QRect(50, 30, 351, 451))
+        self.tab = QWidget()
+        self.tab.setObjectName(u"tab")
+        self.checkBox = QCheckBox(self.tab)
+        self.checkBox.setObjectName(u"checkBox")
+        self.checkBox.setGeometry(QRect(60, 120, 241, 71))
+        self.radioButton = QRadioButton(self.tab)
+        self.radioButton.setObjectName(u"radioButton")
+        self.radioButton.setGeometry(QRect(80, 240, 151, 61))
+        self.pushButton = QPushButton(self.tab)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(50, 50, 171, 61))
+        self.tabWidget.addTab(self.tab, "")
+        self.tab_2 = QWidget()
+        self.tab_2.setObjectName(u"tab_2")
+        self.tabWidget.addTab(self.tab_2, "")
         self.switchPage.addWidget(self.info_page)
 
         self.verticalLayout_2.addWidget(self.switchPage)
@@ -299,8 +361,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.switchPage.setCurrentIndex(1)
+        self.switchPage.setCurrentIndex(0)
         self.setting_stackfrm.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -324,6 +387,14 @@ class Ui_MainWindow(object):
         self.settings_btn.setToolTip(QCoreApplication.translate("MainWindow", u"Settings", None))
 #endif // QT_CONFIG(tooltip)
         self.settings_btn.setText("")
+        self.radioButton_2.setText(QCoreApplication.translate("MainWindow", u"RadioButton", None))
+        self.checkBox_2.setText(QCoreApplication.translate("MainWindow", u"CheckBox", None))
         self.stg_lbl_main.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
+        self.lineEdit.setText("")
+        self.checkBox.setText(QCoreApplication.translate("MainWindow", u"CheckBox", None))
+        self.radioButton.setText(QCoreApplication.translate("MainWindow", u"RadioButton", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Tab 1", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Tab 2", None))
     # retranslateUi
 

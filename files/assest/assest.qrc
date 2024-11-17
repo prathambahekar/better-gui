@@ -954,6 +954,44 @@
     <file>dark/xbox_controller_error_48_filled.svg</file>
     <file>dark/xbox_controller_error_48_regular.svg</file>
   </qresource>
+  <qresource prefix="icons">
+    <file>icons/img dark/CheckBox.png</file>
+    <file>icons/img dark/CheckBoxPressed.png</file>
+    <file>icons/img dark/ComboBox.png</file>
+    <file>icons/img dark/ComboBoxDisabled.png</file>
+    <file>icons/img dark/NextMonth.png</file>
+    <file>icons/img dark/NextMonthDisabled.png</file>
+    <file>icons/img dark/PrevMonth.png</file>
+    <file>icons/img dark/PrevMonthDisabled.png</file>
+    <file>icons/img dark/RadioButton.png</file>
+    <file>icons/img dark/RadioButtonHover.png</file>
+    <file>icons/img dark/RadioButtonPressed.png</file>
+    <file>icons/img dark/ScrollBottom.png</file>
+    <file>icons/img dark/ScrollBottomHover.png</file>
+    <file>icons/img dark/ScrollBottomPressed.png</file>
+    <file>icons/img dark/ScrollLeft.png</file>
+    <file>icons/img dark/ScrollLeftHover.png</file>
+    <file>icons/img dark/ScrollLeftPressed.png</file>
+    <file>icons/img dark/ScrollRight.png</file>
+    <file>icons/img dark/ScrollRightHover.png</file>
+    <file>icons/img dark/ScrollRightPressed.png</file>
+    <file>icons/img dark/ScrollTop.png</file>
+    <file>icons/img dark/ScrollTopHover.png</file>
+    <file>icons/img dark/ScrollTopPressed.png</file>
+    <file>icons/img dark/SpinBoxDown.png</file>
+    <file>icons/img dark/SpinBoxDownDisabled.png</file>
+    <file>icons/img dark/SpinBoxUp.png</file>
+    <file>icons/img dark/SpinBoxUpDisabled.png</file>
+    <file>icons/img dark/ToggleSwitchDisabled.png</file>
+    <file>icons/img dark/ToggleSwitchOff.png</file>
+    <file>icons/img dark/ToggleSwitchOffHover.png</file>
+    <file>icons/img dark/ToggleSwitchOffPressed.png</file>
+    <file>icons/img dark/ToggleSwitchOn.png</file>
+    <file>icons/img dark/ToggleSwitchOnHover.png</file>
+    <file>icons/img dark/ToggleSwitchOnPressed.png</file>
+    <file>icons/img dark/TreeViewClose.png</file>
+    <file>icons/img dark/TreeViewOpen.png</file>
+  </qresource>
   <qresource prefix="light">
     <file>light/calendar_shield_48_filled.svg</file>
     <file>light/calendar_shield_48_regular.svg</file>
@@ -1908,5 +1946,43 @@
     <file>light/xbox_controller_48_regular.svg</file>
     <file>light/xbox_controller_error_48_filled.svg</file>
     <file>light/xbox_controller_error_48_regular.svg</file>
+  </qresource>
+  <qresource prefix="icons">
+    <file>icons/img dark/CheckBox.png</file>
+    <file>icons/img dark/CheckBoxPressed.png</file>
+    <file>icons/img dark/ComboBox.png</file>
+    <file>icons/img dark/ComboBoxDisabled.png</file>
+    <file>icons/img dark/NextMonth.png</file>
+    <file>icons/img dark/NextMonthDisabled.png</file>
+    <file>icons/img dark/PrevMonth.png</file>
+    <file>icons/img dark/PrevMonthDisabled.png</file>
+    <file>icons/img dark/RadioButton.png</file>
+    <file>icons/img dark/RadioButtonHover.png</file>
+    <file>icons/img dark/RadioButtonPressed.png</file>
+    <file>icons/img dark/ScrollBottom.png</file>
+    <file>icons/img dark/ScrollBottomHover.png</file>
+    <file>icons/img dark/ScrollBottomPressed.png</file>
+    <file>icons/img dark/ScrollLeft.png</file>
+    <file>icons/img dark/ScrollLeftHover.png</file>
+    <file>icons/img dark/ScrollLeftPressed.png</file>
+    <file>icons/img dark/ScrollRight.png</file>
+    <file>icons/img dark/ScrollRightHover.png</file>
+    <file>icons/img dark/ScrollRightPressed.png</file>
+    <file>icons/img dark/ScrollTop.png</file>
+    <file>icons/img dark/ScrollTopHover.png</file>
+    <file>icons/img dark/ScrollTopPressed.png</file>
+    <file>icons/img dark/SpinBoxDown.png</file>
+    <file>icons/img dark/SpinBoxDownDisabled.png</file>
+    <file>icons/img dark/SpinBoxUp.png</file>
+    <file>icons/img dark/SpinBoxUpDisabled.png</file>
+    <file>icons/img dark/ToggleSwitchDisabled.png</file>
+    <file>icons/img dark/ToggleSwitchOff.png</file>
+    <file>icons/img dark/ToggleSwitchOffHover.png</file>
+    <file>icons/img dark/ToggleSwitchOffPressed.png</file>
+    <file>icons/img dark/ToggleSwitchOn.png</file>
+    <file>icons/img dark/ToggleSwitchOnHover.png</file>
+    <file>icons/img dark/ToggleSwitchOnPressed.png</file>
+    <file>icons/img dark/TreeViewClose.png</file>
+    <file>icons/img dark/TreeViewOpen.png</file>
   </qresource>
 </RCC>

@@ -23,9 +23,10 @@
    <property name="styleSheet">
     <string notr="true">/* Light Theme */
 
+
 * {
-	background-color : #f3f3f3;
-	font: 600 20pt &quot;Segoe UI Variable Display Semib&quot;;
+	/*background-color : #f3f3f3;*/
+	font: 600 20pt &quot;Consolas&quot;;
 	color : #202325;
 }
 
@@ -99,16 +100,16 @@
 
 #stg_lbl_main {
     padding-left: 4px;
-    font: 700 24pt &quot;Segoe UI Variable Display&quot;;
+    font: 700 24pt &quot;Consolas&quot;;
 }
 
 #stg_home_app_bt_lbl {
-    font: 600 13pt &quot;Segoe UI Variable Display Semib&quot;;
+    font: 600 13pt &quot;Consolas&quot;;
     padding-left: 16px;
 }
 
 #stg_home_app_hd_lbl {
-    font: 900 16pt &quot;Segoe UI Black&quot;;
+    font: 900 16pt &quot;Consolas&quot;;
     padding-left: 2px;
 }
 
@@ -130,8 +131,11 @@
 
 #stack_stg .QWidget {
     border-radius: 8px;
-    background-color: #e5e5e5; /* Updated for better contrast */
-}</string>
+    background-color: #e5e5e5;
+}
+
+
+</string>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <property name="spacing">
@@ -153,7 +157,7 @@
      <widget class="QFrame" name="leftMenu">
       <property name="minimumSize">
        <size>
-        <width>300</width>
+        <width>50</width>
         <height>0</height>
        </size>
       </property>
@@ -228,7 +232,7 @@
           <string notr="true"/>
          </property>
          <property name="text">
-          <string>Home</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -331,12 +335,53 @@
           <string notr="true"/>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="home_page">
           <property name="styleSheet">
            <string notr="true"/>
           </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QScrollArea" name="scrollArea_2">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="widgetResizable">
+              <bool>true</bool>
+             </property>
+             <widget class="QWidget" name="scrollAreaWidgetContents_2">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>721</width>
+                <height>564</height>
+               </rect>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_5">
+               <item>
+                <widget class="QComboBox" name="comboBox"/>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="radioButton_2">
+                 <property name="text">
+                  <string>Dark theme</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="checkBox_2">
+                 <property name="text">
+                  <string>CheckBox</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="settings_page">
           <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -429,7 +474,104 @@
           </layout>
          </widget>
          <widget class="QWidget" name="info_page">
-          <layout class="QVBoxLayout" name="verticalLayout_3"/>
+          <widget class="QScrollArea" name="scrollArea">
+           <property name="geometry">
+            <rect>
+             <x>420</x>
+             <y>130</y>
+             <width>261</width>
+             <height>321</height>
+            </rect>
+           </property>
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="scrollAreaWidgetContents">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>261</width>
+              <height>321</height>
+             </rect>
+            </property>
+            <widget class="QLineEdit" name="lineEdit">
+             <property name="geometry">
+              <rect>
+               <x>30</x>
+               <y>60</y>
+               <width>201</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </widget>
+          </widget>
+          <widget class="QTabWidget" name="tabWidget">
+           <property name="geometry">
+            <rect>
+             <x>50</x>
+             <y>30</y>
+             <width>351</width>
+             <height>451</height>
+            </rect>
+           </property>
+           <property name="currentIndex">
+            <number>1</number>
+           </property>
+           <widget class="QWidget" name="tab">
+            <attribute name="title">
+             <string>Tab 1</string>
+            </attribute>
+            <widget class="QCheckBox" name="checkBox">
+             <property name="geometry">
+              <rect>
+               <x>60</x>
+               <y>120</y>
+               <width>241</width>
+               <height>30</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>CheckBox</string>
+             </property>
+            </widget>
+            <widget class="QRadioButton" name="radioButton">
+             <property name="geometry">
+              <rect>
+               <x>80</x>
+               <y>240</y>
+               <width>151</width>
+               <height>30</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>RadioButton</string>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="pushButton">
+             <property name="geometry">
+              <rect>
+               <x>50</x>
+               <y>50</y>
+               <width>171</width>
+               <height>61</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+           </widget>
+           <widget class="QWidget" name="tab_2">
+            <attribute name="title">
+             <string>Tab 2</string>
+            </attribute>
+           </widget>
+          </widget>
          </widget>
         </widget>
        </item>
