@@ -126,6 +126,11 @@ class UIFunctions(MainWindow):
 			WindowIcon.addFile("icon.ico")
 			self.setWindowIcon(WindowIcon)
 
+		# setting mica effect
+		if Data["app"]["theme"]["mica"]["enabled"]:
+			self.setAttribute(Qt.WA_TranslucentBackground)
+			ApplyMica(self.winId(), MicaTheme.AUTO, MicaStyle.DEFAULT)
+
 		# from files.ui.blurwindow import ExtendFrameIntoClientArea, GlobalBlur
 		# # from PySide6.QtWinExtras import QtWin
 		# if Data["app"]["theme"]["mica"]["enabled"] == True:
