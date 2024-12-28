@@ -9,6 +9,7 @@ from files.ui.ui_main import Ui_MainWindow
 
 # importing app files
 # from files.app.app_functions import AppFunctions
+from files.app.app_functions import AppFunctions
 
 class MainWindow(QMainWindow):
 	def __init__(self):
@@ -23,6 +24,8 @@ class MainWindow(QMainWindow):
 
 		# Applying App Settings
 		# AppFunctions.Setup_App(self)
+
+		AppFunctions.printline(5)
 
 		self.show()
 		

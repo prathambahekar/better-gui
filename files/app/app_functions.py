@@ -1,5 +1,8 @@
-from main import *
+
 
 # setting function for app
-class AppFunctions(MainWindow):
-    pass
+class AppFunctions():
+    
+    def printline(n):
+        for i in n:
+            print("*")
