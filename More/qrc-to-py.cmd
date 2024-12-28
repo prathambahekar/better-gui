@@ -1,1 +1,0 @@
-pyside6-rcc icons.qrc -o icons_rc.py
