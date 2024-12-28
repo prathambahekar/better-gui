@@ -1,18 +1,25 @@
 from main import *
 import json
 import os
+# module to detect dark mode
 import darkdetect
+# module to edit/read registory
 from winreg import *
+
+# import dark and light theme
 from files.ui.themes.dark import UIDark
 from files.ui.themes.light import UILight
 
+# load main setting
 load_settings = open("settings.json")
 Data = json.load(load_settings) 
+
+# default theme 
 defaultTheme = Data["app"]["theme"]["type"]
 # print(defaultTheme)
 
 class UIFunctions(MainWindow):
-
+	# set theme of window
 	def SetTheme(self):
 		global defaultTheme  # Declare defaultTheme as global
 
@@ -30,7 +37,8 @@ class UIFunctions(MainWindow):
 			UIDark.SetStyleSheetDark(self)
 			if Data["app"]["theme"]["mica"]["enabled"]:
 				ApplyMica(self.winId(), MicaTheme.DARK, MicaStyle.DEFAULT)
-		
+	
+	# switch theme
 	def SwitchTheme(self):
 		global defaultTheme
 
@@ -51,6 +59,7 @@ class UIFunctions(MainWindow):
 				ApplyMica(self.winId(), MicaTheme.DARK, MicaStyle.DEFAULT)
 			defaultTheme = "light"  # Change to light theme for next call
 
+	# slider for left menu (with animation)
 	def ToggleMenu(self, min, max):
 
 		presentWidth = self.ui.leftMenu.width()
@@ -82,7 +91,7 @@ class UIFunctions(MainWindow):
 		self.animation.setEasingCurve(QEasingCurve.InOutQuart)
 		self.animation.start()
 	
-	
+	# setting up all ui functions
 	def Setup_GUI(self):
 
 		# set window title
@@ -100,16 +109,17 @@ class UIFunctions(MainWindow):
 		if Data["app"]["window"]["size"]["isMaximized"] != False:
 			self.setMaximumSize(Data["app"]["window"]["size"]["max"][0], Data["app"]["window"]["size"]["max"][1])
 			
-
+		# left bar click (change pages)
 		self.ui.home_btn.clicked.connect(lambda : self.ui.switchPage.setCurrentIndex(0))
 		self.ui.settings_btn.clicked.connect(lambda : self.ui.switchPage.setCurrentIndex(1))
 
-		
-
+		# theme change btn
 		self.ui.theme_btn.clicked.connect(lambda : UIFunctions.SwitchTheme(self))
 
+		# left bar toggle btn (min or max)
 		self.ui.menu_btn.clicked.connect(lambda : UIFunctions.ToggleMenu(self, 50, 300))
 		
+		# setting custom icon for app
 		customIcon = Data["app"]["icon"]["custom"]
 		if customIcon == True:
 			WindowIcon = QIcon()
@@ -129,7 +139,9 @@ class UIFunctions(MainWindow):
 		# 	# 	QtWin.resetExtendedFrame(self)
 
 		# 	# ExtendFrameIntoClientArea(hwnd)
-			ApplyMica(self.winId(), MicaTheme.AUTO, MicaStyle.DEFAULT)
+
+		# setting mica effect
+		# ApplyMica(self.winId(), MicaTheme.AUTO, MicaStyle.DEFAULT)
 
 
 

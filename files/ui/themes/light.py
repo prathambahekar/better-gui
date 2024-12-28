@@ -1,8 +1,10 @@
 from main import *
+# module to edit/read registory
 from winreg import *
 
+# setting light theme
 class UILight(MainWindow):
-   
+    # get default accent color
     def GetAccentColor(self):
         # Connect to the registry and retrieve the accent color
         registry = ConnectRegistry(None, HKEY_CURRENT_USER)
@@ -14,6 +16,7 @@ class UILight(MainWindow):
         accent = accent[4:6] + accent[2:4] + accent[0:2]  # Reorder to RGB
         return 'rgb' + str(tuple(int(accent[i:i + 2], 16) for i in (0, 2, 4)))
 
+    # set light stylesheet
     def SetStyleSheetLight(self):
         # Define color variables
         background_color = "transparent"
