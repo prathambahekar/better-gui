@@ -1,34 +1,37 @@
-# Application Overview
+# Secure Vault
 
-This is a GUI application built using PySide6, a Python binding for the Qt application framework. The application loads settings from a JSON file and applies them to the user interface.
+A Python application for securely managing files with encryption, secure deletion, and dynamic theme support. Built with PyQt6, it provides a user-friendly interface and integrates with system themes using `darkdetect`.
 
-## Files and Modules
+## Features
+- **File Encryption/Decryption**: Encrypt and decrypt files or directories using a password-derived key with Fernet (symmetric encryption).
+- **Secure Deletion**: Overwrite files with random data before deletion to prevent recovery.
+- **Access Logging**: Log actions in an encrypted file for audit purposes.
+- **Locked Items Management**: Store and manage a list of locked items in an encrypted JSON file.
+- **Dynamic Theme Support**: Automatically adjust the UI theme (dark/light) based on the system theme using `darkdetect`.
+- **Cross-Platform**: Primarily designed for Windows, with potential for broader compatibility.
 
-The application consists of the following files and modules:
-- `ui_functions.py`: Contains utility functions for setting up and customizing the GUI.
-- `ui_main.py`: Contains the UI definition for the main application window.
-- `core.py`: Contains core application logic (not shown in the provided code snippet).
-- `settings.json`: Contains application settings in JSON format.
-- `main.py`: Initializes the application and sets up the GUI.
+## Requirements
+- Python 3.11.0
+- PyQt6
+- cryptography
+- darkdetect
 
-## Main Application File (`main.py`)
+Install dependencies via pip:
 
-The main application file, `main.py`, is responsible for initializing the application and setting up the GUI. Here's a breakdown of the code:
+```bash
+pip install PyQt6 cryptography darkdetect
+```
+```bash
+secure-file-manager/
+│
+├── files/
+│   ├── app/
+│   │   ├── config.py       # Configuration settings (MASTER_KEY_FILE, SECURE_DIR, etc.)
 
-1. **Import Modules**: The first line imports the necessary modules: `ui_functions` for GUI utility functions, `ui_main` for the UI definition, and `json` for loading settings from the `settings.json` file.
-2. **Load Settings**: The `acess_settings` variable is opened, and the `Data` variable is loaded with the contents of the `settings.json` file using the `json.load()` function.
-3. **Define MainWindow Class**: The `MainWindow` class is defined, which inherits from `QMainWindow`. This class represents the main application window.
-4. **Initialize MainWindow**: In the `__init__` method, the `QMainWindow` constructor is called, and the `ui` attribute is set to an instance of `Ui_MainWindow`, which is the UI definition for the main window.
-5. **Setup UI**: The `setupUi` method is called to set up the GUI, and the `Setup_GUI` function from `ui_functions` is called to apply settings to the GUI.
-6. **Show Window**: The `show` method is called to display the window, and the `SetTheme` function from `ui_functions` is called to set the theme for the application.
-7. **Start Application**: In the `if __name__ == "__main__":` block, the application is initialized by creating a `QApplication` instance and passing the command-line arguments to it. An instance of the `MainWindow` class is created, and the `exec_` method is called to start the application's event loop.
-
-## Settings Menu Screenshot
-
-![Light Theme](https://github.com/prathambahekar/better-gui/blob/master/files/more/img/light-theme.png)
-![Dark Theme](https://github.com/prathambahekar/better-gui/blob/master/files/more/img/dark-theme.png)
-## Notes
-
-- This application uses PySide6, which is a Python binding for the Qt application framework.
-- The `core` module is not shown in the provided code snippet, but it is likely to contain core application logic.
-- The `settings.json` file is not shown in the provided code snippet, but it should contain application settings in JSON format.
+│   │   └── data/          # Directory for storing encrypted files and logs
+│   └── main.py            # Main application logic
+│
+└── README.md              # This file
+```
+![Screenshot 2025-02-23 175324](https://github.com/user-attachments/assets/1c5fb887-b63d-4a75-b9c1-d00577930d3a)
+![Screenshot 2025-02-23 175315](https://github.com/user-attachments/assets/cc3808b1-bd35-4efa-9b1a-c0de345cf5c7)

@@ -1,1 +1,0 @@
-pyside6-rcc assest.qrc -o assest_rc.py
