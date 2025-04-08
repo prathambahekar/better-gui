@@ -1,18 +1,19 @@
 # main.py
 from PyQt6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QStackedWidget
 from PyQt6.QtCore import Qt
-import os
-import shutil
-import uuid
-import hashlib
-import base64
-import darkdetect
 from files.gui.modules import *
 from files.app.app_functions import *
 import files.app.config as config
 from files.gui.ui_components import *
 from files.gui.pages.home import HomePage
 from files.gui.pages.settings import SettingsPage
+from PyQt6.QtGui import QIcon
+import os
+import shutil
+import uuid
+import hashlib
+import base64
+import darkdetect
 
 theme_dark = config.STYLE_CONFIG_DARK
 theme_light = config.STYLE_CONFIG_LIGHT
@@ -25,6 +26,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle(config.SETTINGS["app"]["name"])
+        # self.setWindowIcon(QIcon("icon.png"))
         self.setGeometry(100, 100, 700, 500)
 
         
@@ -34,23 +36,23 @@ class MainWindow(QMainWindow):
             # print(config_theme)
         elif config_theme == "dark":
             self.current_theme = theme_dark
-            # try:
-            #     if is_mica:
-            #         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
-            #         ApplyMica(self.winId(), MicaTheme.AUTO, MicaStyle.)
-            # except Exception as e:
-            #     print(f"Failed to apply Mica effect: {e}")
-            #     self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, False)
+            try:
+                if is_mica:
+                    self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
+                    ApplyMica(self.winId(), MicaTheme.AUTO, MicaStyle.DEFAULT)
+            except Exception as e:
+                print(f"Failed to apply Mica effect: {e}")
+                self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, False)
 
         else:
             self.current_theme = theme_light
-            # try:
-            #     if is_mica:
-            #         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
-            #         ApplyMica(self.winId(), MicaTheme.AUTO, MicaStyle.LIGHT)
-            # except Exception as e:
-            #     print(f"Failed to apply Mica effect: {e}")
-            #     self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, False)
+            try:
+                if is_mica:
+                    self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
+                    ApplyMica(self.winId(), MicaTheme.AUTO, MicaStyle.DEFAULT)
+            except Exception as e:
+                print(f"Failed to apply Mica effect: {e}")
+                self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, False)
             
         self.setup_ui()
 
@@ -101,21 +103,29 @@ class MainWindow(QMainWindow):
         # self.current_theme = theme_light if self.current_theme == theme_dark else theme_dark
         self.home_page.apply_theme(self.current_theme)
 
-
         self.stack_widget.setStyleSheet(
     f"background-color: {self.current_theme['secondary_bg']}; "
     "border-radius: 5px;"
 )
-        
         
         self.settings_page.apply_theme(self.current_theme)
         self.setStyleSheet(f"background-color: {self.current_theme['bg_color']};")
         if is_menubar:
             self.menu_bar.update_theme(self.current_theme)
 
+        self.sidebar.set_theme("light") if self.current_theme == theme_light else self.sidebar.set_theme("dark")
+
+        
+
+        
+
     def toggle_theme(self):
         self.current_theme = theme_light if self.current_theme == theme_dark else theme_dark
         self.home_page.theme_toggle.setText("Dark" if self.current_theme == theme_light else "Light")
+
+        self.sidebar.set_theme("light") if self.current_theme == theme_light else self.sidebar.set_theme("dark")
+
+
         self.apply_theme()
         if os.name == "nt":
             try:
@@ -127,6 +137,7 @@ class MainWindow(QMainWindow):
             except Exception as e:
                 print(f"Failed to update Mica theme: {e}")
 
+        
 
 
 if __name__ == "__main__":

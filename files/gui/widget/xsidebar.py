@@ -1,214 +1,182 @@
-from PyQt6.QtWidgets import QFrame, QVBoxLayout, QPushButton, QApplication, QMainWindow, QWidget, QHBoxLayout
-from PyQt6.QtCore import QSize, Qt, QPropertyAnimation
-from PyQt6.QtGui import QIcon
+from PyQt6.QtWidgets import QFrame, QVBoxLayout, QPushButton
+from PyQt6.QtGui import QPainter, QIcon, QPixmap
+from PyQt6.QtCore import QSize, Qt, QPropertyAnimation, QByteArray
+from PyQt6.QtSvg import QSvgRenderer
+import re
 import files.app.config as config
 import darkdetect
 
+def get_theme_config(mode: str):
+    style_config = config.STYLE_CONFIG_DARK if mode == "dark" else config.STYLE_CONFIG_LIGHT
+    return {
+        "bg_color": style_config["bg_color"],
+        "text_color": style_config["text_color"],
+        "button_bg": style_config["bg_color"],
+        "button_hover": style_config["hover_bg"],
+        "button_pressed": style_config["secondary_bg"],
+        "font_family": style_config["font_family"],
+        "font_size_medium": style_config["font_size_medium"],
+        "separator_color": '#555555' if mode == "dark" else '#cccccc',
+        "icon_color": '#f7f7f7' if mode == "dark" else '#1a1a1a'
+    }
+
+def change_svg_color(svg_data: str, new_color: str) -> str:
+    return re.sub(r'fill=["\']#[0-9a-fA-F]{3,6}["\']', f'fill="{new_color}"', svg_data)
+
 class SidebarButton(QPushButton):
-    """
-    A custom push button for the sidebar, supporting expanded and collapsed states with SVG icons.
-    """
-    def __init__(self, icon=None, expanded_icon=None, full_text=None, is_toggle=False, theme=None, parent=None):
-        """
-        Initialize the sidebar button.
-        """
+    def __init__(self, icon_path=None, expanded_icon_path=None, full_text="", is_toggle=False, parent=None, theme=None):
         super().__init__(parent)
-        self.icon = icon
-        self.expanded_icon = expanded_icon
+        self.icon_path = icon_path
+        self.expanded_icon_path = expanded_icon_path or icon_path
         self.full_text = full_text
         self.is_toggle = is_toggle
-        self.theme = theme if theme else {}
-        self.update_theme_colors()
-        self.setIconSize(QSize(26, 26))  # Consistent icon size
-        self.apply_style()  # Apply style with centered icon by default
-        self.set_expanded(False)  # Initially collapsed
+        self.theme = theme or get_theme_config("dark")
 
-    def update_theme_colors(self):
-        """Update theme colors based on dark/light mode."""
-        self.theme['button_bg'] = config.STYLE_CONFIG_DARK["bg_color"] if darkdetect.isDark() else config.STYLE_CONFIG_LIGHT["bg_color"]
-        self.theme['text_color'] = config.STYLE_CONFIG_LIGHT["selected_text_color"] if darkdetect.isDark() else config.STYLE_CONFIG_DARK["selected_text_color"]
-        self.theme['button_hover'] = config.STYLE_CONFIG_DARK["def_bg"] if darkdetect.isDark() else config.STYLE_CONFIG_LIGHT["def_bg"]
-        self.theme['button_pressed'] = config.STYLE_CONFIG_DARK["secondary_bg"] if darkdetect.isDark() else config.STYLE_CONFIG_LIGHT["secondary_bg"]
-        self.theme['font_family'] = config.STYLE_CONFIG_DARK["font_family"] if darkdetect.isDark() else config.STYLE_CONFIG_LIGHT["font_family"]
-        self.theme['font_size_medium'] = config.STYLE_CONFIG_DARK["font_size_medium"] if darkdetect.isDark() else config.STYLE_CONFIG_LIGHT["font_size_medium"]
+        self.setIconSize(QSize(26, 26))
+        self.setFixedHeight(50)
+        self.set_expanded(False)
+        self.apply_style(False)
 
-    def apply_style(self, text_left=False):
-        """Apply stylesheet based on the current theme, with centered icon by default."""
-        alignment = "left" if text_left else "center"
+    def apply_style(self, expanded: bool):
+        alignment = "left" if expanded and not self.is_toggle else "center"
         self.setStyleSheet(f"""
             QPushButton {{
-                background-color: {self.theme.get('button_bg', 'transparent')};
-                color: {self.theme.get('text_color', '#000000')};
+                background-color: {self.theme["button_bg"]};
+                color: {self.theme["text_color"]};
                 border: none;
                 border-radius: 5px;
                 padding: 5px;
-                font: {self.theme['font_size_medium']} "{self.theme['font_family']}";
+                font: {self.theme["font_size_medium"]} "{self.theme["font_family"]}";
                 margin: 2px;
                 text-align: {alignment};
             }}
             QPushButton:hover {{
-                background-color: {self.theme.get('button_hover', '#2d2d2d')};
+                background-color: {self.theme["button_hover"]};
             }}
             QPushButton:pressed {{
-                background-color: {self.theme.get('button_pressed', 'rgba(0, 0, 0, 60)')};
+                background-color: {self.theme["button_pressed"]};
             }}
         """)
+        self.update_icon(expanded)
 
-    def update_theme(self, new_theme):
-        """Update the button's theme and reapply styles."""
-        self.theme = new_theme
-        self.update_theme_colors()
-        self.apply_style()
+    def update_icon(self, expanded: bool):
+        path = self.expanded_icon_path if expanded and self.is_toggle else self.icon_path
+        if path:
+            with open(path, "r", encoding="utf-8") as f:
+                svg_data = f.read()
+            colored_svg = change_svg_color(svg_data, self.theme["icon_color"])
+            renderer = QSvgRenderer(QByteArray(colored_svg.encode('utf-8')))
+            pixmap = QPixmap(QSize(26, 26))
+            pixmap.fill(Qt.GlobalColor.transparent)
+            painter = QPainter(pixmap)
+            renderer.render(painter)
+            painter.end()
+            self.setIcon(QIcon(pixmap))
 
-    def set_expanded(self, expanded):
-        """
-        Set the button's icon and text based on the expanded state.
-        """
+    def set_expanded(self, expanded: bool):
         if self.is_toggle:
-            self.setIcon(self.expanded_icon if expanded else self.icon)
-            self.setText("")  # Toggle button uses icon only
-            self.apply_style(text_left=False)  # Keep icon centered
+            self.setText("")
         else:
-            self.setIcon(self.icon)
+            self.setIcon(QIcon())
             self.setText(self.full_text if expanded else "")
-            self.apply_style(text_left=expanded)  # Left-align only when text is present
+            self.setToolTip(self.full_text)
+        self.update_icon(expanded)
 
 class xSidebar(QFrame):
-    """
-    A collapsible sidebar with dynamically added buttons using SVG icons.
-    Supports theming based on dark/light mode and top/bottom button placement.
-    """
-    def __init__(self, parent=None, theme=None):
-        """
-        Initialize the sidebar.
-
-        Parameters:
-        - parent (QWidget): Parent widget.
-        - theme (dict): Theme configuration for styling.
-        """
+    def __init__(self, parent=None, theme_mode=None):
         super().__init__(parent)
-        self.theme = theme if theme is not None else {}
-        self.update_theme_colors()
+        self.theme_mode = theme_mode or ("dark" if darkdetect.isDark() else "light")
+        self.theme = get_theme_config(self.theme_mode)
+
         self.is_expanded = False
         self.min_width = 50
-        self.max_width = 250
-        self.setMinimumWidth(self.min_width)
-        self.setMaximumWidth(self.max_width)
-        self.setup_ui()
-        self.apply_theme()
+        self.max_width = 220
 
-    def update_theme_colors(self):
-        """Update theme colors based on dark/light mode."""
-        self.theme['bg_color'] = config.STYLE_CONFIG_DARK["bg_color"] if darkdetect.isDark() else config.STYLE_CONFIG_LIGHT["bg_color"]
-        self.theme['text_color'] = config.STYLE_CONFIG_DARK["selected_text_color"] if darkdetect.isDark() else config.STYLE_CONFIG_LIGHT["selected_text_color"]
-        # Optional: Define separator color in theme
-        self.theme['separator_color'] = '#555555' if darkdetect.isDark() else '#cccccc'
-
-    def setup_ui(self):
-        """Set up the sidebar's UI with a toggle button and dynamic buttons."""
-        self.layout = QVBoxLayout(self)
-        self.layout.setContentsMargins(0, 0, 0, 0)
-        self.layout.setSpacing(0)
-
-        # Create toggle button
-        self.toggle_btn = SidebarButton(
-            icon=QIcon("files\\gui\\icons\\menu.svg"),           # Placeholder for hamburger icon
-            expanded_icon=QIcon("files\\gui\\icons\\menu.svg"), # Placeholder for close icon
-            is_toggle=True,
-            theme=self.theme,
-            parent=self
-        )
-        self.toggle_btn.setFixedHeight(50)
-
-        # Define button configurations with position option
-        self.button_configs = [
-            {"name": "home", "icon": QIcon("files\\gui\\icons\\home.svg"), "full_text": "Home", "position": "top"},
-            {"name": "settings", "icon": QIcon("files\\gui\\icons\\settings.svg"), "full_text": "Settings", "position": "bottom"},
-            # Add more buttons as needed, e.g.,
-            # {"name": "about", "icon": QIcon("files\\gui\\icons\\about.svg"), "full_text": "About", "position": "top"},
-        ]
-
-        # Create and store buttons dynamically
-        self.buttons = {}
-        top_buttons = []
-        bottom_buttons = []
-
-        for config in self.button_configs:
-            btn = SidebarButton(
-                icon=config["icon"],
-                full_text=config["full_text"],
-                theme=self.theme,
-                parent=self
-            )
-            btn.setFixedHeight(50)
-            self.buttons[config["name"]] = btn
-            if config.get("position", "top") == "top":
-                top_buttons.append(btn)
-            else:
-                bottom_buttons.append(btn)
-
-        # Add widgets to the layout
-        self.layout.addWidget(self.toggle_btn)
-        for btn in top_buttons:
-            self.layout.addWidget(btn)
-        self.layout.addStretch()  # Push bottom content down
-
-        if bottom_buttons:
-            # # Create and add separator
-            # self.separator = QFrame()
-            # self.separator.setFrameShape(QFrame.Shape.HLine)  # Fixed previously
-            # self.separator.setFrameShadow(QFrame.Shadow.Sunken)  # Fixed: Use QFrame.Shadow.Sunken
-            # self.separator.setFixedHeight(1)
-            # self.layout.addWidget(self.separator)
-            # Add bottom buttons
-            for btn in bottom_buttons:
-                self.layout.addWidget(btn)
-
-        # Connect toggle button
-        self.toggle_btn.clicked.connect(self.toggle_sidebar)
-
-    def apply_theme(self):
-        """Apply stylesheet to the sidebar and update button themes."""
+        self.setObjectName("xSidebar")
+        self.setFixedWidth(self.min_width)
         self.setStyleSheet(f"""
-            QFrame {{
-                background-color: {self.theme.get('bg_color', 'rgba(243, 243, 243, 180)')};
+            QFrame#xSidebar {{
+                background-color: {self.theme["bg_color"]};
                 border: none;
                 border-radius: 7px;
             }}
         """)
-        for btn in [self.toggle_btn] + list(self.buttons.values()):
-            btn.update_theme(self.theme)
-        if hasattr(self, 'separator') and self.separator:
-            self.separator.setStyleSheet(f"background-color: {self.theme.get('separator_color', '#cccccc')};")
+
+        self._setup_ui()
+
+    def _setup_ui(self):
+        self.layout = QVBoxLayout(self)
+        self.layout.setContentsMargins(0, 0, 0, 0)
+        self.layout.setSpacing(0)
+
+        self.toggle_btn = self._create_button("files/gui/icons/menu.svg", is_toggle=True)
+        self.toggle_btn.clicked.connect(self.toggle_sidebar)
+        self.layout.addWidget(self.toggle_btn)
+
+        self.buttons = {
+            "home": self._create_button("files/gui/icons/home.svg", full_text="Home"),
+            "settings": self._create_button("files/gui/icons/settings.svg", full_text="Settings"),
+        }
+
+        self.layout.addWidget(self.buttons["home"])
+        self.layout.addStretch()
+        self.layout.addWidget(self.buttons["settings"])
+
+    def _create_button(self, icon_path, full_text="", is_toggle=False):
+        return SidebarButton(
+            icon_path=icon_path,
+            full_text=full_text,
+            is_toggle=is_toggle,
+            parent=self,
+            theme=self.theme,
+        )
 
     def toggle_sidebar(self):
-        """Toggle the sidebar between collapsed and expanded states."""
-        present_width = self.width()
-        start_width = present_width
-        end_width = self.max_width if not self.is_expanded else self.min_width
+        target_width = self.max_width if not self.is_expanded else self.min_width
+        self._animate_sidebar(target_width)
 
-        # Create animation for smooth width transition
-        self.animation = QPropertyAnimation(self, b"minimumWidth")
-        self.animation.setDuration(200)
-        self.animation.setStartValue(start_width)
-        self.animation.setEndValue(end_width)
+        self.is_expanded = not self.is_expanded
+        self._update_buttons()
 
-        # Update all buttons based on new state
-        expanded = not self.is_expanded
-        self.toggle_btn.set_expanded(expanded)
+    def _animate_sidebar(self, target_width):
+        animation = QPropertyAnimation(self, b"minimumWidth")
+        animation.setDuration(200)
+        animation.setStartValue(self.width())
+        animation.setEndValue(target_width)
+        animation.start()
+        self.animation = animation
+
+    def _update_buttons(self):
+        self.toggle_btn.set_expanded(self.is_expanded)
+        self.toggle_btn.apply_style(self.is_expanded)
         for btn in self.buttons.values():
-            btn.set_expanded(expanded)
+            btn.set_expanded(self.is_expanded)
+            btn.apply_style(self.is_expanded)
 
-        # Start animation and update state
-        self.animation.start()
-        self.is_expanded = expanded
+    def set_theme(self, theme_mode):
+        self.theme_mode = theme_mode
+        self.theme = get_theme_config(theme_mode)
 
-# Example usage (optional, for testing):
+        self.setStyleSheet(f"""
+            QFrame#xSidebar {{
+                background-color: {self.theme["bg_color"]};
+                border: none;
+                border-radius: 7px;
+            }}
+        """)
+
+        self.toggle_btn.theme = self.theme
+        self.toggle_btn.apply_style(self.is_expanded)
+
+        for btn in self.buttons.values():
+            btn.theme = self.theme
+            btn.apply_style(self.is_expanded)
+
+# Note: Add your main block to run the app if needed, e.g.:
 # if __name__ == "__main__":
-#     app = QApplication([])
-#     window = QMainWindow()
-#     sidebar = xSidebar(window)
-#     window.setCentralWidget(QWidget())  # Placeholder central widget
-#     window.resize(800, 600)
+#     from PyQt6.QtWidgets import QApplication
+#     import sys
+#     app = QApplication(sys.argv)
+#     sidebar = xSidebar()
 #     sidebar.show()
-#     app.exec()
+#     sys.exit(app.exec())

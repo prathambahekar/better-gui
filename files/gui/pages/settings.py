@@ -37,9 +37,9 @@ class SettingsPage(QWidget):
         self.settings_layout.addWidget(theme_container)
 
         # Adding Dummy Frames using a reusable function
-        self.settings_layout.addWidget(self.create_frame("General Settings (Coming Soon)", "#3A3A3A"))
-        self.settings_layout.addWidget(self.create_frame("Audio Settings (Coming Soon)", "#3A3A3A"))
-        self.settings_layout.addWidget(self.create_frame("Privacy Settings (Coming Soon)", "#3A3A3A"))
+        self.settings_layout.addWidget(self.create_frame("General Settings (Coming Soon)", "#323232"))
+        self.settings_layout.addWidget(self.create_frame("Audio Settings (Coming Soon)", "#323232"))
+        self.settings_layout.addWidget(self.create_frame("Privacy Settings (Coming Soon)", "#323232"))
 
         self.settings_layout.addStretch()
 

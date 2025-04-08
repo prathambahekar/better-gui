@@ -48,7 +48,7 @@ class xMenuBar(QMenuBar):
                 padding: 5px 15px;
                 margin: 0 2px;
                 background-color: transparent;
-                border-radius: 3px;
+                border-radius: 5px;
             }}
             QMenuBar::item:selected, QMenuBar::item:hover {{
                 background-color: {self.theme['def_bg']};
@@ -60,12 +60,12 @@ class xMenuBar(QMenuBar):
                 font: {self.theme['font_size_medium']} "{self.theme['font_family']}";
                 border: 2px solid {self.theme['def_bg']};
                 padding: 5px;
-                border-radius: 3px;
+                border-radius: 5px;
             }}
             QMenu::item {{
                 padding: 5px 20px;
                 margin: 2px 0;
-                border-radius: 3px;
+                border-radius: 5px;
             }}
             QMenu::item:selected, QMenu::item:hover {{
                 background-color: {self.theme['accent_hover']};

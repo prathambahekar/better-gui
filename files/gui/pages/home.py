@@ -19,7 +19,7 @@ class HomePage(QWidget):
 
         # Top bar with title and theme toggle
         top_bar = QHBoxLayout()
-        self.title_label = xLabel("🔒 Secure Vault 🔑", self.current_theme, self)
+        self.title_label = xLabel("Header", self.current_theme, self)
         self.title_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         top_bar.addWidget(self.title_label)
         top_bar.addStretch()
@@ -27,11 +27,18 @@ class HomePage(QWidget):
         self.theme_toggle.setFixedWidth(100)
         self.theme_toggle.clicked.connect(self.parent.toggle_theme)  # Delegate to MainWindow
         top_bar.addWidget(self.theme_toggle)
+
+        # Add the top bar first
         central_layout.addLayout(top_bar)
+
+        # Add vertical stretch to push the content above to the top
+        central_layout.addStretch()
+
 
     def apply_theme(self, theme):
         self.current_theme = theme
        
-        self.setStyleSheet(f"background-color: {theme['def_bg']}; border-radius: 5px;")
+        self.setStyleSheet(f"""background-color: {theme['def_bg']}; border-radius: 5px;
+        color: {theme['text_color']};""")
 
    

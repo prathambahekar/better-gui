@@ -8,7 +8,7 @@ SETTINGS = {
         "build" : "dev"
     },
     "theme" : "default",
-    "menu_bar_enabled" : True,
+    "menu_bar_enabled" : False,
     "is_mica" : True
     
 }
@@ -41,8 +41,8 @@ STYLE_CONFIG_LIGHT = {
     "font_size_title": "24pt",
     "text_color": "#333333",
     "bg_color": "transparent",
-    "secondary_bg": "#ffffff",
-    "def_bg": "#ffffff",
+    "secondary_bg": "#fcfcfc",
+    "def_bg": "#fcfcfc",
     "border_color": "#d0d0d0",
     "accent_color": "#185abd",
     "accent_hover": "#185abd",
