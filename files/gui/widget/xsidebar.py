@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import QFrame, QVBoxLayout, QPushButton
 from PyQt6.QtGui import QPainter, QIcon, QPixmap
-from PyQt6.QtCore import QSize, Qt, QPropertyAnimation, QByteArray
+from PyQt6.QtCore import QSize, Qt, QPropertyAnimation, QByteArray, QPropertyAnimation, QEasingCurve
 from PyQt6.QtSvg import QSvgRenderer
 import re
 import files.app.config as config
@@ -33,9 +33,10 @@ class SidebarButton(QPushButton):
         self.theme = theme or get_theme_config("dark")
 
         self.setIconSize(QSize(26, 26))
-        self.setFixedHeight(50)
+        self.setFixedHeight(45)
         self.set_expanded(False)
         self.apply_style(False)
+        self.clicked.connect(self.animate_click)  # Connect click to animation
 
     def apply_style(self, expanded: bool):
         alignment = "left" if expanded and not self.is_toggle else "center"
@@ -81,6 +82,18 @@ class SidebarButton(QPushButton):
             self.setText(self.full_text if expanded else "")
             self.setToolTip(self.full_text)
         self.update_icon(expanded)
+
+    def animate_click(self):
+        # Size-based animation (WinUI 3 style)
+        anim = QPropertyAnimation(self, b"size")
+        anim.setDuration(150)  # 150ms duration
+        anim.setEasingCurve(QEasingCurve.Type.OutCubic)  # Smooth easing
+        original_size = self.size()
+        shrunk_size = original_size - QSize(7, 7)  # Shrink by 6px
+        anim.setStartValue(original_size)
+        anim.setEndValue(original_size)
+        anim.setKeyValueAt(0.5, shrunk_size)  # Peak shrink at midpoint
+        anim.start()
 
 class xSidebar(QFrame):
     def __init__(self, parent=None, theme_mode=None):
