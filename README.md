@@ -24,9 +24,8 @@ The main application file, `main.py`, is responsible for initializing the applic
 7. **Start Application**: In the `if __name__ == "__main__":` block, the application is initialized by creating a `QApplication` instance and passing the command-line arguments to it. An instance of the `MainWindow` class is created, and the `exec_` method is called to start the application's event loop.
 
 ## Settings Menu Screenshot
+![image](https://github.com/user-attachments/assets/e57c0e18-568c-4e53-81b5-0806156442ff)
 
-![Light Theme](https://github.com/prathambahekar/better-gui/blob/master/files/more/img/light-theme.png)
-![Dark Theme](https://github.com/prathambahekar/better-gui/blob/master/files/more/img/dark-theme.png)
 ## Notes
 
 - This application uses PySide6, which is a Python binding for the Qt application framework.
