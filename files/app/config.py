@@ -8,7 +8,7 @@ SETTINGS = {
         "build" : "dev"
     },
     "theme" : "default",
-    "menu_bar_enabled" : True,
+    "menu_bar_enabled" : False,
     "is_mica" : True
     
 }

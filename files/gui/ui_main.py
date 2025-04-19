@@ -86,6 +86,7 @@ class MainWindow(QMainWindow):
 
         self.sidebar.buttons["home"].clicked.connect(self.show_home_page)
         self.sidebar.buttons["settings"].clicked.connect(self.show_settings_page)
+        self.sidebar.buttons["theme"].clicked.connect(self.toggle_theme)
 
         main_layout.addWidget(self.stack_widget)
         self.setCentralWidget(container)
@@ -93,10 +94,12 @@ class MainWindow(QMainWindow):
 
     def show_home_page(self):
         self.stack_widget.setCurrentWidget(self.home_page)
+        self.sidebar.set_active_button("home")  # or "settings", etc.
         print("Home page displayed")
 
     def show_settings_page(self):
         self.stack_widget.setCurrentWidget(self.settings_page)
+        self.sidebar.set_active_button("settings")  # or "home", etc.
         print("Settings page displayed")
 
     def apply_theme(self):
@@ -124,6 +127,9 @@ class MainWindow(QMainWindow):
         self.home_page.theme_toggle.setText("Dark" if self.current_theme == theme_light else "Light")
 
         self.sidebar.set_theme("light") if self.current_theme == theme_light else self.sidebar.set_theme("dark")
+
+        self.sidebar.buttons["theme"].setIcon(QIcon(f"files/gui/icons/{'sun_half' if self.current_theme == theme_light else 'moon_half'}.svg"))
+        
 
 
         self.apply_theme()
