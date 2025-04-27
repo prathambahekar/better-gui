@@ -111,7 +111,7 @@ class MainWindow(QMainWindow):
     "border-radius: 5px;"
 )
         
-        self.settings_page.apply_theme(self.current_theme)
+        # self.settings_page.apply_theme(self.current_theme)
         self.setStyleSheet(f"background-color: {self.current_theme['bg_color']};")
         if is_menubar:
             self.menu_bar.update_theme(self.current_theme)

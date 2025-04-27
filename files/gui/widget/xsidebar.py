@@ -11,7 +11,7 @@ import darkdetect
 BUTTON_ICON_SIZE = QSize(25, 25)
 BUTTON_HEIGHT = 45
 SIDEBAR_MIN_WIDTH = 50
-SIDEBAR_MAX_WIDTH = 220
+SIDEBAR_MAX_WIDTH = 200
 
 
 def get_theme_config(mode: str):
@@ -27,7 +27,8 @@ def get_theme_config(mode: str):
         "font_size_medium": style_config["font_size_medium"],
         "separator_color": '#555555' if mode == "dark" else '#cccccc',
         "icon_color": '#f7f7f7' if mode == "dark" else '#1a1a1a',
-        "accent_color": style_config["accent_color"]
+
+        "accent_color": '#9ecbff'
     }
 
 
