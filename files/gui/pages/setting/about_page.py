@@ -3,7 +3,7 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import Qt, QUrl
 from PyQt6.QtGui import QDesktopServices
-from files.gui.pages.setting.base_settings_page import BaseSettingsPage
+from files.gui.pages.setting.base_page import BaseSettingsPage
 
 class AboutSettingsPage(BaseSettingsPage):
     def setup_ui(self):

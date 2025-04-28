@@ -3,9 +3,9 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import Qt, pyqtSignal
 from files.gui.pages.setting.clickable_frame import ClickableFrame, validate_theme, DEFAULT_THEME
-from files.gui.pages.setting.general_settings_page import GeneralSettingsPage
-from files.gui.pages.setting.theme_settings_page import ThemeSettingsPage
-from files.gui.pages.setting.about_settings_page import AboutSettingsPage
+from files.gui.pages.setting.general_page import GeneralSettingsPage
+from files.gui.pages.setting.theme_page import ThemeSettingsPage
+from files.gui.pages.setting.about_page import AboutSettingsPage
 
 class SettingsPage(QWidget):
     theme_changed = pyqtSignal(str)
