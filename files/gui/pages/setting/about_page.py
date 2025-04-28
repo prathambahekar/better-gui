@@ -64,7 +64,7 @@ class AboutSettingsPage(BaseSettingsPage):
         desc_label.setStyleSheet(f"""
             background-color: #2c2c2c;
             color: {self.current_theme['text_color']};
-            font-size: {self.current_theme['font_size_title']};
+            font-size: {self.current_theme['font_size_large']};
             border-radius: 7px;
             padding: 10px;
         """)
@@ -74,7 +74,6 @@ class AboutSettingsPage(BaseSettingsPage):
         dev_info = """
         <b>Developer:</b> Pratham Bahekar<br>
         <b>Version:</b> 1.0.0<br>
-        <b>License:</b> DIT License
         """
         dev_label = QLabel(dev_info, self)
         dev_label.setTextFormat(Qt.TextFormat.RichText)
