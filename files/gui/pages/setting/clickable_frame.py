@@ -19,10 +19,10 @@ def validate_theme(theme):
     return validated
 
 class ClickableFrame(QFrame):
-    """A QFrame subclass that emits a signal when clicked, with SVG icon on left, text in center, and '>' on right."""
+    """A QFrame subclass that emits a signal when clicked, with SVG icon on left, text in center, and SVG icon on right."""
     clicked = pyqtSignal()
 
-    def __init__(self, text="", icon_path=None, parent=None, theme=DEFAULT_THEME):
+    def __init__(self, text="", icon_path=None, right_icon_path=None, parent=None, theme=DEFAULT_THEME):
         super().__init__(parent)
         self.theme = validate_theme(theme)
         self.setMouseTracking(True)
@@ -42,12 +42,7 @@ class ClickableFrame(QFrame):
                 color: {self.theme['text_color']};
                 font-size: {self.theme['font_size_title']};
             }}
-            QLabel#rightArrow {{
-                font-size: 16px;
-                font-weight: bold;
-                color: #cccccc;
-            }}
-            QLabel#iconLabel {{
+            QLabel#iconLabel, QLabel#rightIconLabel {{
                 background-color: transparent;
             }}
         """)
@@ -91,11 +86,28 @@ class ClickableFrame(QFrame):
         text_label.setFont(QFont(self.theme['font_family'], 10))
         layout.addWidget(text_label, stretch=1)
 
-        # Right arrow
-        right_arrow = QLabel(">", self)
-        right_arrow.setObjectName("rightArrow")
-        right_arrow.setAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
-        layout.addWidget(right_arrow)
+        # Right SVG icon
+        right_icon_label = QLabel(self)
+        right_icon_label.setObjectName("rightIconLabel")
+        # Use a default right icon path if none provided
+        if not right_icon_path:
+            right_icon_path = os.path.join('files', 'gui', 'icons', 'chevron-right.svg')
+        if right_icon_path and right_icon_path.lower().endswith('.svg') and os.path.exists(right_icon_path):
+            renderer = QSvgRenderer(right_icon_path)
+            if renderer.isValid():
+                pixmap = QPixmap(24, 24)
+                pixmap.fill(Qt.GlobalColor.transparent)
+                painter = QPainter(pixmap)
+                renderer.render(painter)
+                painter.end()
+                right_icon_label.setPixmap(pixmap)
+            else:
+                right_icon_label.setText(">")  # Fallback
+        else:
+            right_icon_label.setText(">")  # Fallback
+        right_icon_label.setFixedWidth(30)
+        right_icon_label.setAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
+        layout.addWidget(right_icon_label)
 
         self.setLayout(layout)
 
@@ -122,12 +134,7 @@ class ClickableFrame(QFrame):
                 color: {self.theme['text_color']};
                 font-size: {self.theme['font_size_title']};
             }}
-            QLabel#rightArrow {{
-                font-size: 18px;
-                font-weight: bold;
-                color: #cccccc;
-            }}
-            QLabel#iconLabel {{
+            QLabel#iconLabel, QLabel#rightIconLabel {{
                 background-color: transparent;
             }}
         """)
