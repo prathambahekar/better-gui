@@ -16,7 +16,7 @@ class BaseSettingsPage(QWidget):
         """Apply the theme to the page."""
         self.current_theme = validate_theme(theme)
         self.setStyleSheet(f"""
-            background-color: {self.current_theme['secondary_bg']};
+            background-color: {self.current_theme['def_bg']};
             color: {self.current_theme['text_color']};
             font-size: {self.current_theme['font_size_title']};
         """)
