@@ -242,3 +242,11 @@ class xSidebar(QFrame):
         for name, btn in self.buttons.items():
             btn.set_active(name == key)
         self.active_button_key = key
+
+    def set_expanded_state(self, expanded: bool):
+        """Set the sidebar to expanded or collapsed state programmatically."""
+        if self.is_expanded != expanded:
+            target_width = SIDEBAR_MAX_WIDTH if expanded else SIDEBAR_MIN_WIDTH
+            self._animate_sidebar(target_width)
+            self.is_expanded = expanded
+            self._update_buttons()

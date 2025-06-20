@@ -133,6 +133,15 @@ class MainWindow(QMainWindow):
             except Exception as e:
                 print(f"Failed to update Mica theme: {e}")
 
+    def resizeEvent(self, event):
+        super().resizeEvent(event)
+        # Auto-collapse sidebar if width is small, expand if large
+        threshold = 600
+        if self.width() < threshold:
+            self.sidebar.set_expanded_state(False)
+        else:
+            self.sidebar.set_expanded_state(True)
+
 if __name__ == "__main__":
     from PyQt6.QtWidgets import QApplication
     import sys
