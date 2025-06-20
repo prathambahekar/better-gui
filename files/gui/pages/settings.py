@@ -36,7 +36,7 @@ class SettingsPage(QWidget):
         nav_bar_layout.setContentsMargins(6, 2, 6, 2)
         nav_bar_layout.setSpacing(4)
         self.nav_bar.setStyleSheet(f"""
-            background-color: {self.current_theme['def_bg']};
+            background-color: transparent;
             border-radius: 8px;
         """)
         # Add shadow effect
@@ -191,7 +191,7 @@ class SettingsPage(QWidget):
             font-size: {self.current_theme['font_size_title']};
         """)
         self.nav_bar.setStyleSheet(f"""
-            background-color: {self.current_theme['def_bg']};
+            background-color: transparent;
             border-radius: 8px;
         """)
         self.back_button.setStyleSheet(f"""
