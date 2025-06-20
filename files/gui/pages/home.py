@@ -23,7 +23,7 @@ class HomePage(QWidget):
         self.title_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         top_bar.addWidget(self.title_label)
         top_bar.addStretch()
-        self.theme_toggle = xButton("Light", self.current_theme, self)
+        self.theme_toggle = xButton("Light", self)
         self.theme_toggle.setFixedWidth(100)
         self.theme_toggle.clicked.connect(self.parent.toggle_theme)  # Delegate to MainWindow
         top_bar.addWidget(self.theme_toggle)

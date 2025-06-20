@@ -2,46 +2,37 @@
 from PyQt6.QtWidgets import QPushButton
 import files.app.config as config
 import darkdetect
+from files.gui.theme import PRIMARY_COLOR, TEXT_COLOR, FONT_FAMILY, FONT_SIZE, PADDING, BORDER_RADIUS
 
 
 
 
 class xButton(QPushButton):
-    def __init__(self, text, theme, parent=None):
+    """
+    A consistent, theme-aware button for the application.
+    Usage: Simply instantiate xButton(text, parent) and it will use the app's theme.
+    """
+    def __init__(self, text, parent=None):
         super().__init__(text, parent)
-        self.theme = theme
-        self.theme['accent_color'] = config.STYLE_CONFIG_DARK["accent_color"] if darkdetect.isDark() else config.STYLE_CONFIG_LIGHT["accent_color"]
-
-        self.theme['selected_text_color'] = config.STYLE_CONFIG_DARK["selected_text_color"] if darkdetect.isDark() else config.STYLE_CONFIG_LIGHT["selected_text_color"]
-
-        self.theme['accent_hover'] = config.STYLE_CONFIG_DARK["accent_hover"] if darkdetect.isDark() else config.STYLE_CONFIG_LIGHT["accent_hover"]
-
-        self.theme['font_family'] = config.STYLE_CONFIG_DARK["font_family"] if darkdetect.isDark() else config.STYLE_CONFIG_LIGHT["font_family"]
-
-        self.theme['font_size_medium'] = config.STYLE_CONFIG_DARK["font_size_medium"] if darkdetect.isDark() else config.STYLE_CONFIG_LIGHT["font_size_medium"]
-
-        self.theme['accent_pressed'] = config.STYLE_CONFIG_DARK["accent_pressed"] if darkdetect.isDark() else config.STYLE_CONFIG_LIGHT["accent_pressed"]
-
         self.apply_theme()
 
     def apply_theme(self):
         self.setStyleSheet(f"""
             QPushButton {{
-                background-color: {self.theme['accent_color']};
-                color: {self.theme['selected_text_color']};
-                padding: 10px 20px;
-                font: {self.theme['font_size_medium']} "{self.theme['font_family']}";
-                border-radius: 5px;
+                background-color: {PRIMARY_COLOR};
+                color: {TEXT_COLOR};
+                padding: {PADDING}px {PADDING*2}px;
+                font: {FONT_SIZE}px \"{FONT_FAMILY}\";
+                border-radius: {BORDER_RADIUS}px;
             }}
             QPushButton:hover {{
-                background-color: {self.theme['accent_hover']};
+                background-color: #2980b9;
             }}
             QPushButton:pressed {{
-                background-color: {self.theme['accent_pressed']};
+                background-color: #2471a3;
             }}
         """)
 
-    def update_theme(self, new_theme):
-        """Update the theme and reapply the stylesheet."""
-        self.theme = new_theme
+    def update_theme(self):
+        """Reapply the stylesheet (for dynamic theme changes)."""
         self.apply_theme()

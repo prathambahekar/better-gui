@@ -7,7 +7,7 @@ import files.app.config as config
 from files.gui.ui_components import *
 from files.gui.pages.home import HomePage
 from files.gui.pages.settings import SettingsPage
-from PyQt6.QtGui import QIcon
+from PyQt6.QtGui import QIcon, QAction
 import os
 import shutil
 import uuid
