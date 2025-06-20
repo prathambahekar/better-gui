@@ -2,7 +2,7 @@ from PyQt6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QFrame, QComboBox, QSlider, QPushButton, QLabel
 )
 from PyQt6.QtCore import Qt
-from files.gui.pages.setting.base_page import BaseSettingsPage
+from files.gui.pages.setting.settings_base import BaseSettingsPage, validate_theme, DEFAULT_THEME
 
 class ThemeSettingsPage(BaseSettingsPage):
     def setup_ui(self):

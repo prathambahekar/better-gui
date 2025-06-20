@@ -20,10 +20,10 @@ SETTINGS = {
 
 # Unified Style Configurations for both dark and light themes
 STYLE_CONFIG_DARK = {
-    "font_family": "Segoe UI Variable",
-    "font_size_large": "14pt",
-    "font_size_medium": "12pt",
-    "font_size_title": "20pt",
+    "font_family": "Inter, Segoe UI, Roboto, Arial, sans-serif",
+    "font_size_large": "12pt",
+    "font_size_medium": "10pt",
+    "font_size_title": "16pt",
     "text_color": "#e0e0e0",
     "bg_color": "transparent",
     "secondary_bg": "#252525",
@@ -46,10 +46,10 @@ STYLE_CONFIG_DARK = {
 }
 
 STYLE_CONFIG_LIGHT = {
-    "font_family": "Segoe UI Variable",
-    "font_size_large": "14pt",
-    "font_size_medium": "12pt",
-    "font_size_title": "24pt",
+    "font_family": "Inter, Segoe UI, Roboto, Arial, sans-serif",
+    "font_size_large": "12pt",
+    "font_size_medium": "10pt",
+    "font_size_title": "16pt",
     "text_color": "#333333",
     "bg_color": "transparent",
     "secondary_bg": "#f5f6fa",

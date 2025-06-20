@@ -1,12 +1,15 @@
 from PyQt6.QtWidgets import (
-    QWidget, QVBoxLayout, QStackedWidget, QLabel, QHBoxLayout, QPushButton
+    QWidget, QVBoxLayout, QStackedWidget, QLabel, QHBoxLayout, QPushButton, QFrame, QHBoxLayout as QHBoxLayout2
 )
 from PyQt6.QtCore import Qt, pyqtSignal, QPropertyAnimation, QEasingCurve
 from PyQt6.QtWidgets import QGraphicsOpacityEffect
-from files.gui.pages.setting.clickable_frame import ClickableFrame, validate_theme, DEFAULT_THEME
+from PyQt6.QtGui import QFont, QPixmap, QPainter
+from PyQt6.QtSvg import QSvgRenderer
+import os
 from files.gui.pages.setting.general_page import GeneralSettingsPage
 from files.gui.pages.setting.theme_page import ThemeSettingsPage
 from files.gui.pages.setting.about_page import AboutSettingsPage
+from files.gui.pages.setting.settings_base import BaseSettingsPage, ClickableFrame, validate_theme, DEFAULT_THEME
 
 class SettingsPage(QWidget):
     theme_changed = pyqtSignal(str)
