@@ -8,25 +8,18 @@ class ThemeSettingsPage(BaseSettingsPage):
     def setup_ui(self):
         """Set up the Theme settings page."""
         layout = QVBoxLayout(self)
-        layout.setSpacing(10)
+        layout.setSpacing(20)
+        layout.setContentsMargins(20, 20, 20, 20)
 
-        # Back button
-        back_button = QPushButton("Back", self)
-        back_button.setStyleSheet(f"""
-            QPushButton {{
-                background-color: #2c2c2c;
-                color: {self.current_theme['text_color']};
-                border: 1px solid #3c3c3c;
-                border-radius: 7px;
-                padding: 5px;
-                font-size: {self.current_theme['font_size_title']};
-            }}
-            QPushButton:hover {{
-                background-color: #3c3c3c;
-            }}
+        # Section title
+        title_label = QLabel("Theme Settings", self)
+        title_label.setStyleSheet(f"""
+            font-size: {self.current_theme['font_size_large']};
+            font-weight: bold;
+            color: {self.current_theme['text_color']};
+            padding-bottom: 10px;
         """)
-        back_button.clicked.connect(self.parent().show_main_page)
-        layout.addWidget(back_button)
+        layout.addWidget(title_label)
 
         self.theme_selector = self.create_theme_selector()
         self.font_size_selector = self.create_font_size_selector()
@@ -48,15 +41,15 @@ class ThemeSettingsPage(BaseSettingsPage):
         self.combo.addItems(["Light", "Dark", "Custom"])
         self.combo.setStyleSheet(f"""
             QComboBox {{
-                background-color: #2c2c2c;
+                background-color: {self.current_theme['def_bg']};
                 color: {self.current_theme['text_color']};
-                border: 1px solid #3c3c3c;
+                border: 1px solid {self.current_theme['border_color']};
                 border-radius: 5px;
                 padding: 5px;
                 font-size: {self.current_theme['font_size_title']};
             }}
             QComboBox:hover {{
-                background-color: #3c3c3c;
+                background-color: {self.current_theme['hover_bg']};
             }}
             QComboBox::drop-down {{
                 border: none;
@@ -90,19 +83,19 @@ class ThemeSettingsPage(BaseSettingsPage):
             }}
             QSlider::groove:horizontal {{
                 height: 6px;
-                background: #3c3c3c;
+                background: {self.current_theme['border_color']};
                 border-radius: 3px;
             }}
             QSlider::handle:horizontal {{
-                background: #5c5c5c;
-                border: 1px solid #4c4c4c;
+                background: {self.current_theme['secondary_bg']};
+                border: 1px solid {self.current_theme['border_color']};
                 width: 12px;
                 height: 12px;
                 border-radius: 6px;
                 margin: -3px 0;
             }}
             QSlider::handle:horizontal:hover {{
-                background: #6c6c6c;
+                background: {self.current_theme['hover_bg']};
             }}
         """)
         self.slider.valueChanged.connect(self.font_size_changed)
@@ -122,8 +115,8 @@ class ThemeSettingsPage(BaseSettingsPage):
     def create_styled_frame(self, min_height=50, max_height=80):
         """Create a styled frame with customizable height."""
         frame = QFrame(self)
-        frame.setStyleSheet("""
-            background-color: #2c2c2c;
+        frame.setStyleSheet(f"""
+            background-color: {self.current_theme['def_bg']};
             border-radius: 8px;
             padding: 5px;
         """)
@@ -157,15 +150,15 @@ class ThemeSettingsPage(BaseSettingsPage):
                 elif isinstance(child, QComboBox):
                     child.setStyleSheet(f"""
                         QComboBox {{
-                            background-color: #2c2c2c;
+                            background-color: {self.current_theme['def_bg']};
                             color: {self.current_theme['text_color']};
-                            border: 1px solid #3c3c3c;
+                            border: 1px solid {self.current_theme['border_color']};
                             border-radius: 5px;
                             padding: 5px;
                             font-size: {self.current_theme['font_size_title']};
                         }}
                         QComboBox:hover {{
-                            background-color: #3c3c3c;
+                            background-color: {self.current_theme['hover_bg']};
                         }}
                         QComboBox::drop-down {{
                             border: none;
@@ -179,19 +172,19 @@ class ThemeSettingsPage(BaseSettingsPage):
                         }}
                         QSlider::groove:horizontal {{
                             height: 6px;
-                            background: #3c3c3c;
+                            background: {self.current_theme['border_color']};
                             border-radius: 3px;
                         }}
                         QSlider::handle:horizontal {{
-                            background: #5c5c5c;
-                            border: 1px solid #4c4c4c;
+                            background: {self.current_theme['secondary_bg']};
+                            border: 1px solid {self.current_theme['border_color']};
                             width: 12px;
                             height: 12px;
                             border-radius: 6px;
                             margin: -3px 0;
                         }}
                         QSlider::handle:horizontal:hover {{
-                            background: #6c6c6c;
+                            background: {self.current_theme['hover_bg']};
                         }}
                     """)
         # Update size label
@@ -199,20 +192,4 @@ class ThemeSettingsPage(BaseSettingsPage):
             self.size_label.setStyleSheet(f"""
                 color: {self.current_theme['text_color']};
                 font-size: {self.current_theme['font_size_title']};
-            """)
-        # Update back button
-        back_button = self.findChild(QPushButton)
-        if back_button:
-            back_button.setStyleSheet(f"""
-                QPushButton {{
-                    background-color: #2c2c2c;
-                    color: {self.current_theme['text_color']};
-                    border: 1px solid #3c3c3c;
-                    border-radius: 7px;
-                    padding: 5px;
-                    font-size: {self.current_theme['font_size_title']};
-                }}
-                QPushButton:hover {{
-                    background-color: #3c3c3c;
-                }}
             """)

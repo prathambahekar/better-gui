@@ -8,25 +8,18 @@ class GeneralSettingsPage(BaseSettingsPage):
     def setup_ui(self):
         """Set up the General settings page."""
         layout = QVBoxLayout(self)
-        layout.setSpacing(10)
+        layout.setSpacing(20)
+        layout.setContentsMargins(20, 20, 20, 20)
 
-        # Back button
-        back_button = QPushButton("Back", self)
-        back_button.setStyleSheet(f"""
-            QPushButton {{
-                background-color: #2c2c2c;
-                color: {self.current_theme['text_color']};
-                border: 1px solid #3c3c3c;
-                border-radius: 7px;
-                padding: 5px;
-                font-size: {self.current_theme['font_size_title']};
-            }}
-            QPushButton:hover {{
-                background-color: #3c3c3c;
-            }}
+        # Section title
+        title_label = QLabel("General Settings", self)
+        title_label.setStyleSheet(f"""
+            font-size: {self.current_theme['font_size_large']};
+            font-weight: bold;
+            color: {self.current_theme['text_color']};
+            padding-bottom: 10px;
         """)
-        back_button.clicked.connect(self.parent().show_main_page)
-        layout.addWidget(back_button)
+        layout.addWidget(title_label)
 
         self.language_selector = self.create_language_selector()
         self.notifications_toggle = self.create_notifications_toggle()
@@ -48,15 +41,15 @@ class GeneralSettingsPage(BaseSettingsPage):
         self.combo.addItems(["English", "Spanish", "French"])
         self.combo.setStyleSheet(f"""
             QComboBox {{
-                background-color: #2c2c2c;
+                background-color: {self.current_theme['def_bg']};
                 color: {self.current_theme['text_color']};
-                border: 1px solid #3c3c3c;
+                border: 1px solid {self.current_theme['border_color']};
                 border-radius: 5px;
                 padding: 5px;
                 font-size: {self.current_theme['font_size_title']};
             }}
             QComboBox:hover {{
-                background-color: #3c3c3c;
+                background-color: {self.current_theme['secondary_bg']};
             }}
             QComboBox::drop-down {{
                 border: none;
@@ -88,7 +81,7 @@ class GeneralSettingsPage(BaseSettingsPage):
         """Create a styled frame for consistent appearance."""
         frame = QFrame(self)
         frame.setStyleSheet("""
-            background-color: #2c2c2c;
+            background-color: {self.current_theme['def_bg']};
             border-radius: 8px;
             padding: 5px;
         """)
@@ -119,15 +112,15 @@ class GeneralSettingsPage(BaseSettingsPage):
                 elif isinstance(child, QComboBox):
                     child.setStyleSheet(f"""
                         QComboBox {{
-                            background-color: #2c2c2c;
+                            background-color: {self.current_theme['def_bg']};
                             color: {self.current_theme['text_color']};
-                            border: 1px solid #3c3c3c;
+                            border: 1px solid {self.current_theme['border_color']};
                             border-radius: 5px;
                             padding: 5px;
                             font-size: {self.current_theme['font_size_title']};
                         }}
                         QComboBox:hover {{
-                            background-color: #3c3c3c;
+                            background-color: {self.current_theme['secondary_bg']};
                         }}
                         QComboBox::drop-down {{
                             border: none;
@@ -143,14 +136,14 @@ class GeneralSettingsPage(BaseSettingsPage):
         if back_button:
             back_button.setStyleSheet(f"""
                 QPushButton {{
-                    background-color: #2c2c2c;
+                    background-color: {self.current_theme['def_bg']};
                     color: {self.current_theme['text_color']};
-                    border: 1px solid #3c3c3c;
+                    border: 1px solid {self.current_theme['border_color']};
                     border-radius: 7px;
                     padding: 5px;
                     font-size: {self.current_theme['font_size_title']};
                 }}
                 QPushButton:hover {{
-                    background-color: #3c3c3c;
+                    background-color: {self.current_theme['secondary_bg']};
                 }}
             """)

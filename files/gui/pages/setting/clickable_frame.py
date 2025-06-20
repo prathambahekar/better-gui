@@ -30,12 +30,12 @@ class ClickableFrame(QFrame):
         # Set the stylesheet for the frame and labels
         self.setStyleSheet(f"""
             QFrame {{
-                background-color: #2c2c2c;
+                background-color: {self.theme['def_bg']};
                 border-radius: 7px;
                 padding: 0px;
             }}
             QFrame:hover {{
-                background-color: #3c3c3c;
+                background-color: {self.theme['secondary_bg']};
             }}
             QLabel {{
                 background-color: transparent;
@@ -122,12 +122,12 @@ class ClickableFrame(QFrame):
         self.theme = validate_theme(theme)
         self.setStyleSheet(f"""
             QFrame {{
-                background-color: #2c2c2c;
+                background-color: {self.theme['def_bg']};
                 border-radius: 7px;
                 padding: 0px;
             }}
             QFrame:hover {{
-                background-color: #3c3c3c;
+                background-color: {self.theme['hover_bg']};
             }}
             QLabel {{
                 background-color: transparent;

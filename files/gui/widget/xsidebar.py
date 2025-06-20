@@ -16,20 +16,7 @@ SIDEBAR_MAX_WIDTH = 200
 
 def get_theme_config(mode: str):
     style_config = config.STYLE_CONFIG_DARK if mode == "dark" else config.STYLE_CONFIG_LIGHT
-    return {
-        "bg_color": style_config["bg_color"],
-        "text_color": style_config["text_color"],
-        "button_bg": style_config["bg_color"],
-        "button_hover": style_config["hover_bg"],
-        "button_pressed": style_config["secondary_bg"],
-        "button_active_bg": "#252525" if mode == "dark" else "#e0e0e0",
-        "font_family": style_config["font_family"],
-        "font_size_medium": style_config["font_size_medium"],
-        "separator_color": '#555555' if mode == "dark" else '#cccccc',
-        "icon_color": '#f7f7f7' if mode == "dark" else '#1a1a1a',
-
-        "accent_color": '#9ecbff'
-    }
+    return style_config.copy()
 
 
 def change_svg_color(svg_data: str, new_color: str) -> str:
@@ -85,7 +72,7 @@ class SidebarButton(QPushButton):
 
     def apply_style(self, expanded: bool):
         alignment = "left" if expanded and not self.is_toggle else "center"
-        base_bg = self.theme.get("button_bg", "#222")
+        base_bg = "transparent"
         active_bg = self.theme.get("button_active_bg", "#333")
         current_bg = active_bg if self.active else base_bg
 
@@ -96,7 +83,7 @@ class SidebarButton(QPushButton):
                 border: none;
                 border-radius: 7px;
                 padding: 5px;
-                font: {self.theme.get("font_size_medium", "13px")} "{self.theme.get("font_family", "Segoe UI")}";
+                font: {self.theme.get("font_size_medium", "13px")} \"{self.theme.get("font_family", "Segoe UI")}\";
                 margin: 2px;
                 text-align: {alignment};
             }}
@@ -107,11 +94,13 @@ class SidebarButton(QPushButton):
                 background-color: {self.theme.get("button_pressed", "#555")};
             }}
         """)
+        self.accent_bar.setStyleSheet(f"background: {self.theme['accent_color']}; border-radius: 1px;")
         self.update_icon(expanded)
 
     def refresh_theme(self, new_theme):
         self.theme = new_theme
         self.apply_style(self.text() != "")
+        self.update_icon(self.text() != "")
 
     def resizeEvent(self, event):
         super().resizeEvent(event)

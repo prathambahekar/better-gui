@@ -9,8 +9,18 @@ class AboutSettingsPage(BaseSettingsPage):
     def setup_ui(self):
         """Set up the scrollable About settings page with improved stylesheet."""
         main_layout = QVBoxLayout(self)
-        main_layout.setContentsMargins(10, 10, 10, 10)
-        main_layout.setSpacing(10)
+        main_layout.setContentsMargins(20, 20, 20, 20)
+        main_layout.setSpacing(20)
+
+        # Section title
+        title_label = QLabel("About", self)
+        title_label.setStyleSheet(f"""
+            font-size: {self.current_theme['font_size_large']};
+            font-weight: bold;
+            color: {self.current_theme['text_color']};
+            padding-bottom: 10px;
+        """)
+        main_layout.addWidget(title_label)
 
         # Create scroll area
         self.scroll_area = QScrollArea(self)
@@ -22,24 +32,6 @@ class AboutSettingsPage(BaseSettingsPage):
         self.content_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.content_layout.setSpacing(10)
         self.content_layout.setContentsMargins(10, 10, 10, 10)
-
-        # Back button
-        back_button = QPushButton("Back", self)
-        back_button.setStyleSheet(f"""
-            QPushButton {{
-                background-color: #2c2c2c;
-                color: {self.current_theme['text_color']};
-                border: 1px solid #3c3c3c;
-                border-radius: 7px;
-                padding: 5px;
-                font-size: {self.current_theme['font_size_title']};
-            }}
-            QPushButton:hover {{
-                background-color: #3c3c3c;
-            }}
-        """)
-        back_button.clicked.connect(self.parent().show_main_page)
-        self.content_layout.addWidget(back_button)
 
         # Application title
         app_title = QLabel("Application Settings", self)
@@ -62,7 +54,7 @@ class AboutSettingsPage(BaseSettingsPage):
         desc_label.setWordWrap(True)
         desc_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         desc_label.setStyleSheet(f"""
-            background-color: #2c2c2c;
+            background-color: {self.current_theme['def_bg']};
             color: {self.current_theme['text_color']};
             font-size: {self.current_theme['font_size_large']};
             border-radius: 7px;
@@ -79,7 +71,7 @@ class AboutSettingsPage(BaseSettingsPage):
         dev_label.setTextFormat(Qt.TextFormat.RichText)
         dev_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         dev_label.setStyleSheet(f"""
-            background-color: #2c2c2c;
+            background-color: {self.current_theme['def_bg']};
             color: {self.current_theme['text_color']};
             font-size: {self.current_theme['font_size_title']};
             border-radius: 7px;
@@ -88,15 +80,16 @@ class AboutSettingsPage(BaseSettingsPage):
         self.content_layout.addWidget(dev_label)
 
         # Developer website link
+        link_color = self.current_theme.get('link_color', '#1e90ff')
         website_label = QLabel(
-            '<a href="https://prathambahekar.dev" style="color: #1e90ff; text-decoration: none;">'
+            f'<a href="https://prathambahekar.dev" style="color: {link_color}; text-decoration: none;">'
             'Visit Developer Website</a>',
             self
         )
         website_label.setTextFormat(Qt.TextFormat.RichText)
         website_label.setStyleSheet(f"""
-            background-color: #2c2c2c;
-            color: #1e90ff;
+            background-color: {self.current_theme['def_bg']};
+            color: {link_color};
             font-size: {self.current_theme['font_size_title']};
             border-radius: 7px;
             padding: 5px;
@@ -115,15 +108,15 @@ class AboutSettingsPage(BaseSettingsPage):
         contact_button = QPushButton("Contact Developer", self)
         contact_button.setStyleSheet(f"""
             QPushButton {{
-                background-color: #2c2c2c;
+                background-color: {self.current_theme['def_bg']};
                 color: {self.current_theme['text_color']};
-                border: 1px solid #3c3c3c;
+                border: 1px solid {self.current_theme['border_color']};
                 border-radius: 7px;
                 padding: 5px;
                 font-size: {self.current_theme['font_size_title']};
             }}
             QPushButton:hover {{
-                background-color: #3c3c3c;
+                background-color: {self.current_theme['hover_bg']};
             }}
         """)
         contact_button.clicked.connect(self.open_email_client)
@@ -133,15 +126,15 @@ class AboutSettingsPage(BaseSettingsPage):
         update_button = QPushButton("Check for Updates", self)
         update_button.setStyleSheet(f"""
             QPushButton {{
-                background-color: #2c2c2c;
+                background-color: {self.current_theme['def_bg']};
                 color: {self.current_theme['text_color']};
-                border: 1px solid #3c3c3c;
+                border: 1px solid {self.current_theme['border_color']};
                 border-radius: 7px;
                 padding: 5px;
                 font-size: {self.current_theme['font_size_title']};
             }}
             QPushButton:hover {{
-                background-color: #3c3c3c;
+                background-color: {self.current_theme['hover_bg']};
             }}
         """)
         update_button.clicked.connect(self.check_for_updates)
@@ -162,16 +155,16 @@ class AboutSettingsPage(BaseSettingsPage):
             }}
             QScrollBar:vertical {{
                 border: none;
-                background: #2c2c2c;
+                background: {self.current_theme['secondary_bg']};
                 width: 10px;
                 margin: 0px;
             }}
             QScrollBar::handle:vertical {{
-                background: #3c3c3c;
+                background: {self.current_theme['border_color']};
                 border-radius: 5px;
             }}
             QScrollBar::handle:vertical:hover {{
-                background: #4c4c4c;
+                background: {self.current_theme['hover_bg']};
             }}
             QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {{
                 background: none;
@@ -195,7 +188,7 @@ class AboutSettingsPage(BaseSettingsPage):
 
         update_message = QLabel("No updates available. You are using the latest version.", self)
         update_message.setStyleSheet(f"""
-            background-color: #2c2c2c;
+            background-color: {self.current_theme['def_bg']};
             color: {self.current_theme['text_color']};
             font-size: {self.current_theme['font_size_title']};
             border-radius: 7px;
@@ -212,9 +205,10 @@ class AboutSettingsPage(BaseSettingsPage):
         for widget in self.findChildren((QLabel, QPushButton)):
             if isinstance(widget, QLabel):
                 if widget.text().startswith("<a"):  # Website link
+                    link_color = self.current_theme.get('link_color', '#1e90ff')
                     widget.setStyleSheet(f"""
-                        background-color: #2c2c2c;
-                        color: #1e90ff;
+                        background-color: {self.current_theme['def_bg']};
+                        color: {link_color};
                         font-size: {self.current_theme['font_size_title']};
                         border-radius: 7px;
                         padding: 5px;
@@ -228,7 +222,7 @@ class AboutSettingsPage(BaseSettingsPage):
                     """)
                 else:  # Other labels
                     widget.setStyleSheet(f"""
-                        background-color: #2c2c2c;
+                        background-color: {self.current_theme['def_bg']};
                         color: {self.current_theme['text_color']};
                         font-size: {self.current_theme['font_size_title']};
                         border-radius: 7px;
@@ -237,15 +231,15 @@ class AboutSettingsPage(BaseSettingsPage):
             elif isinstance(widget, QPushButton):
                 widget.setStyleSheet(f"""
                     QPushButton {{
-                        background-color: #2c2c2c;
+                        background-color: {self.current_theme['def_bg']};
                         color: {self.current_theme['text_color']};
-                        border: 1px solid #3c3c3c;
+                        border: 1px solid {self.current_theme['border_color']};
                         border-radius: 7px;
                         padding: 5px;
                         font-size: {self.current_theme['font_size_title']};
                     }}
                     QPushButton:hover {{
-                        background-color: #3c3c3c;
+                        background-color: {self.current_theme['hover_bg']};
                     }}
                 """)
 
