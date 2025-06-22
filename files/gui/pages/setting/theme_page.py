@@ -10,16 +10,17 @@ class ThemeSettingsPage(BaseSettingsPage):
     def setup_ui(self):
         """Set up the Theme settings page."""
         layout = QVBoxLayout(self)
-        layout.setSpacing(20)
-        layout.setContentsMargins(20, 20, 20, 20)
+        layout.setSpacing(28)
+        layout.setContentsMargins(32, 32, 32, 32)
 
-        # Section title
+        # Section title (sync with General page)
+        FONT_FAMILY = "'Segoe UI Variable', 'Segoe UI', 'Inter', Arial, sans-serif"
         title_label = xLabel("Theme Settings", self.current_theme, self)
         title_label.setStyleSheet(f"""
-            font-size: {self.current_theme['font_size_large']};
-            font-weight: bold;
+            font-family: {FONT_FAMILY};
+            font-size: 16pt;
             color: {self.current_theme['text_color']};
-            padding-bottom: 10px;
+            padding: 10px;
         """)
         layout.addWidget(title_label)
 

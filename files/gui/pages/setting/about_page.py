@@ -1,5 +1,5 @@
 from PyQt6.QtWidgets import (
-    QWidget, QVBoxLayout, QScrollArea, QPushButton, QLabel
+    QWidget, QVBoxLayout, QScrollArea, QPushButton, QLabel, QFrame
 )
 from PyQt6.QtCore import Qt, QUrl
 from PyQt6.QtGui import QDesktopServices
@@ -9,7 +9,7 @@ from files.gui.widget.xbutton import xButton
 
 class AboutSettingsPage(BaseSettingsPage):
     def setup_ui(self):
-        """Set up the scrollable About settings page with improved stylesheet."""
+        """Set up the scrollable About settings page with improved stylesheet and styled frames for each section."""
         main_layout = QVBoxLayout(self)
         main_layout.setContentsMargins(20, 20, 20, 20)
         main_layout.setSpacing(20)
@@ -31,9 +31,24 @@ class AboutSettingsPage(BaseSettingsPage):
         # Create content widget for scroll area
         content_widget = QWidget()
         self.content_layout = QVBoxLayout(content_widget)
-        self.content_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.content_layout.setSpacing(10)
+        self.content_layout.setAlignment(Qt.AlignmentFlag.AlignTop)
+        self.content_layout.setSpacing(18)
         self.content_layout.setContentsMargins(10, 10, 10, 10)
+
+        # Helper for styled frame
+        def create_styled_frame(widget, min_height=56, max_height=120):
+            frame = QFrame(self)
+            frame.setStyleSheet(f"""
+                background-color: {self.current_theme['def_bg']};
+                border-radius: 7px;
+                padding: 14px 28px;
+            """)
+            frame.setMinimumHeight(min_height)
+            frame.setMaximumHeight(max_height)
+            layout = QVBoxLayout(frame)
+            layout.setContentsMargins(0, 0, 0, 0)
+            layout.addWidget(widget)
+            return frame
 
         # Application title
         app_title = xLabel("Application Settings", self.current_theme, self)
@@ -44,7 +59,7 @@ class AboutSettingsPage(BaseSettingsPage):
             padding: 5px;
         """)
         app_title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.content_layout.addWidget(app_title)
+        self.content_layout.addWidget(create_styled_frame(app_title, min_height=56, max_height=80))
 
         # Application description
         app_description = """
@@ -56,13 +71,10 @@ class AboutSettingsPage(BaseSettingsPage):
         desc_label.setWordWrap(True)
         desc_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         desc_label.setStyleSheet(f"""
-            background-color: {self.current_theme['def_bg']};
             color: {self.current_theme['text_color']};
             font-size: {self.current_theme['font_size_large']};
-            border-radius: 7px;
-            padding: 10px;
         """)
-        self.content_layout.addWidget(desc_label)
+        self.content_layout.addWidget(create_styled_frame(desc_label, min_height=70, max_height=120))
 
         # Developer and version information
         dev_info = """
@@ -73,13 +85,10 @@ class AboutSettingsPage(BaseSettingsPage):
         dev_label.setTextFormat(Qt.TextFormat.RichText)
         dev_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         dev_label.setStyleSheet(f"""
-            background-color: {self.current_theme['def_bg']};
             color: {self.current_theme['text_color']};
             font-size: {self.current_theme['font_size_title']};
-            border-radius: 7px;
-            padding: 10px;
         """)
-        self.content_layout.addWidget(dev_label)
+        self.content_layout.addWidget(create_styled_frame(dev_label, min_height=56, max_height=90))
 
         # Developer website link
         link_color = self.current_theme.get('link_color', '#1e90ff')
@@ -90,21 +99,17 @@ class AboutSettingsPage(BaseSettingsPage):
         )
         website_label.setTextFormat(Qt.TextFormat.RichText)
         website_label.setStyleSheet(f"""
-            background-color: {self.current_theme['def_bg']};
             color: {link_color};
             font-size: {self.current_theme['font_size_title']};
-            border-radius: 7px;
-            padding: 5px;
         """)
         website_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         website_label.setFixedHeight(40)
         website_label.setCursor(Qt.CursorShape.PointingHandCursor)
-        # Handle click to open URL
         def open_website(event):
             if event.button() == Qt.MouseButton.LeftButton:
                 QDesktopServices.openUrl(QUrl("https://prathambahekar.dev"))
         website_label.mousePressEvent = open_website
-        self.content_layout.addWidget(website_label)
+        self.content_layout.addWidget(create_styled_frame(website_label, min_height=56, max_height=80))
 
         # Contact email button
         contact_button = xButton("Contact Developer", self)
@@ -122,7 +127,7 @@ class AboutSettingsPage(BaseSettingsPage):
             }}
         """)
         contact_button.clicked.connect(self.open_email_client)
-        self.content_layout.addWidget(contact_button)
+        self.content_layout.addWidget(create_styled_frame(contact_button, min_height=56, max_height=80))
 
         # Check for updates button
         update_button = xButton("Check for Updates", self)
@@ -140,7 +145,7 @@ class AboutSettingsPage(BaseSettingsPage):
             }}
         """)
         update_button.clicked.connect(self.check_for_updates)
-        self.content_layout.addWidget(update_button)
+        self.content_layout.addWidget(create_styled_frame(update_button, min_height=56, max_height=80))
 
         self.content_layout.addStretch()
 
