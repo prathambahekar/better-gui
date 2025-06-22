@@ -3,6 +3,7 @@ from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QFont, QPixmap, QPainter
 from PyQt6.QtSvg import QSvgRenderer
 import os
+from files.gui.widget.xlabel import xLabel
 
 default_theme_dict = {
     'secondary_bg': '#1e1e1e',
@@ -83,7 +84,7 @@ class ClickableFrame(QFrame):
         layout.setSpacing(10)
 
         # Left SVG icon
-        icon_label = QLabel(self)
+        icon_label = xLabel("", self.theme, self)
         icon_label.setObjectName("iconLabel")
         # Use a default icon path if none provided
         if not icon_path:
@@ -107,13 +108,13 @@ class ClickableFrame(QFrame):
 
         # Center text
         text = str(text)
-        text_label = QLabel(text, self)
+        text_label = xLabel(str(text), self.theme, self)
         text_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         text_label.setFont(QFont(self.theme['font_family'], 10))
         layout.addWidget(text_label, stretch=1)
 
         # Right SVG icon
-        right_icon_label = QLabel(self)
+        right_icon_label = xLabel("", self.theme, self)
         right_icon_label.setObjectName("rightIconLabel")
         # Use a default right icon path if none provided
         if not right_icon_path:

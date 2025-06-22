@@ -37,8 +37,9 @@ class HomePage(QWidget):
 
     def apply_theme(self, theme):
         self.current_theme = theme
-       
         self.setStyleSheet(f"""background-color: {theme['def_bg']}; border-radius: 5px;
         color: {theme['text_color']};""")
+        self.title_label.update_theme(theme)
+        self.theme_toggle.update_theme()
 
    

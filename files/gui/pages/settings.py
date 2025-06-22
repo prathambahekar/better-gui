@@ -10,6 +10,8 @@ from files.gui.pages.setting.general_page import GeneralSettingsPage
 from files.gui.pages.setting.theme_page import ThemeSettingsPage
 from files.gui.pages.setting.about_page import AboutSettingsPage
 from files.gui.pages.setting.settings_base import BaseSettingsPage, ClickableFrame, validate_theme, DEFAULT_THEME
+from files.gui.widget.xbutton import xButton
+from files.gui.widget.xlabel import xLabel
 
 class SettingsPage(QWidget):
     theme_changed = pyqtSignal(str)
@@ -51,7 +53,7 @@ class SettingsPage(QWidget):
         self.nav_bar_opacity_anim.start()
 
         # Back button
-        self.back_button = QPushButton("←", self.nav_bar)
+        self.back_button = xButton("\u2190", self.nav_bar)
         self.back_button.setFixedWidth(40)
         self.back_button.setCursor(Qt.CursorShape.PointingHandCursor)
         self.back_button.setStyleSheet(f"""
@@ -72,7 +74,7 @@ class SettingsPage(QWidget):
         nav_bar_layout.addWidget(self.back_button)
 
         # Location bar (breadcrumb)
-        self.location_bar = QLabel("Personalization", self.nav_bar)
+        self.location_bar = xLabel("Personalization", self.current_theme, self.nav_bar)
         self.location_bar.setStyleSheet(f"""
             font-weight: 600;
             padding: 4px 12px;
@@ -116,6 +118,9 @@ class SettingsPage(QWidget):
         self.page_fade_anim.setDuration(300)
         self.page_fade_anim.setEasingCurve(QEasingCurve.Type.InOutQuad)
         self.page_opacity_effect.setOpacity(1.0)
+
+        # Set General as the default page
+        self.show_general_page()
 
     def create_main_page(self):
         """Create the main page with clickable frames for navigation."""

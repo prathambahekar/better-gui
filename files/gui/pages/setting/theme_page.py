@@ -3,6 +3,8 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import Qt
 from files.gui.pages.setting.settings_base import BaseSettingsPage, validate_theme, DEFAULT_THEME
+from files.gui.widget.xlabel import xLabel
+from files.gui.widget.xcombobox import xComboBox
 
 class ThemeSettingsPage(BaseSettingsPage):
     def setup_ui(self):
@@ -12,7 +14,7 @@ class ThemeSettingsPage(BaseSettingsPage):
         layout.setContentsMargins(20, 20, 20, 20)
 
         # Section title
-        title_label = QLabel("Theme Settings", self)
+        title_label = xLabel("Theme Settings", self.current_theme, self)
         title_label.setStyleSheet(f"""
             font-size: {self.current_theme['font_size_large']};
             font-weight: bold;
@@ -32,12 +34,12 @@ class ThemeSettingsPage(BaseSettingsPage):
         frame = self.create_styled_frame()
         layout = QHBoxLayout(frame)
 
-        label = QLabel("Theme:", self)
+        label = xLabel("Theme:", self.current_theme, self)
         label.setStyleSheet(f"""
             color: {self.current_theme['text_color']};
             font-size: {self.current_theme['font_size_title']};
         """)
-        self.combo = QComboBox(self)
+        self.combo = xComboBox(self.current_theme, self)
         self.combo.addItems(["Light", "Dark", "Custom"])
         self.combo.setStyleSheet(f"""
             QComboBox {{
@@ -66,7 +68,7 @@ class ThemeSettingsPage(BaseSettingsPage):
         frame = self.create_styled_frame(min_height=70, max_height=100)
         layout = QVBoxLayout(frame)
 
-        label = QLabel("Font Size", self)
+        label = xLabel("Font Size", self.current_theme, self)
         label.setStyleSheet(f"""
             color: {self.current_theme['text_color']};
             font-size: {self.current_theme['font_size_title']};
@@ -100,7 +102,7 @@ class ThemeSettingsPage(BaseSettingsPage):
         """)
         self.slider.valueChanged.connect(self.font_size_changed)
 
-        self.size_label = QLabel("10 pt", self)
+        self.size_label = xLabel("10 pt", self.current_theme, self)
         self.size_label.setStyleSheet(f"""
             color: {self.current_theme['text_color']};
             font-size: {self.current_theme['font_size_title']};
@@ -148,22 +150,25 @@ class ThemeSettingsPage(BaseSettingsPage):
                         font-size: {self.current_theme['font_size_title']};
                     """)
                 elif isinstance(child, QComboBox):
-                    child.setStyleSheet(f"""
-                        QComboBox {{
-                            background-color: {self.current_theme['def_bg']};
-                            color: {self.current_theme['text_color']};
-                            border: 1px solid {self.current_theme['border_color']};
-                            border-radius: 5px;
-                            padding: 5px;
-                            font-size: {self.current_theme['font_size_title']};
-                        }}
-                        QComboBox:hover {{
-                            background-color: {self.current_theme['hover_bg']};
-                        }}
-                        QComboBox::drop-down {{
-                            border: none;
-                        }}
-                    """)
+                    if hasattr(child, 'update_theme'):
+                        child.update_theme(self.current_theme)
+                    else:
+                        child.setStyleSheet(f"""
+                            QComboBox {{
+                                background-color: {self.current_theme['def_bg']};
+                                color: {self.current_theme['text_color']};
+                                border: 1px solid {self.current_theme['border_color']};
+                                border-radius: 5px;
+                                padding: 5px;
+                                font-size: {self.current_theme['font_size_title']};
+                            }}
+                            QComboBox:hover {{
+                                background-color: {self.current_theme['hover_bg']};
+                            }}
+                            QComboBox::drop-down {{
+                                border: none;
+                            }}
+                        """)
                 elif isinstance(child, QSlider):
                     child.setStyleSheet(f"""
                         QSlider {{

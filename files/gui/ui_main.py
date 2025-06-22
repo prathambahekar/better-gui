@@ -84,6 +84,8 @@ class MainWindow(QMainWindow):
         self.settings_page = SettingsPage(self, self.current_theme)
         self.stack_widget.addWidget(self.home_page)
         self.stack_widget.addWidget(self.settings_page)
+        self.stack_widget.setCurrentWidget(self.settings_page)
+        self.sidebar.set_active_button("settings")
 
         self.sidebar.buttons["home"].clicked.connect(self.show_home_page)
         self.sidebar.buttons["settings"].clicked.connect(self.show_settings_page)
@@ -123,6 +125,10 @@ class MainWindow(QMainWindow):
         self.sidebar.buttons["theme"].icon_path = f"files/gui/icons/{'sun_half' if self.current_theme == theme_light else 'moon_half'}.svg"
         self.sidebar.buttons["theme"].update_icon(self.sidebar.is_expanded)
         self.apply_theme()
+        self.home_page.apply_theme(self.current_theme)
+        self.settings_page.apply_theme(self.current_theme)
+        if hasattr(self.sidebar, 'refresh_theme'):
+            self.sidebar.refresh_theme(self.current_theme)
         if os.name == "nt":
             try:
                 ApplyMica(

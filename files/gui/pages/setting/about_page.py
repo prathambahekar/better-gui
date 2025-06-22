@@ -4,6 +4,8 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtCore import Qt, QUrl
 from PyQt6.QtGui import QDesktopServices
 from files.gui.pages.setting.settings_base import BaseSettingsPage, validate_theme, DEFAULT_THEME
+from files.gui.widget.xlabel import xLabel
+from files.gui.widget.xbutton import xButton
 
 class AboutSettingsPage(BaseSettingsPage):
     def setup_ui(self):
@@ -13,7 +15,7 @@ class AboutSettingsPage(BaseSettingsPage):
         main_layout.setSpacing(20)
 
         # Section title
-        title_label = QLabel("About", self)
+        title_label = xLabel("About", self.current_theme, self)
         title_label.setStyleSheet(f"""
             font-size: {self.current_theme['font_size_large']};
             font-weight: bold;
@@ -34,7 +36,7 @@ class AboutSettingsPage(BaseSettingsPage):
         self.content_layout.setContentsMargins(10, 10, 10, 10)
 
         # Application title
-        app_title = QLabel("Application Settings", self)
+        app_title = xLabel("Application Settings", self.current_theme, self)
         app_title.setStyleSheet(f"""
             font-size: 12pt;
             font-weight: bold;
@@ -50,7 +52,7 @@ class AboutSettingsPage(BaseSettingsPage):
         It offers theme selection, language options, and notification settings, designed
         for a seamless and intuitive user experience.
         """
-        desc_label = QLabel(app_description.strip(), self)
+        desc_label = xLabel(app_description.strip(), self.current_theme, self)
         desc_label.setWordWrap(True)
         desc_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         desc_label.setStyleSheet(f"""
@@ -67,7 +69,7 @@ class AboutSettingsPage(BaseSettingsPage):
         <b>Developer:</b> Pratham Bahekar<br>
         <b>Version:</b> 1.0.0<br>
         """
-        dev_label = QLabel(dev_info, self)
+        dev_label = xLabel(dev_info, self.current_theme, self)
         dev_label.setTextFormat(Qt.TextFormat.RichText)
         dev_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         dev_label.setStyleSheet(f"""
@@ -81,10 +83,10 @@ class AboutSettingsPage(BaseSettingsPage):
 
         # Developer website link
         link_color = self.current_theme.get('link_color', '#1e90ff')
-        website_label = QLabel(
+        website_label = xLabel(
             f'<a href="https://prathambahekar.dev" style="color: {link_color}; text-decoration: none;">'
             'Visit Developer Website</a>',
-            self
+            self.current_theme, self
         )
         website_label.setTextFormat(Qt.TextFormat.RichText)
         website_label.setStyleSheet(f"""
@@ -105,7 +107,7 @@ class AboutSettingsPage(BaseSettingsPage):
         self.content_layout.addWidget(website_label)
 
         # Contact email button
-        contact_button = QPushButton("Contact Developer", self)
+        contact_button = xButton("Contact Developer", self)
         contact_button.setStyleSheet(f"""
             QPushButton {{
                 background-color: {self.current_theme['def_bg']};
@@ -123,7 +125,7 @@ class AboutSettingsPage(BaseSettingsPage):
         self.content_layout.addWidget(contact_button)
 
         # Check for updates button
-        update_button = QPushButton("Check for Updates", self)
+        update_button = xButton("Check for Updates", self)
         update_button.setStyleSheet(f"""
             QPushButton {{
                 background-color: {self.current_theme['def_bg']};

@@ -31,6 +31,8 @@ def apply_sidebar_style(widget, theme):
         border: none;
         border-radius: 7px;
     """)
+    # Remove drop shadow effect from the sidebar itself if present
+    widget.setGraphicsEffect(None)
 
 
 class SidebarButton(QPushButton):
@@ -250,3 +252,10 @@ class xSidebar(QFrame):
             self._animate_sidebar(target_width)
             self.is_expanded = expanded
             self._update_buttons()
+
+    def refresh_theme(self, new_theme):
+        self.theme = new_theme
+        apply_sidebar_style(self, self.theme)
+        self.toggle_btn.refresh_theme(self.theme)
+        for btn in self.buttons.values():
+            btn.refresh_theme(self.theme)
