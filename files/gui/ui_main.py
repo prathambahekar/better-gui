@@ -14,6 +14,7 @@ import uuid
 import hashlib
 import base64
 import darkdetect
+from PyQt6.QtWidgets import QVBoxLayout
 
 theme_dark = config.STYLE_CONFIG_DARK
 theme_light = config.STYLE_CONFIG_LIGHT
