@@ -5,6 +5,7 @@ from PyQt6.QtCore import Qt
 from files.gui.pages.setting.settings_base import BaseSettingsPage, validate_theme, DEFAULT_THEME
 from files.gui.widget.xlabel import xLabel
 from files.gui.widget.xcombobox import xComboBox
+from files.gui.widget.xslider import xSlider
 
 class ThemeSettingsPage(BaseSettingsPage):
     def setup_ui(self):
@@ -58,7 +59,8 @@ class ThemeSettingsPage(BaseSettingsPage):
                 border: none;
             }}
         """)
-        self.combo.currentTextChanged.connect(self.parent().change_theme)
+        # TODO: Connect to theme change logic if needed
+        # self.combo.currentTextChanged.connect(self.parent().change_theme)
 
         layout.addWidget(label)
         layout.addWidget(self.combo)
@@ -75,32 +77,10 @@ class ThemeSettingsPage(BaseSettingsPage):
             font-size: {self.current_theme['font_size_title']};
         """)
         slider_layout = QHBoxLayout()
-        self.slider = QSlider(Qt.Orientation.Horizontal, self)
+        self.slider = xSlider(self.current_theme, self)
         self.slider.setMinimum(8)
         self.slider.setMaximum(24)
         self.slider.setValue(10)
-        self.slider.setStyleSheet(f"""
-            QSlider {{
-                background-color: transparent;
-                color: {self.current_theme['text_color']};
-            }}
-            QSlider::groove:horizontal {{
-                height: 6px;
-                background: {self.current_theme['border_color']};
-                border-radius: 3px;
-            }}
-            QSlider::handle:horizontal {{
-                background: {self.current_theme['secondary_bg']};
-                border: 1px solid {self.current_theme['border_color']};
-                width: 12px;
-                height: 12px;
-                border-radius: 6px;
-                margin: -3px 0;
-            }}
-            QSlider::handle:horizontal:hover {{
-                background: {self.current_theme['hover_bg']};
-            }}
-        """)
         self.slider.valueChanged.connect(self.font_size_changed)
 
         self.size_label = xLabel("10 pt", self.current_theme, self)
@@ -131,7 +111,8 @@ class ThemeSettingsPage(BaseSettingsPage):
         """Handle font size change event."""
         self.current_theme['font_size_title'] = f"{value}pt"
         self.size_label.setText(f"{value} pt")
-        self.parent().apply_theme(self.current_theme)
+        # TODO: Call theme update logic if needed
+        # self.parent().apply_theme(self.current_theme)
 
     def reset_settings(self):
         """Reset theme settings to default."""
@@ -144,55 +125,33 @@ class ThemeSettingsPage(BaseSettingsPage):
         super().apply_theme(theme)
         # Update widget stylesheets
         for widget in [self.theme_selector, self.font_size_selector]:
-            for child in widget.findChildren((QLabel, QComboBox, QSlider)):
+            for child in widget.findChildren((QLabel, QComboBox, xComboBox, xSlider)):
                 if isinstance(child, QLabel):
                     child.setStyleSheet(f"""
                         color: {self.current_theme['text_color']};
                         font-size: {self.current_theme['font_size_title']};
                     """)
+                elif isinstance(child, xComboBox):
+                    child.update_theme(self.current_theme)
                 elif isinstance(child, QComboBox):
-                    if hasattr(child, 'update_theme'):
-                        child.update_theme(self.current_theme)
-                    else:
-                        child.setStyleSheet(f"""
-                            QComboBox {{
-                                background-color: {self.current_theme['def_bg']};
-                                color: {self.current_theme['text_color']};
-                                border: 1px solid {self.current_theme['border_color']};
-                                border-radius: 5px;
-                                padding: 5px;
-                                font-size: {self.current_theme['font_size_title']};
-                            }}
-                            QComboBox:hover {{
-                                background-color: {self.current_theme['hover_bg']};
-                            }}
-                            QComboBox::drop-down {{
-                                border: none;
-                            }}
-                        """)
-                elif isinstance(child, QSlider):
                     child.setStyleSheet(f"""
-                        QSlider {{
-                            background-color: transparent;
+                        QComboBox {{
+                            background-color: {self.current_theme['def_bg']};
                             color: {self.current_theme['text_color']};
-                        }}
-                        QSlider::groove:horizontal {{
-                            height: 6px;
-                            background: {self.current_theme['border_color']};
-                            border-radius: 3px;
-                        }}
-                        QSlider::handle:horizontal {{
-                            background: {self.current_theme['secondary_bg']};
                             border: 1px solid {self.current_theme['border_color']};
-                            width: 12px;
-                            height: 12px;
-                            border-radius: 6px;
-                            margin: -3px 0;
+                            border-radius: 5px;
+                            padding: 5px;
+                            font-size: {self.current_theme['font_size_title']};
                         }}
-                        QSlider::handle:horizontal:hover {{
-                            background: {self.current_theme['hover_bg']};
+                        QComboBox:hover {{
+                            background-color: {self.current_theme['hover_bg']};
+                        }}
+                        QComboBox::drop-down {{
+                            border: none;
                         }}
                     """)
+                elif isinstance(child, xSlider):
+                    child.update_theme(self.current_theme)
         # Update size label
         if hasattr(self, 'size_label'):
             self.size_label.setStyleSheet(f"""

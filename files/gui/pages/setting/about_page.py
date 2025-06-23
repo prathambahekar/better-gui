@@ -11,18 +11,8 @@ class AboutSettingsPage(BaseSettingsPage):
     def setup_ui(self):
         """Set up the scrollable About settings page with improved stylesheet and styled frames for each section."""
         main_layout = QVBoxLayout(self)
-        main_layout.setContentsMargins(20, 20, 20, 20)
-        main_layout.setSpacing(20)
-
-        # Section title
-        title_label = xLabel("About", self.current_theme, self)
-        title_label.setStyleSheet(f"""
-            font-size: {self.current_theme['font_size_large']};
-            font-weight: bold;
-            color: {self.current_theme['text_color']};
-            padding-bottom: 10px;
-        """)
-        main_layout.addWidget(title_label)
+        main_layout.setContentsMargins(8, 16, 8, 16)
+        main_layout.setSpacing(12)
 
         # Create scroll area
         self.scroll_area = QScrollArea(self)
@@ -32,16 +22,16 @@ class AboutSettingsPage(BaseSettingsPage):
         content_widget = QWidget()
         self.content_layout = QVBoxLayout(content_widget)
         self.content_layout.setAlignment(Qt.AlignmentFlag.AlignTop)
-        self.content_layout.setSpacing(18)
-        self.content_layout.setContentsMargins(10, 10, 10, 10)
+        self.content_layout.setSpacing(12)
+        self.content_layout.setContentsMargins(0, 0, 0, 0)
 
         # Helper for styled frame
-        def create_styled_frame(widget, min_height=56, max_height=120):
+        def create_styled_frame(widget, min_height=44, max_height=300):
             frame = QFrame(self)
             frame.setStyleSheet(f"""
                 background-color: {self.current_theme['def_bg']};
                 border-radius: 7px;
-                padding: 14px 28px;
+                padding: 8px 16px;
             """)
             frame.setMinimumHeight(min_height)
             frame.setMaximumHeight(max_height)
@@ -51,15 +41,15 @@ class AboutSettingsPage(BaseSettingsPage):
             return frame
 
         # Application title
-        app_title = xLabel("Application Settings", self.current_theme, self)
-        app_title.setStyleSheet(f"""
-            font-size: 12pt;
-            font-weight: bold;
-            color: {self.current_theme['text_color']};
-            padding: 5px;
-        """)
-        app_title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.content_layout.addWidget(create_styled_frame(app_title, min_height=56, max_height=80))
+        # app_title = xLabel("Application Settings", self.current_theme, self)
+        # app_title.setStyleSheet(f"""
+        #     font-size: 12pt;
+        #     font-weight: bold;
+        #     color: {self.current_theme['text_color']};
+        #     padding: 2px;
+        # """)
+        # app_title.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        # self.content_layout.addWidget(create_styled_frame(app_title, min_height=44, max_height=60))
 
         # Application description
         app_description = """
@@ -74,7 +64,7 @@ class AboutSettingsPage(BaseSettingsPage):
             color: {self.current_theme['text_color']};
             font-size: {self.current_theme['font_size_large']};
         """)
-        self.content_layout.addWidget(create_styled_frame(desc_label, min_height=70, max_height=120))
+        self.content_layout.addWidget(create_styled_frame(desc_label, min_height=150, max_height=300))
 
         # Developer and version information
         dev_info = """
@@ -88,7 +78,7 @@ class AboutSettingsPage(BaseSettingsPage):
             color: {self.current_theme['text_color']};
             font-size: {self.current_theme['font_size_title']};
         """)
-        self.content_layout.addWidget(create_styled_frame(dev_label, min_height=56, max_height=90))
+        self.content_layout.addWidget(create_styled_frame(dev_label, min_height=44, max_height=150))
 
         # Developer website link
         link_color = self.current_theme.get('link_color', '#1e90ff')
@@ -103,13 +93,13 @@ class AboutSettingsPage(BaseSettingsPage):
             font-size: {self.current_theme['font_size_title']};
         """)
         website_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        website_label.setFixedHeight(40)
+        website_label.setFixedHeight(32)
         website_label.setCursor(Qt.CursorShape.PointingHandCursor)
         def open_website(event):
             if event.button() == Qt.MouseButton.LeftButton:
                 QDesktopServices.openUrl(QUrl("https://prathambahekar.dev"))
         website_label.mousePressEvent = open_website
-        self.content_layout.addWidget(create_styled_frame(website_label, min_height=56, max_height=80))
+        self.content_layout.addWidget(create_styled_frame(website_label, min_height=44, max_height=60))
 
         # Contact email button
         contact_button = xButton("Contact Developer", self)
@@ -117,9 +107,8 @@ class AboutSettingsPage(BaseSettingsPage):
             QPushButton {{
                 background-color: {self.current_theme['def_bg']};
                 color: {self.current_theme['text_color']};
-                border: 1px solid {self.current_theme['border_color']};
+                border: 1px;
                 border-radius: 7px;
-                padding: 5px;
                 font-size: {self.current_theme['font_size_title']};
             }}
             QPushButton:hover {{
@@ -127,7 +116,7 @@ class AboutSettingsPage(BaseSettingsPage):
             }}
         """)
         contact_button.clicked.connect(self.open_email_client)
-        self.content_layout.addWidget(create_styled_frame(contact_button, min_height=56, max_height=80))
+        self.content_layout.addWidget(create_styled_frame(contact_button, min_height=44, max_height=60))
 
         # Check for updates button
         update_button = xButton("Check for Updates", self)
@@ -135,9 +124,8 @@ class AboutSettingsPage(BaseSettingsPage):
             QPushButton {{
                 background-color: {self.current_theme['def_bg']};
                 color: {self.current_theme['text_color']};
-                border: 1px solid {self.current_theme['border_color']};
+                border: 1px;
                 border-radius: 7px;
-                padding: 5px;
                 font-size: {self.current_theme['font_size_title']};
             }}
             QPushButton:hover {{
@@ -145,7 +133,7 @@ class AboutSettingsPage(BaseSettingsPage):
             }}
         """)
         update_button.clicked.connect(self.check_for_updates)
-        self.content_layout.addWidget(create_styled_frame(update_button, min_height=56, max_height=80))
+        self.content_layout.addWidget(create_styled_frame(update_button, min_height=44, max_height=60))
 
         self.content_layout.addStretch()
 
